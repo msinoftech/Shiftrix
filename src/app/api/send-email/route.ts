@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 // Separate function to save lead to external API
 async function saveLeadToAPI(name: string, email: string, phone: string, subject: string, message: string, status: string, channel: string, whatsapp: string, owner: string) {
   try {
-    const leadsRes = await fetch("https://crm-workspace.vercel.app/api/public/leads", {
+    const leadsRes = await fetch("https://app.miraculoussoft.com/api/public/leads", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
