@@ -6,15 +6,15 @@ import ContactForm from "@/components/ContactForm";
 import FaqSection from "@/components/FaqSection";
 
 export const metadata: Metadata = {
-    title: "Full-Service Moving Company in Calgary",
-    description: "Shiftrix, one of the leading full-service moving companies, provide custom solutions tailored to your needs for a single piece of furniture, a small apartment, or a large home.",
-    keywords: ["full-service moving companies", "full service movers", "best full-service moving companies", "full-service packing and moving companies", "local full-service movers", "full-service local moving companies", "full service movers and packers", "full service relocation"],
+    title: `Full Service Moving Company in Calgary | ${APP_NAME}`,
+    description: "Shiftrix is one of the best full-service moving companies in Calgary. We handle packing, loading, transport, and unpacking — so you don't have to. Get a free quote today.",
+    keywords: ["full-service packing and moving company", "Full Service Moving Company in Calgary", "full-service moving and packing service in Calgary", "best full-service moving companies", "full-service moving and packing service in Calgary"],
     alternates: {
         canonical: `${BASE_URL}/services/full-service-movers`,
       },
     openGraph: {
-      title: "Full-Service Moving Company in Calgary",
-      description: "Shiftrix, one of the leading full-service moving companies, provide custom solutions tailored to your needs for a single piece of furniture, a small apartment, or a large home.",
+      title: `Full Service Moving Company in Calgary | ${APP_NAME}`,
+      description: "Shiftrix is one of the best full-service moving companies in Calgary. We handle packing, loading, transport, and unpacking — so you don't have to. Get a free quote today.",
       url: `${BASE_URL}/services/full-service-movers`,
       siteName: `${APP_NAME}`,
       images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
           url: `${BASE_URL}/full-service-mover.jpg`,
           width: 1200,
           height: 630,
-          alt: "Full-Service Moving Company in Calgary",
+          alt: `Full Service Moving Company in Calgary | ${APP_NAME}`,
         },
       ],
       locale: "en-CA",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Full-Service Moving Company in Calgary",
-      description: "Shiftrix, one of the leading full-service moving companies, provide custom solutions tailored to your needs for a single piece of furniture, a small apartment, or a large home.",
+      title: `Full Service Moving Company in Calgary | ${APP_NAME}`,
+      description: "Shiftrix is one of the best full-service moving companies in Calgary. We handle packing, loading, transport, and unpacking — so you don't have to. Get a free quote today.",
       images: [`${BASE_URL}/full-service-mover.jpg`],
     },
     
@@ -40,70 +40,88 @@ export const metadata: Metadata = {
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
-    {
-        "@type": "WebSite",
-        "@id": `${BASE_URL}/#website`,
-        "url": `${BASE_URL}`,
-        "name": `${APP_NAME}`
-    },
-    {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/full-service-movers/#webpage`,
-        "url": `${BASE_URL}/services/full-service-movers`,
-        "name": "Full-Service Moving Company in Calgary",
-        "isPartOf": {"@id": `${BASE_URL}/services/full-service-movers/#website`},
-        "description": "Shiftrix, one of the leading full-service moving companies, provide custom solutions tailored to your needs for a single piece of furniture, a small apartment, or a large home.",
-        "inLanguage": "en-CA",
-        "breadcrumb": {"@id": `${BASE_URL}/services/full-service-movers/#breadcrumb`}
-    },
-    {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/full-service-movers/#breadcrumb`,
-        "itemListElement": [
         {
+        "@type": "WebPage",
+        "@id": `${BASE_URL}/services/full-service-movers#webpage`,
+        "url": `${BASE_URL}/services/full-service-movers`,
+        "name": `Full Service Moving Company in Calgary | ${APP_NAME}`,
+        "description": "Shiftrix is one of the best full-service moving companies in Calgary. We handle packing, loading, transport, and unpacking — so you don't have to. Get a free quote today.",
+        "keywords": "full-service packing and moving company, Full Service Moving Company in Calgary, full-service moving and packing service in Calgary, best full-service moving companies, full-service moving and packing service in Calgary",
+        "isPartOf": {
+            "@id": `${BASE_URL}/#website`
+        },
+        "about": {
+            "@id": `${BASE_URL}/#organization`
+        },
+        "breadcrumb": {
+            "@id": `${BASE_URL}/services/full-service-movers#breadcrumb`
+        },
+        "mainEntity": {
+            "@id": `${BASE_URL}/services/full-service-movers#faq`
+        }
+        },
+        {
+        "@type": "BreadcrumbList",
+        "@id": `${BASE_URL}/services/full-service-movers#breadcrumb`,
+        "itemListElement": [
+            {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
             "item": `${BASE_URL}`
-        },
-        {
+            },
+            {
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
             "item": `${BASE_URL}/services`
-        },
-        {
+            },
+            {
             "@type": "ListItem",
             "position": 3,
-            "name": "full services movers"
-        }
+            "name": "Full Service Movers",
+            "item": `${BASE_URL}/services/full-service-movers`
+            }
         ]
-    },
-    {
-        "@type": "Service",
-        "serviceType": "Full-Service Moving Company",
-        "name": "Full-Service Moving Company in Calgary",
-        "description": "Shiftrix, one of the leading full-service moving companies, provide custom solutions tailored to your needs for a single piece of furniture, a small apartment, or a large home.",
-        "url": `${BASE_URL}/services/full-service-movers`,
-        "provider": {
-        "@type": "MovingCompany",
-        "name": `${APP_NAME}`,
-        "url": `${BASE_URL}/services/full-service-movers`,
-        "logo": `${BASE_URL}/shiftrix-logo.png`
         },
-        "areaServed": [
-          {"@type": "City", "name": "Calgary"},
-        ],
-        "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Full-Service Moving Company Offerings",
-        "itemListElement": [
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Office Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retail Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Warehouse Moving"}}
+        {
+        "@type": "FAQPage",
+        "@id": `${BASE_URL}/services/full-service-movers#faq`,
+        "mainEntity": [
+            {
+            "@type": "Question",
+            "name": "What does a full-service moving company actually do?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A full-service moving company manages the entire relocation process, including packing, loading, transportation, unloading, and unpacking. This allows customers to move without handling the physical and logistical challenges themselves."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "Is hiring a full-service packing and moving company worth it?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. When you factor in the time, physical effort, risk of damage, and cost of sourcing your own materials, engaging a full-service packing and moving company typically delivers better value and a significantly smoother experience — particularly for large or complex moves."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "Is Shiftrix a full-service moving company in Calgary?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Shiftrix provides full-service moving in Calgary and the surrounding areas. Whether you are relocating to a single-bedroom apartment, a large family home, or a corporate space, we deliver end-to-end moving solutions customised to your needs."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "How far in advance should I book a full-service moving solution?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is recommended to book at least two to four weeks in advance, especially during peak moving seasons (spring and summer). Planning ahead ensures better availability and a smoother moving experience, although last-minute bookings may still be accommodated depending on availability."
+            }
+            }
         ]
         }
-    }
     ]
 };
 
@@ -115,14 +133,16 @@ export default function FullServiceMoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-12">
         <div className="max-w-7xl mx-auto px-4 pt-6 sm:pt-6 md:pt-6 lg:pt-6">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12 text-gray-900">Full Service Movers</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12 text-gray-900">Full Service Moving Solution</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="flex-1">
-                    <Image src="/full-service-mover.jpg" alt="full-service moving companies" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/full-service-mover.jpg" alt="full-service packing and moving company" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
                 </div>
-                <div className="flex-1">
-                    <h2 className="text-2xl md:text-3xl font-bold pb-6 text-gray-900">Full-Service Moving Company - All in One Place</h2>
-                    <p className="text-gray-700 leading-relaxed">Whether you’re relocating a single piece of furniture, a small apartment, or a large home, Shiftrix, one of the leading full-service moving companies, offers custom solutions tailored to your needs in Calgary. With our friendly, professional team, you’ll experience a smooth, stress-free relocation that stands out from the rest.</p>
+                <div className="flex-1 space-y-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Full Service Moving Company in Calgary</h2>
+                    <p className="text-gray-700 leading-relaxed font-bold"><i>Complete, End-to-End Moving — All Under One Roof</i></p>
+                    <p className="text-gray-700 leading-relaxed">When it comes to relocating your home or office, nothing beats the convenience of a true full-service moving experience. At Shiftrix, we take complete ownership of your move — from carefully packing every item to delivering and setting it up at your new location. Whether you're moving a single room or an entire property, our team delivers a seamless, stress-free relocation tailored precisely to your needs in Calgary and the surrounding areas.</p>
+                    <p className="text-gray-700 leading-relaxed">As one of the leading full-service moving companies in Calgary, Shiftrix combines trained professionals, premium packing materials, and reliable transport to ensure your belongings arrive safely and on schedule — every time.</p>
                 </div>
             </div>
         </div>
@@ -130,54 +150,42 @@ export default function FullServiceMoversPage() {
 
     <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-            {/* Heading Section */}
-            <div className="mx-auto text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Why Are Full-Service Packing and Moving Companies More Friendly?</h2>
-                <p className="text-gray-600">Since they manage every stage of the move—from packing and transportation to unpacking—they spend more time understanding your needs and easing your stress.  Their teams often handle belongings as if they were their own, offering advice, reassurance, and helpful coordination along the way.</p>
-            </div>
-
-            {/* Content Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* Left Image */}
-                <div className="flex justify-center">
-                    <Image src="/full-service-mover-4.jpg" alt="best full-service moving companies" width={600} height={400} className="w-full rounded-2xl shadow-lg max-w-full object-cover h-auto"/>
+                <div className="space-y-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Why Choose a Full-Service Packing and Moving Company?</h2>
+                    <p className="text-xl font-semibold mb-4">Choosing a full-service packing and moving company over a partial or self-managed move offers clear advantages:</p>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Completely Stress-Free:</strong> The team manages every logistical detail. You are not required to lift a box, source packing supplies, or coordinate transport.</p>
+                    </div>
+
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Significant Time Savings:</strong> Professional packers work efficiently and systematically, completing in hours what may take you days on your own.</p>
+                    </div>
+
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Safer Handling of Your Belongings:</strong> Crews are trained in proper packing techniques and use quality materials to protect fragile, heavy, and high-value items.</p>
+                    </div>
+
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Fully Insured and Accountable:</strong> Reliable companies like Shiftrix carry full liability coverage, giving you peace of mind throughout the relocation journey.</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Customised to Your Timeline and Budget:</strong> No two moves are alike. Moving plan built around your specific schedule, property size, and budget — no unnecessary extras.</p>
+                    </div>
+
                 </div>
 
                 {/* Right Content */}
-                <div className="space-y-4">
-                    <h3 className="text-xl font-semibold mb-4">Reasons to Hire Full-Service Movers and Packers in Calgary:</h3>
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Stress-Free Moving Experience</p>
-                    </div>
-
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Time Savings</p>
-                    </div>
-
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Safe and Secure Packing</p>
-                    </div>
-
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Reliable Transport for Local and Long Distance</p>
-                    </div>
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Insurance and Liability Protection</p>
-                    </div>
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Flexible and customised to your requirements</p>
-                    </div>
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Convenience for Every Situation</p>
-                    </div>
+                <div className="flex justify-center">
+                    <Image src="/full-service-mover-4.jpg" alt="Full Service Moving Company in Calgary" width={600} height={400} className="w-full rounded-2xl shadow-lg max-w-full object-cover h-auto"/>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -186,22 +194,95 @@ export default function FullServiceMoversPage() {
         <div className="max-w-7xl mx-auto px-4 space-y-18">
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+                {/* Left Content */}
                 <div className="flex-1">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Hiring of A Local Full-Service Mover</h2>
-                    <p className="text-gray-700 leading-relaxed">The smartest way to enjoy a smooth and stress-free relocation is to hire a professional who knows your area well, ensuring quick routes, safe handling, and timely delivery of your belongings. Additionally, if he is a Local Full-Service Mover, you can focus on settling into your new home. He will handle every aspect of your move, including all necessary supplies (boxes, tape, packing materials, etc.).​</p>
+                    <Image src="/full-service-mover-1.jpg" alt="full-service moving and packing service in Calgary" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
                 </div>
-                <div className="flex-1">
-                    <Image src="/full-service-mover-1.jpg" alt="full-service packing and moving companies" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
+                {/* Right Content */}
+                <div className="flex-1 space-y-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800">What Is Full Service Moving?</h2>
+                    <p className="text-gray-700 leading-relaxed">Full-service moving means you hand off every stage of the relocation to a dedicated team of experts. Unlike standard transport-only options, a full-service packing and moving company handles the entire process on your behalf:</p>
+                    
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Packing</strong> — All items are carefully wrapped and packed using industry-grade materials</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Loading</strong> — Trained movers securely load belongings</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Transportation</strong> — Secure, clean, insured transport to your new location</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Unloading</strong> — No rushing, expertly offloading at your destination</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Unpacking & Setup</strong> — Items are placed and assembled as directed</p>
+                    </div>
+
+                    <p>This comprehensive approach means zero disruption to your daily routine. You focus on your new beginning — Your team handles everything else.</p>
+
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-                <div className="order-2 md:order-1 flex-1">
-                    <Image src="/full-service-mover-3.jpg" alt="full-service local moving companies" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
+                {/* Left Content */}
+                <div className="flex-1 space-y-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Full Service Moving vs. Partial Moving: What's the Difference?</h2>
+                    <p className="text-gray-700 leading-relaxed">Many customers assume all moving companies offer the same scope of work. In reality, there is a significant difference between partial and full-service moving.</p>
+                    <div className="overflow-x-auto">
+                        <table className="min-w-full border border-gray-200 overflow-hidden text-sm">
+                            <thead className="bg-gray-100">
+                                <tr className="bg-gray-300">
+                                    <th className="px-4 py-3 text-left font-semibold text-gray-700">Service</th>
+                                    <th className="px-4 py-3 text-left font-semibold text-gray-700">Full Service Moving</th>
+                                    <th className="px-4 py-3 text-left font-semibold text-gray-700">Partial / Standard Moving</th>
+                                </tr>
+                            </thead>
+                            <tbody className="bg-white">
+                                <tr className="bg-gray-100">
+                                    <td className="px-4 py-3 font-medium text-gray-800">Packing</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Included</td>
+                                    <td className="px-4 py-3 text-gray-700">❌ Customer responsibility</td>
+                                </tr>
+                                <tr className="bg-gray-200">
+                                    <td className="px-4 py-3 font-medium text-gray-800">Loading</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Included</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Included</td>
+                                </tr>
+                                <tr className="bg-gray-100">
+                                    <td className="px-4 py-3 font-medium text-gray-800">Transport</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Included</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Included</td>
+                                </tr>
+                                <tr className="bg-gray-200">
+                                    <td className="px-4 py-3 font-medium text-gray-800">Unloading</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Included</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Included</td>
+                                </tr>
+                                <tr className="bg-gray-100">
+                                    <td className="px-4 py-3 font-medium text-gray-800">Unpacking & Setup</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Included</td>
+                                    <td className="px-4 py-3 text-gray-700">❌ Customer responsibility</td>
+                                </tr>
+                                <tr className="bg-gray-200">
+                                    <td className="px-4 py-3 font-medium text-gray-800">Supplies Provided</td>
+                                    <td className="px-4 py-3 text-gray-700">✅ Yes</td>
+                                    <td className="px-4 py-3 text-gray-700">❌ No</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>With a full-service moving company like Shiftrix, you receive a truly hands-off experience. Partial services require you to invest your own time and effort — often with greater risk of damage and delays.</p>
                 </div>
-                <div className="order-1 md:order-2 flex-1">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">How Differ from the Partial or Other Moving Services</h2>
-                    <p className="text-gray-700 leading-relaxed">Partial or standard moving services may be limited to transport, loading, or unloading. That means they handle only transport; you pack your belongings. Or you hire them only for loading and unloading. They work for you or with your assistance.</p>
+
+                {/* Right Content */}
+                <div className="flex-1">
+                    <Image src="/full-service-mover-3.jpg" alt="best full-service moving companies" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
         </div>
@@ -209,35 +290,36 @@ export default function FullServiceMoversPage() {
 
     <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Why choose Shiftrix?</h2>
-                <p className="text-gray-600">Choose Shiftrix for the confidence of working with one of the best full-service moving companies, focused on safe, seamless, and stress-free relocations. Our expert team handles everything for a smooth moving experience, from packing to delivery.</p>
+            <div className="text-center mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Why Shiftrix Is One of the Best Full-Service Moving Companies in Calgary?</h2>
+                <p className="text-gray-600">When evaluating the best full-service moving companies, customers consistently look for reliability, transparency, and genuine care for their belongings. Shiftrix delivers on all three.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {/* Item 1 */}
                 <div className="bg-gray-100 rounded-2xl shadow p-6 sm:p-8 md:p-10 lg:p-12 hover:shadow-lg transition">
-                    <h3 className="text-xl font-semibold text-indigo-600 mb-2">Expertly End-to-End Handling</h3>
-                    <p className="text-gray-700">We manage every stage of your move with perfection, from packing and loading to transportation, unloading, and setup.</p>
+                    <h3 className="text-xl font-semibold text-indigo-600 mb-2">Expert End-to-End Management</h3>
+                    <p className="text-gray-700">We oversee every phase of your move with precision and accountability. Nothing is left to chance — from the first box packed to the final item placed in your new space.</p>
                 </div>
 
                 {/* Item 2 */}
                 <div className="bg-gray-100 rounded-2xl shadow p-6 sm:p-8 md:p-10 lg:p-12 hover:shadow-lg transition">
-                    <h3 className="text-xl font-semibold text-indigo-600 mb-2">Time-Savvy and Hassle-Free</h3>
-                    <p className="text-gray-700">Save hours of packing and planning with us; you can focus on work, family, and your new beginning.</p>
+                    <h3 className="text-xl font-semibold text-indigo-600 mb-2">Trained, Professional Crews</h3>
+                    <p className="text-gray-700">Our movers are background-checked, experienced, and committed to treating your home and possessions with the utmost respect.</p>
                 </div>
 
                 {/* Item 3 */}
                 <div className="bg-gray-100 rounded-2xl shadow p-6 sm:p-8 md:p-10 lg:p-12 hover:shadow-lg transition">
-                    <h3 className="text-xl font-semibold text-indigo-600 mb-2">Safe and Reliable</h3>
-                    <p className="text-gray-700">We use quality packing materials, trained crews, and secure transport to protect your belongings and keep your move on schedule.</p>
+                    <h3 className="text-xl font-semibold text-indigo-600 mb-2">Premium Packing Materials, Safe and Reliable</h3>
+                    <p className="text-gray-700">We rely on quality packing materials. Such as boxes, tape, bubble wrap, furniture blankets, and specialty materials to protect every delicate item and keep your belongings safe throughout the move.</p>
                 </div>
 
                 {/* Item 4 */}
                 <div className="bg-gray-100 rounded-2xl shadow p-6 sm:p-8 md:p-10 lg:p-12 hover:shadow-lg transition">
-                    <h3 className="text-xl font-semibold text-indigo-600 mb-2">Customised Services for Every Move</h3>
-                    <p className="text-gray-700">Shiftrix customises moving solutions for small apartments, large homes, and offices to fit your needs, budget, and timeline.</p>
+                    <h3 className="text-xl font-semibold text-indigo-600 mb-2">Transparent, Upfront Pricing</h3>
+                    <p className="text-gray-700">No broker fee, no commission, we provide detailed quotes with no hidden fees. What you see is what you pay.</p>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -248,8 +330,8 @@ export default function FullServiceMoversPage() {
                 {/* Left Content */}
                 <div className="relative">
                     <div>
-                        <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
-                        <p className="mt-3">Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
+                        <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Move with Shiftrix — Request a Free Quote Today</div>
+                        <p className="mt-3">Ready to experience why Shiftrix is trusted as one of the best full-service moving companies in Calgary? Our crew is ready to build a custom moving plan around your timeline and requirements.</p>
                     </div>
 
                 </div>
@@ -269,16 +351,20 @@ export default function FullServiceMoversPage() {
             </div>
 
             <FaqSection
-              title="What do you mean by a full-service mover?"
-              content={`Full-service movers manage every stage of the move—from packing and transportation to unpacking and reassembly. They allow you focus just on settling into your new home.`}
+              title="What does a full-service moving company actually do?"
+              content={`A full-service moving company manages the entire relocation process on your behalf — including packing, loading, transportation, unloading, and unpacking. You are not required to handle any part of the move yourself.`}
             />
             <FaqSection
               title="Is Shiftrix a full-service moving company in Calgary?"
-              content={`Yes, Shiftrix is one of the leading full-service moving companies in Calgary, offering custom solutions tailored to your needs, whether you’re relocating a single piece of furniture, a small apartment, an office or a large home.`}
+              content={`Yes. Shiftrix provides full-service moving in Calgary and the surrounding areas. Whether you are relocating to a single-bedroom apartment, a large family home, or a corporate space, we deliver end-to-end moving solutions customised to your needs.`}
             />
             <FaqSection
-              title="Is it a good idea to book a full-service mover?"
-              content={`Yes, hiring a full-service mover is often a good idea, especially if you need to move quickly. These moving companies handle packing, loading, moving your things, unloading, and sometimes even unpacking. This saves you time and effort and reduces the risk of things breaking or someone getting hurt.`}
+              title="Is hiring a full-service packing and moving company worth it?"
+              content={`Absolutely. When you factor in the time, physical effort, risk of damage, and cost of sourcing your own materials, engaging a full-service packing and moving company typically delivers better value and a significantly smoother experience — particularly for large or complex moves.`}
+            />
+            <FaqSection
+              title="How far in advance should I book a full-service moving solution?"
+              content={`At least two to four weeks in advance, especially during peak moving seasons (spring and summer).  A grace period for planning and preparation always leads to a smoother move, and it is also budget-friendly. However, we accommodate last-minute requests whenever possible.`}
             />
         </div>
     </section>

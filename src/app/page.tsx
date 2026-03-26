@@ -19,18 +19,18 @@ import FaqSection from "@/components/FaqSection";
 import HeroLayout from "@/components/HeroLayout";
 import ServiceCard from "@/components/ServiceCard";
 
-const { phone } = contactInfo;
+const { phone, logo, email, address } = contactInfo;
 
 export const metadata: Metadata = {
-  title: `${APP_NAME} - Trusted Moving Company in Calgary`,
-  description: "Shiftrix, one of the trusted Calgary-based full-service moving companies for complete solutions for homes and offices, with over 5 years of hands-on experience,",
+  title: `Moving Company Calgary | Local & Long Distance Movers | ${APP_NAME}`,
+  description: "Looking for a trusted moving company in Calgary? Shiftrix offers professional residential, commercial, and long-distance moving services. Get a free quote today.",
   keywords: [ "moving companies, moving agency, moving services, local moving companies, affordable moving companies calgary, packing and moving companies, reputable moving companies, same day moving companies, reliable moving company"],
   alternates: {
     canonical: `${BASE_URL}`,
   },
   openGraph: {
-    title: `${APP_NAME} - Trusted Moving Company in Calgary`,
-    description: "Shiftrix, one of the trusted Calgary-based full-service moving companies for complete solutions for homes and offices, with over 5 years of hands-on experience,",
+    title: `Moving Company Calgary | Local & Long Distance Movers | ${APP_NAME}`,
+    description: "Looking for a trusted moving company in Calgary? Shiftrix offers professional residential, commercial, and long-distance moving services. Get a free quote today.",
     url: `${BASE_URL}`,
     type: "website",
     siteName: `${APP_NAME}`,
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: `${BASE_URL}`,
     creator: `${BASE_URL}`,
-    title: `${APP_NAME} - Trusted Moving Company in Calgary`,
-    description: "Shiftrix, one of the trusted Calgary-based full-service moving companies for complete solutions for homes and offices, with over 5 years of hands-on experience,",
+    title: `Moving Company Calgary | Local & Long Distance Movers | ${APP_NAME}`,
+    description: "Looking for a trusted moving company in Calgary? Shiftrix offers professional residential, commercial, and long-distance moving services. Get a free quote today.",
     images: `${BASE_URL}/shiftrix-mover-and-packer.jpg`,
   },
 };
@@ -61,58 +61,92 @@ export default function HomePage() {
     "@graph": [
       {
         "@type": "WebSite",
+        "@id": `${BASE_URL}/#website`,
         "url": `${BASE_URL}`,
         "name": `${APP_NAME}`,
-        "description": "Shiftrix, one of the trusted Calgary-based full-service moving companies for complete solutions for homes and offices, with over 5 years of hands-on experience,",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": `${BASE_URL}/search?q={search_term_string}`,
-          "query-input": "required name=search_term_string",
+        "alternateName": `${APP_NAME}`,
+        "publisher": {
+          "@id": `${BASE_URL}/#organization`
         }
       },
       {
         "@type": "WebPage",
+        "@id": `${BASE_URL}/#webpage`,
         "url": `${BASE_URL}`,
-        "name": `Home - ${APP_NAME}`,
-        "inLanguage": "en-CA",
-        "description": "Shiftrix, one of the trusted Calgary-based full-service moving companies for complete solutions for homes and offices, with over 5 years of hands-on experience,",
+        "name": `Trusted Moving Company in Calgary | ${APP_NAME}`,
+        "description": "Looking for a trusted moving company in Calgary? Shiftrix offers professional residential, commercial, and long-distance moving services. Get a free quote today.",
+        "keywords": "moving agency in Calgary, professional moving service, customized moving service in Calgary",
         "isPartOf": {
-          "@type": "WebSite",
-          "url": `${BASE_URL}`,
-          "name": `${APP_NAME}`,
+          "@id": `${BASE_URL}/#website`
         },
+        "about": {
+          "@id": `${BASE_URL}/#organization`
+        },
+        "mainEntity": {
+          "@id": `${BASE_URL}/#faq`
+        }
       },
       {
-        "@type": "Organization",
+        "@type": ["MovingCompany", "Organization"],
+        "@id": `${BASE_URL}/#organization`,
         "name": `${APP_NAME}`,
+        "alternateName": `${APP_NAME}`,
         "url": `${BASE_URL}`,
-        "logo": `${BASE_URL}/shiftrix-logo-black.png`,
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": `${phone}`,
-          "contactType": "service",
-          "areaServed": "Canada",
-          "availableLanguage": ["en","fr"]
+        "logo": `${BASE_URL}${logo}`,
+        "image": `${BASE_URL}${logo}`,
+        "email": `${email}`,
+        "telephone": `${phone}`,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": `${address}`,
+          "addressLocality": "Chestermere",
+          "addressRegion": "AB",
+          "postalCode": "T1X 2W1",
+          "addressCountry": "CA"
         },
+        "areaServed": [ "Calgary", "Chestermere", "Airdrie", "Cochrane", "Okotoks", "Langdon", "Strathmore" ],
+        "description": "Professional moving agency in Calgary providing customized residential and commercial moving services with 5+ years of experience.",
         "sameAs": [
-          "https://www.facebook.com/shiftrix",
+          "https://www.facebook.com/shiftrix/",
+          "https://www.instagram.com/shiftrix_movers/",
           "https://x.com/infoShiftrix",
-          "https://www.instagram.com/shiftrix_movers",
           "https://www.youtube.com/@infoShiftrix"
         ]
       },
       {
-        "@type": "LocalBusiness",
-        "name": `${APP_NAME}`,
-        "url": `${BASE_URL}/locations/calgary`,
-        "telephone": `${phone}`,
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Calgary",
-          "addressRegion": "AB",
-          "addressCountry": "CA"
+        "@type": "Service",
+        "@id": `${BASE_URL}/#service`,
+        "serviceType": "Moving Service",
+        "provider": {
+          "@id": `${BASE_URL}/#organization`
         },
-        "serviceType": "Moving services Company"
+        "areaServed": {
+          "@type": "City",
+          "name": "Calgary"
+        },
+        "description": "Professional, customized moving services including residential, commercial, and long-distance moves."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${BASE_URL}/#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Are moving services affordable at Shiftrix?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "At Shiftrix, you are in direct contact with professional movers. Shiftrix is the only moving agency in Calgary that allows residents to hire an experienced crew without paying any commission or broker fee. Apart from this, our regular crew, owned transport, and logistics give us leverage for better negotiation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Shiftrix provide the same-day moving service in Calgary?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our moving agency facilitates in Calgary. Only if our team and trucks are available to meet your needs, whether arising from last-minute lease changes or unexpected events. We welcome and assist every client; same-day scheduling depends on our current booking capacity and the size of your move."
+            }
+          }
+        ]
       }
     ]
   };
@@ -130,8 +164,8 @@ export default function HomePage() {
         <div className="absolute inset-0 -z-10 animate-gradient bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-indigo-100 via-white to-indigo-100"></div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center">
-            <h2 className="text-2xl text-gray-900 md:text-4xl font-bold text-center">Full-Service Moving Agency for Stress-Free Relocation</h2>
-            <p className="mt-4 mx-auto">Shiftrix is one of the trusted full-service moving companies in Calgary, offering complete solutions from packing to delivery. Enjoy a smooth, safe relocation experience for home or office with our professional team, who treat your belongings like their own.</p>
+            <h2 className="text-2xl text-gray-900 md:text-4xl font-bold text-center">Customized Moving Services for Every Relocation Need</h2>
+            <p className="mt-4 mx-auto">As a trusted moving agency, our team has a strong track record of 5+ years providing tailored relocation solutions in Calgary, from careful packing and secure loading to safe transportation and on-time delivery. We focus on efficiency, safety, and customer satisfaction.</p>
           </div>
 
           <div className="relative mt-12">
@@ -148,8 +182,8 @@ export default function HomePage() {
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AboutSection
               image="/shiftrix-mover-and-packer.jpg"
-              title="What Makes Shiftrix Different From Other Moving Companies"
-              content={`Shiftrix is a Calgary-based moving company delivering reliable, complete moving solutions for homes and offices. With over 5 years of hands-on experience, our professional team plans, packs, loads, and transports with care and efficiency. Shiftrix focuses on punctuality, clear communication, and safe handling to make every move smooth and stress-free. Choose us among the trusted Calgary moving services that treat your belongings like their own, offer fair, transparent pricing, and provide professional support at every step.`}
+              title="The Professional Moving Company Calgary Trusts"
+              content={`Shiftrix is a Calgary-based moving company that delivers reliable, comprehensive moving solutions for homes and offices. With over 5 years of hands-on experience, our professional movers provide a custom solution for every relocation, including planning, packing, loading, and transporting, with care and efficiency as you expect from any reliable moving agency. We treat your belongings like our own and ensure a seamless experience via transparent pricing, professional support, and consistent service.`}
               listTitle=""
               listItems={[]}
               linkText="About us"
@@ -213,12 +247,12 @@ export default function HomePage() {
             </div>
 
             <FaqSection
-              title="How does Shiftrix make moving services affordable?"
-              content={`Shiftrix is a local moving agency in Calgary where you can hire expert movers directly, without paying any commission or broker fees. Also, our professionals are familiar with the routes and traffic, so they can optimise routes more effectively, saving money and time.`}
+              title="Are moving services affordable at Shiftrix?"
+              content={`At Shiftrix, you are in direct contact with professional movers. Shiftrix is the only moving agency in Calgary that allows residents to hire an experienced crew without paying any commission or broker fee. Apart from this, our regular crew, owned transport, and logistics give us leverage for better negotiation.`}
             />
             <FaqSection
               title="Does Shiftrix provide the same-day moving service in Calgary?"
-              content={`Yes, if our team and trucks are available to meet your needs. Whether arising from last-minute lease changes or unexpected events. We welcome and assist every client; same-day scheduling depends on our current booking capacity and the size of your move.`}
+              content={`Yes, our moving agency facilitates in Calgary. Only if our team and trucks are available to meet your needs, whether arising from last-minute lease changes or unexpected events. We welcome and assist every client; same-day scheduling depends on our current booking capacity and the size of your move.`}
             />
         </div>
       </section>

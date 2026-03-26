@@ -8,15 +8,15 @@ import ContactSection from "@/components/ContactSection";
 const { phone, address } = contactInfo;
 
 export const metadata: Metadata = {
-  title: `${APP_NAME} - Last-Minute Relocation Services in Calgary`,
-  description: "For the past decade, our experienced dispatchers have deliveindigo high-quality freight dispatch services to owner-operators and carriers, supporting their business growth.",
+  title: `Our Relocation Services in Calgary | Compare & Choose`,
+  description: "Explore all the services we offer in Calgary — from local and residential moves to long-distance, commercial, piano, and specialty moving. Find the right relocation service for your move.",
   keywords: [ "mover", "freight forwarding", "supply chain", "shipping", "customs brokerage", "cargo", "global transport", "shiftrix",],
   alternates: {
     canonical: `${BASE_URL}/services`,
   },
   openGraph: {
-    title: `${APP_NAME} - Last-Minute Relocation Services in Calgary`,
-    description: "For the past decade, our experienced dispatchers have deliveindigo high-quality freight dispatch services to owner-operators and carriers, supporting their business growth.",
+    title: `Our Relocation Services in Calgary | Compare & Choose`,
+    description: "Explore all the services we offer in Calgary — from local and residential moves to long-distance, commercial, piano, and specialty moving. Find the right relocation service for your move.",
     url: `${BASE_URL}/services`,
     type: "website",
     siteName: `${APP_NAME}`,
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: `${BASE_URL}`,
     creator: `${BASE_URL}`,
-    title: `${APP_NAME} - Last-Minute Relocation Services in Calgary`,
-    description: "For the past decade, our experienced dispatchers have deliveindigo high-quality freight dispatch services to owner-operators and carriers, supporting their business growth.",
+    title: `Our Relocation Services in Calgary | Compare & Choose`,
+    description: "Explore all the services we offer in Calgary — from local and residential moves to long-distance, commercial, piano, and specialty moving. Find the right relocation service for your move.",
     images: `${BASE_URL}/shiftrix-mover-and-packer.jpg`,
   },
 };
@@ -46,72 +46,31 @@ const serviceschemaData = {
   "@graph": [
     {
       "@type": "WebPage",
-      url: `${BASE_URL}/services`,
-      name: `Services - ${APP_NAME}`,
-      inLanguage: "en-CA",
-      description: "For the past decade, our experienced dispatchers have deliveindigo high-quality freight dispatch services to owner-operators and carriers, supporting their business growth.",
-      isPartOf: {
-        "@type": "WebSite",
-        url: `${BASE_URL}`,
-        name: `${APP_NAME}`,
-      },
-    },
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: `${BASE_URL}`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Services",
-          item: `${BASE_URL}/services`,
-        },
-      ],
-    },
-    {
-      "@type": "Service",
-      serviceType: "Moving Company",
-      name: `${APP_NAME} - Last-Minute Relocation Services in Calgary`,
-      description: "For the past decade, our experienced dispatchers have deliveindigo high-quality freight dispatch services to owner-operators and carriers, supporting their business growth.",
-      provider: {
-        "@type": "MovingCompany",
-        name: `${APP_NAME}`,
-        url: `${BASE_URL}/services`,
-        logo: `${BASE_URL}/shiftrix-logo-black.png`,
-        telephone: `${phone}`,
-        areaServed: "Canada",
-        sameAs: [
-          "https://www.facebook.com/shiftrix",
-          "https://x.com/infoShiftrix",
-          "https://www.instagram.com/shiftrix_movers",
-          "https://www.youtube.com/@infoShiftrix"
-        ],
-      },
-    },
-    {
-      "@type": "Organization",
-      "name": `${APP_NAME}`,
-      "url": `${BASE_URL}`,
-      "logo": `${BASE_URL}/shiftrix-logo-black.png`,
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": `${phone}`,
-        "contactType": "Customer Support",
-        "areaServed": "Canada",
-        "availableLanguage": ["en", "fr"],
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": `${address}`,
-        "addressRegion": "AB",
-        "addressCountry": "CA"
-      },
-    },
+      "@id": `${BASE_URL}/services/#webpage`,
+      "url": `${BASE_URL}/services`,
+      "name": "Our Relocation Services in Calgary | Compare & Choose",
+      "description": "Explore Shiftrix's professional moving services in Calgary. We specialize in residential, commercial, and long-distance moves with over 5 years of hands-on experience.",
+      "keywords": "Relocation Services in Calgary ",
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "about": { "@id": `${BASE_URL}/#organization` },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": `${BASE_URL}`
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": `${BASE_URL}/services`
+          }
+        ]
+      }
+    }
   ],
 };
 
@@ -123,9 +82,9 @@ export default function ServicesPage() {
 
     <section className="bg-gray-50 sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-12">
       <div className="max-w-7xl mx-auto px-4 pt-6 sm:pt-6 md:pt-6 lg:pt-6">
-        <div className="max-w-4xl mx-auto text-center pb-12">
-          <h1 className="text-2xl text-gray-900 md:text-4xl font-bold">Comprehensive One-Stop Relocation Services for Your Last-Minute Move</h1>
-          <p className="mt-4 mx-auto text-md">Last-minute moves often come with tight deadlines and high pressure, such as when a lease ends, a sudden job transfer, or an emergency arises. Our short-notice movers in Calgary provide same-day or next-day relocation services, depending on availability and project size. Our experienced and responsive team is focused on our clients. We work quickly while making sure your belongings are handled with care.</p>
+        <div className="text-center pb-12">
+          <h1 className="text-2xl text-gray-900 md:text-4xl font-bold">Our All Relocation Services in Calgary — Choose now Which One Is Right for You?</h1>
+          <p className="mt-4 text-md">Some moves arrive with little warning — a lease that isn't renewed, a sudden job transfer, or an unexpected life change that can't wait. Whatever the circumstances, Shiftrix is ready to help. Our team handles relocations of every scale and type: a few essential items or an entire property, a single room or a full office floor. Regardless of your timeline or the size of your move, we coordinate every detail so you can focus on settling in.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -389,8 +348,8 @@ export default function ServicesPage() {
     <section id="contact" className="max-w-7xl mx-auto px-4 py-12">
         <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
           <div className="relative text-center pb-8">
-              <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
-              <p className="mt-3">Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
+              <div className="text-2xl text-gray-900 md:text-4xl font-bold">Pick the service you actually need | Book Our Team</div>
+              <p className="mt-3">Let our experts take the stress out of your next move with a relocation service tailored to your timeline and budget.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">

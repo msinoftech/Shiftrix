@@ -6,15 +6,15 @@ import ContactForm from "@/components/ContactForm";
 import FaqSection from "@/components/FaqSection";
 
 export const metadata: Metadata = {
-  title: "Reliable Local Mover on a Budget",
-  description: "Looking for local movers with a truck? Choose Shiftrix; we manage every detail, ensuring fast, efficient service for small loads or complete moves.",
-  keywords: ["local movers in my area", "local movers with a truck", "affordable local movers", "Find local movers", "professional local movers", "local movers small loads", "looking for local movers", "professional local movers", "best local movers"],
+  title: `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
+  description: "Need local movers in Calgary? Shiftrix provides professional, affordable local moving services with a crew and truck. $100–$150/hr. Same-day availability. Get a free quote.",
+  keywords: ["Same-Day local moving Service in calgary", "Trusted Local Movers in calgary", "Affordable calgary local mover"],
   alternates: {
     canonical: `${BASE_URL}/services/local-movers`,
   },
   openGraph: {
-    title: "Reliable Local Mover on a Budget",
-    description: "Looking for local movers with a truck? Choose Shiftrix; we manage every detail, ensuring fast, efficient service for small loads or complete moves.",
+    title: `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
+    description: "Need local movers in Calgary? Shiftrix provides professional, affordable local moving services with a crew and truck. $100–$150/hr. Same-day availability. Get a free quote.",
     url: `${BASE_URL}/services/local-movers`,
     siteName: `${APP_NAME}`,
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/local-mover-1.jpg`,
         width: 1200,
         height: 630,
-        alt: "Reliable Local Mover on a Budget",
+        alt: `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
       },
     ],
     locale: "en-CA",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reliable Local Mover on a Budget",
-    description: "Looking for local movers with a truck? Choose Shiftrix; we manage every detail, ensuring fast, efficient service for small loads or complete moves.",
+    title: `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
+    description: "Need local movers in Calgary? Shiftrix provides professional, affordable local moving services with a crew and truck. $100–$150/hr. Same-day availability. Get a free quote.",
     images: [`${BASE_URL}/local-mover-1.jpg`],
   },
   
@@ -40,70 +40,88 @@ export const metadata: Metadata = {
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
-    {
-        "@type": "WebSite",
-        "@id": `${BASE_URL}/#website`,
-        "url": `${BASE_URL}`,
-        "name": `${APP_NAME}`
-    },
-    {
+        {
         "@type": "WebPage",
         "@id": `${BASE_URL}/services/local-movers/#webpage`,
         "url": `${BASE_URL}/services/local-movers`,
-        "name": "Reliable Local Mover on a Budget",
-        "isPartOf": {"@id": `${BASE_URL}/services/local-movers/#website`},
-        "description": "Looking for local movers with a truck? Choose Shiftrix; we manage every detail, ensuring fast, efficient service for small loads or complete moves.",
-        "inLanguage": "en-CA",
-        "breadcrumb": {"@id": `${BASE_URL}/services/local-movers/#breadcrumb`}
-    },
-    {
+        "name": `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
+        "description": "Searching for reliable local movers in Calgary? Shiftrix provides professional, customized local moving services with 5+ years of experience in Calgary, Chestermere, and surrounding areas.",
+        "keywords": "Same-Day local moving Service in calgary, Trusted Local Movers in calgary, Affordable calgary local mover",
+        "isPartOf": {
+            "@id": `${BASE_URL}/#website`
+        },
+        "about": {
+            "@id": `${BASE_URL}/#organization`
+        },
+        "breadcrumb": {
+            "@id": `${BASE_URL}/services/local-movers/#breadcrumb`
+        },
+        "mainEntity": {
+            "@id": `${BASE_URL}/services/local-movers/#faq`
+        }
+        },
+        {
         "@type": "BreadcrumbList",
         "@id": `${BASE_URL}/services/local-movers/#breadcrumb`,
         "itemListElement": [
-        {
+            {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
             "item": `${BASE_URL}`
-        },
-        {
+            },
+            {
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
             "item": `${BASE_URL}/services`
-        },
-        {
+            },
+            {
             "@type": "ListItem",
             "position": 3,
-            "name": "local movers"
-        }
+            "name": "Local Movers",
+            "item": `${BASE_URL}/services/local-movers`
+            }
         ]
-    },
-    {
-        "@type": "Service",
-        "serviceType": "Local Movers",
-        "name": "Reliable Local Mover on a Budget",
-        "description": "Looking for local movers with a truck? Choose Shiftrix; we manage every detail, ensuring fast, efficient service for small loads or complete moves.",
-        "url": `${BASE_URL}/services/local-movers`,
-        "provider": {
-        "@type": "MovingCompany",
-        "name": `${APP_NAME}`,
-        "url": `${BASE_URL}/services/local-movers`,
-        "logo": `${BASE_URL}/shiftrix-logo.png`
         },
-        "areaServed": [
-        {"@type": "City", "name": "Calgary"},
-        ],
-        "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Local Movers Offerings",
-        "itemListElement": [
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Office Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retail Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Warehouse Moving"}}
+        {
+        "@type": "FAQPage",
+        "@id": `${BASE_URL}/services/local-movers/#faq`,
+        "mainEntity": [
+            {
+            "@type": "Question",
+            "name": "What does being a local mover mean?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Those professional movers who are familiar with the local route, traffic hours, and local rules. Local movers can save a lot of time by avoiding traffic jams, getting permission from local authorities, or taking a shorter route. Also, they can quickly arrange support, such as extra crew for loading or unloading, packing supplies, etc. They are an ideal choice for moving locally to a nearby city or within the city."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "How much does it cost to hire local movers per hour?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In Calgary, the starting price of hiring a local mover is around $120 per hour for a standard 2-mover crew with a truck. It can vary depending on the region, location, scheduling time (likely higher on the weekend), and included services (de-assemble, loading, unloading, reassemble, etc.), but all is negotiable."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "How much experience does Shiftrix have in providing local moving services in Calgary?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "With almost 5 years of hands-on experience serving Calgary residents, we are now providing a full-package local moving service with an experienced crew and secure transport, including deassembly, packing, loading, and unloading, etc., for home and office relocation."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "Can you actually trust local movers in Calgary?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Shiftrix is one of those who has established a strong reputation among Calgary residents for delivering high-quality local moving services. Over the past five years, we have successfully relocated more than 1,000 clients, many of whom came to us through referrals, recommendations, and trusted relationships."
+            }
+            }
         ]
         }
-    }
     ]
 };
 
@@ -118,11 +136,12 @@ export default function LocalMoversPage() {
             <h1 className="text-3xl md:text-4xl font-bold pb-12 text-gray-900">Local Movers</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="flex-1">
-                    <Image src="/local-mover-1.jpg" alt="local movers in my area" width={600} height={350} className="w-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/local-mover-1.jpg" alt="Same-Day local moving Service in calgary" width={600} height={350} className="w-full rounded-xl shadow-md object-cover"/>
                 </div>
                 <div className="flex-1">
-                    <h2 className="text-2xl md:text-3xl font-bold pb-6 text-gray-900">Professional Local Mover on a Budget</h2>
-                    <p className="text-gray-700 leading-relaxed">Shiftrix makes local moving easy and stress-free, whether it&apos;s moving to a new home across town or relocating the office. Our Experienced local movers manage every detail, ensuring fast, efficient service for small loads or complete moves.</p>
+                    <h2 className="text-2xl md:text-3xl font-bold pb-6 text-gray-900">Trusted Local Movers for Homes and Businesses Around Calgary</h2>
+                    <p className="text-gray-700 leading-relaxed">Opposing your worries, relocating within the city is neither complicated nor expensive if you have found a reliable, professional crew. At Shiftrix, we deliver exceptional moving services that exceed the expectations of homeowners, renters, and businesses throughout Calgary and the surrounding areas. Your requirements may differ with a shift to a new neighbourhood, upsizing, downsizing, or choosing a better location for your office. But our team's aim always remains the same: to handle everything with care from start to finish.</p>
+                    <p className="text-gray-700 leading-relaxed">We bring the local crew, the truck, the supply material, and the essential tools. You show up at the new place.</p>
                 </div>
             </div>
         </div>
@@ -133,41 +152,37 @@ export default function LocalMoversPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* left Content */}
                 <div className="space-y-4">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Hire the Best Local Movers in Your Area With Packing and Transport Services</h2>
-                    <p className="text-gray-600">To relocate home or office, you may require packing, loading, transport or reassembly of your belongings. You can hire a mover to assist you with the move, but it is time-consuming and requires your personal involvement. Or you can hire us; our skilled local movers handle everything with attention and care from start to finish.</p>
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Why Calgary Residents Choose Shiftrix?</h2>
+                    <p className="text-gray-600">When trust matters, Calgary residents hire local moving services first. Over 5 years of hands-on experience, we have moved countless homes and businesses. Our skilled local movers handle everything with attention and care.</p>
 
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">Benefits of finding local movers with us:</h3>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">Here's what sets us apart:</h3>
                     <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
                         <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Deep knowledge of local routes to avoid traffic delays​</p>
-                    </div>
-
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Friendly and skilled movers</p>
+                        <p className="text-sm text-gray-700"><strong>Local route knowledge</strong> — Calgary's roads, traffic patterns, and shortcuts. Your belongings arrive on time.</p>
                     </div>
 
                     <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
                         <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Clean and well-maintained Transport</p>
+                        <p className="text-sm text-gray-700"><strong>Transparent pricing</strong> — No hidden fees. You know the cost before we show up.</p>
                     </div>
 
                     <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
                         <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Top-quality packing materials to protect your things.</p>
+                        <p className="text-sm text-gray-700"><strong>Careful handling</strong> — Every item is treated with the same care we'd give our own.</p>
+                    </div>
+
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Clean, well-equipped trucks</strong> — Properly maintained vehicles with the right gear for safe transport.</p>
                     </div>
                     <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
                         <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Dependable scheduling and flexible timelines</p>
-                    </div>
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p className="text-sm text-gray-700">Responsive customer support</p>
+                        <p className="text-sm text-gray-700"><strong>Responsive support</strong> — You can reach us before, during, and after your move.</p>
                     </div>
                 </div>
                 {/* right Image */}
                 <div className="flex justify-center">
-                    <Image src="/local-mover.jpg" alt="local movers with a truck" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/local-mover.jpg" alt="Trusted Local Movers in calgary" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
         </div>
@@ -177,11 +192,38 @@ export default function LocalMoversPage() {
         <div className="max-w-7xl mx-auto px-4 space-y-18">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="order-2 md:order-1 flex-1">
-                    <Image src="/local-movers-with-a-truck.jpg" alt="Find local movers" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/local-movers-with-a-truck.jpg" alt="Affordable calgary local mover" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
-                <div className="order-1 md:order-2 flex-1">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Looking for Local Movers with a truck</h2>
-                    <p className="text-gray-700 leading-relaxed">Moving doesn’t have to be expensive or time-consuming. When you book local movers with a truck, you get skilled help, a well-equipped truck, and full support for a smooth move—whether it’s your apartment, home, office, or just a few items. Our team brings packing materials like straps and padding to keep your belongings safe, and our trucks are always clean and spacious. With our experienced movers, your local move will be easy and stress-free.</p>
+                <div className="order-1 md:order-2 flex-1 space-y-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Serving Calgary and the Surrounding Communities</h2>
+                    <p className="text-gray-700 leading-relaxed">Wherever we are, we provide local moving services, including:</p>
+                    <h3 className="text-xl font-bold text-gray-800">Calgary Neighbourhoods</h3>
+                    <p className="text-gray-700 leading-relaxed">From the northwest communities of Tuscany and Kincora to the southeast neighbourhoods of Mahogany and Auburn Bay — we move Calgarians across every corner of the city. We're equally comfortable with downtown condos, suburban homes, and commercial units in the business districts.</p>
+                    <h3 className="text-xl font-bold text-gray-800">Beyond Calgary</h3>
+                    <p className="text-gray-700 leading-relaxed">Our local moving coverage also extends to:</p>
+
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Chestermere</strong> — Just east of Calgary, we regularly serve Chestermere homeowners and renters.</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Airdrie</strong> — North of the city, Airdrie residents count on us for smooth, efficient moves.</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Cochrane</strong> — Whether you're moving within Cochrane or relocating from Calgary, we've got you covered.</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Okotoks</strong> — South Calgary and Okotoks moves are well within our range.</p>
+                    </div>
+                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
+                        <div className="w-2 h-2 bg-blue-600 mt-2 rounded-sm"></div>
+                        <p className="text-sm text-gray-700"><strong>Langdon and Strathmore</strong> — We serve growing communities east of Calgary as well.</p>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -207,16 +249,24 @@ export default function LocalMoversPage() {
 
     <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="relative text-center pb-8">
+            <div className="relative text-center pb-8">
                 <h2 className="text-2xl md:text-4xl font-bold text-gray-900 text-center">Frequently Asked Questions</h2>
             </div>
             <FaqSection
               title="What does being a local mover mean?"
-              content={`Being a local mover means secure transport via familiar routes to dodge traffic. They provide specialised short-distance relocation services within the city and its metropolitan area. When booking a local mover in Calgary, look for licensed, insured experts who offer packing supplies, workforce, and flexible scheduling—ideal for stress-free transitions without the complexities of long-haul moves. They ensure efficiency, safety, and affordability for neighbourhood shifts.`}
+              content={`Those professional movers who are familiar with the local route, traffic hours, and local rules. Local movers can save a lot of time by avoiding traffic jams, getting permission from local authorities, or taking a shorter route. Also, they can quickly arrange support, such as extra crew for loading or unloading, packing supplies, etc. They are an ideal choice for moving locally to a nearby city or within the city.`}
             />
             <FaqSection
-              title="How much does it cost to hire a local mover?"
-              content={`In Calgary, hiring a local mover typically costs $100–$150 per hour for a standard 2-mover crew with a truck, depending on time, stairs, and extras like packing. Prices may vary by season and may include add-ons such as disassembly.`}
+              title="How much does it cost to hire local movers per hour?"
+              content={`In Calgary, the starting price of hiring a local mover is around $120 per hour for a standard 2-mover crew with a truck. It can vary depending on the region, location, scheduling time (likely higher on the weekend), and included services (deassemble, loading, unloading, reassemble, etc.), but all is negotiable.`}
+            />
+            <FaqSection
+              title="How much experience does Shiftrix have in providing local moving services in Calgary?"
+              content={`With almost 5 years of hands-on experience serving Calgary residents, we are now providing a full-package local moving service with an experienced crew and secure transport, including deassembly, packing, loading, and unloading, etc., for home and office relocation.`}
+            />
+            <FaqSection
+              title="Can you actually trust local movers in Calgary?"
+              content={`Yes, Shiftrix is one of those who has established a strong reputation among Calgary residents for delivering high-quality local moving services. Over the past five years, we have successfully relocated more than 1,000 clients, many of whom came to us through referrals, recommendations, and trusted relationships.`}
             />
         </div>
     </section>
