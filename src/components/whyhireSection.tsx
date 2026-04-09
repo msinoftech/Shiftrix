@@ -11,35 +11,30 @@ interface WhyHireSectionProps {
 
 const WhyHireSection: React.FC<WhyHireSectionProps> = ({ subheading, heading, description, items }) => {
   return (
-    <section id="whyhireus" className="bg-gray-50 py-20">
+    <section className="bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Subheading */}
-        {subheading && (
-          <div className="text-xs font-semibold tracking-widest text-indigo-800 uppercase text-center mb-2">{subheading}</div>
-        )}
+        <div className="space-y-3 text-center pb-8">
+          {subheading && (
+            <div className="text-xs font-semibold tracking-widest text-indigo-800 uppercase mb-2">{subheading}</div>
+          )}
+          {heading && (
+            <h2 className="text-2xl md:text-4xl font-bold">{heading}</h2>
+          )}
+          {description && (
+            <p>{description}</p>
+          )}
+        </div>
 
-        {/* Heading */}
-        {heading && (
-          <h2 className="text-2xl text-gray-900 md:text-4xl font-bold text-center">{heading}</h2>
-        )}
-
-        {/* Description */}
-        {description && (
-          <p className="text-center mt-3 max-w-2xl mx-auto">{description}</p>
-        )}
-
-        {/* Cards */}
-        <div className="mt-12 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((item) => (
-            <div key={item.title} className="rounded-2xl shadow-md hover:shadow-lg transition p-6 bg-white text-center">
-              <div className="relative w-20 h-20 mx-auto mb-6">
-                <div className="h-20 w-20 rounded-full bg-gradient-to-br from-indigo-800 to-indigo-500 text-white grid place-content-center font-bold mb-3">
+            <div key={item.title} className="rounded-2xl shadow-md hover:shadow-lg transition p-6 bg-white text-center space-y-3 hover:-translate-y-1">
+              <div className="relative w-20 h-20 mx-auto">
+                <div className="h-20 w-20 rounded-full bg-gradient-to-br from-indigo-800 to-indigo-500 text-white grid place-content-center font-bold">
                   <Image src={item.image} alt={item.title} width={45} height={45} className="filter brightness-0 invert object-contain"/>
                 </div>
               </div>
-
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.title}</h3>
-              <p className="text-md">{item.content.split(" ").slice(0, 20).join(" ")}…</p>
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p>{item.content}</p>
             </div>
           ))}
         </div>

@@ -43,7 +43,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
       {showImage && image && (
         <div className="order-1 lg:order-1">
           <figure className={imageClassName}>
-            <Image src={image} alt="Shiftrix moving companies" width={600} height={400} loading="lazy" className="w-full object-cover"/>
+            <Image src={image} alt="Shiftrix moving companies" width={600} height={400} loading="lazy" className="w-full h-full object-cover"/>
           </figure>
         </div>
       )}
@@ -52,11 +52,9 @@ const AboutSection: React.FC<AboutSectionProps> = ({
       <div className={showImage ? "order-2 lg:order-2" : "col-span-1"}>
         <div className="rounded-lg" style={contentStyle}>
           <h2 className={titleClassName}>{title}</h2>
-          <div className="space-y-4 text-md">
+          <div className="space-y-4">
             {content.split("\n").map((paragraph, index) => (
-              <p key={index} className="leading-relaxed">
-                {paragraph.trim()}
-              </p>
+              <p key={index}>{paragraph.trim()}</p>
             ))}
           </div>
 
@@ -64,11 +62,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({
           {listItems.length > 0 && (
             <>
               {listTitle && (
-                <h3 className="text-md mt-3 md:text-md  font-bold">{listTitle}</h3>
+                <h3 className="mt-3 font-bold">{listTitle}</h3>
               )}
               <ul className="mt-4 grid sm:grid-cols-1 gap-2">
                 {listItems.map((item, index) => (
-                  <li key={index} className="flex items-center gap-2 text-sm">
+                  <li key={index} className="flex items-center gap-2">
                     <GiCheckMark />{item}
                   </li>
                 ))}

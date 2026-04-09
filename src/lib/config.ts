@@ -1,6 +1,5 @@
 export const APP_NAME = "Shiftrix";
 export const BASE_URL = "https://www.shiftrix.ca";
-//export const BASE_URL = "http://localhost:3003";
 
 export const contactInfo = {
   logo: "/shiftrix-logo.png",

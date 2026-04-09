@@ -1,5 +1,4 @@
 "use client";
-
 import { contactInfo } from "@/lib/config";
 
 export default function ContactActions() {
@@ -8,8 +7,7 @@ export default function ContactActions() {
 
   return (
     <div className="max-w-7xl mx-auto relative">
-      <div
-        className="
+      <div className="
           fixed bottom-4 left-0 right-0 z-[999] sm:left-auto sm:right-6
           flex justify-around sm:justify-center items-center gap-6
           bg-gradient-to-r from-indigo-200 to-indigo-100 shadow-xl rounded-2xl
@@ -18,11 +16,10 @@ export default function ContactActions() {
           sm:w-auto md:w-auto lg:w-auto
           sm:bottom-6
           transition-all duration-300 hover:shadow-2xl
-        "
-      >
+        ">
         {/* WhatsApp Chat */}
-        <a href={`https://wa.me/${phoneHref}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-          <div className="relative bg-white p-3 rounded-full shadow hover:bg-green-100 transition">
+        <a href={`https://wa.me/${phoneHref}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center space-y-1">
+          <div className="relative bg-white p-3 rounded-full shadow hover:bg-green-200 transition">
             <svg
               height="32px"
               width="32px"
@@ -37,12 +34,12 @@ export default function ContactActions() {
             </svg>
             <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
           </div>
-          <span className="text-xs text-gray-600 mt-1 font-medium">Chat</span>
+          <span className="text-sm font-medium">Chat</span>
         </a>
 
         {/* Consult */}
-        <a href="/contact-us" target="_blank" className="flex flex-col items-center">
-          <div className="bg-white p-3 rounded-full shadow hover:bg-blue-50 transition">
+        <a href="/contact-us" target="_blank" className="flex flex-col items-center space-y-1">
+          <div className="bg-white p-3 rounded-full shadow hover:bg-indigo-200 transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 48 48"
@@ -61,14 +58,12 @@ export default function ContactActions() {
               />
             </svg>
           </div>
-          <span className="text-xs text-gray-600 mt-1 font-medium">
-            Consult
-          </span>
+          <span className="text-sm font-medium">Consult</span>
         </a>
 
         {/* Call */}
-        <a href={`tel:${phoneHref}`} className="flex flex-col items-center">
-          <div className="bg-white p-3 rounded-full shadow hover:bg-green-50 transition">
+        <a href={`tel:${phoneHref}`} className="flex flex-col items-center space-y-1">
+          <div className="bg-white p-3 rounded-full shadow hover:bg-green-200 transition">
             <svg
               className="w-6 h-6"
               xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +81,7 @@ export default function ContactActions() {
               />
             </svg>
           </div>
-          <span className="text-xs text-gray-600 mt-1 font-medium">Call</span>
+          <span className="text-sm font-medium">Call</span>
         </a>
       </div>
     </div>

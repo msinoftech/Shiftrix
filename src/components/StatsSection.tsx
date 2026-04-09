@@ -1,5 +1,3 @@
-import React from "react";
-
 const StatsSection = () => {
   const stats = [
     { value: "450+", label: "Satisfied Clients" },
@@ -9,12 +7,12 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="bg-indigo-100 py-12">
+    <section className="bg-indigo-100 py-20">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         {stats.map((item, index) => (
-          <div key={index} className="rounded-2xl bg-white p-6 shadow-md transition transform hover:-translate-y-1">
-            <p className="text-3xl font-extrabold text-gray-900">{item.value}</p>
-            <p className="text-md mt-1">{item.label}</p>
+          <div key={index} className="rounded-2xl bg-white p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <p className="text-3xl text-gray-900 font-bold">{item.value}</p>
+            <p>{item.label}</p>
           </div>
         ))}
       </div>

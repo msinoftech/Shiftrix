@@ -15,10 +15,9 @@ export default function BlogClient() {
   };
 
   return (
-    <section className="pb-12 sm:pt-40 md:pt-40 lg:pt-40 pt-40">
-      <div className="max-w-7xl mx-auto px-4 pt-6 sm:pt-6 md:pt-6 lg:pt-6">
-        {/* Blog grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section className="pb-20 sm:pt-40 md:pt-40 lg:pt-40 pt-40">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentItems.map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}

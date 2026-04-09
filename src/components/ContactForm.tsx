@@ -94,15 +94,15 @@ const ContactForm = () => {
 
     <form onSubmit={handleSubmit} className="space-y-4" aria-live="polite">
       
-      <input id="name" name="name" type="text" required placeholder="Full Name" value={formData.name} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
+      <input name="name" type="text" required placeholder="Full Name" value={formData.name} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3">
-        <input id="phone" name="phone" type="tel" inputMode="tel" placeholder="Phone" value={formData.phone} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
-        <input id="email" name="email" type="email" required placeholder="Email" value={formData.email} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
+        <input name="phone" type="tel" inputMode="tel" placeholder="Phone" value={formData.phone} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
+        <input name="email" type="email" required placeholder="Email" value={formData.email} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-3">
-        <select id="service" aria-label="Select Service" name="service" required value={formData.service} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <select aria-label="Select Service" name="service" required value={formData.service} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500">
           <option value="">--Select Service--</option>
           <option value="commercial-movers">Commercial Movers</option>
           <option value="residential-movers">Residential Movers</option>
@@ -116,7 +116,7 @@ const ContactForm = () => {
         </select>
       </div>
 
-      <textarea id="message" name="message" rows={4} required placeholder="How can we help?" value={formData.message} onChange={handleChange} className="block w-full border rounded-xl border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
+      <textarea name="message" rows={4} required placeholder="How can we help?" value={formData.message} onChange={handleChange} className="block w-full border rounded-xl border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
       
       <div className="block sm:flex items-center justify-between items-center justify-between gap-3">
         <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg hover:bg-indigo-800 transition-transform transform cursor-pointer" aria-disabled={status === "sending"}>

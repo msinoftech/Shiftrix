@@ -160,26 +160,60 @@ export default function HomePage() {
 
       <StatsSection />
 
-      <section className="relative overflow-hidden py-20">
-        <div className="absolute inset-0 -z-10 animate-gradient bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-indigo-100 via-white to-indigo-100"></div>
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center">
-            <h2 className="text-2xl text-gray-900 md:text-4xl font-bold text-center">Customized Moving Services for Every Relocation Need</h2>
-            <p className="mt-4 mx-auto">As a trusted moving agency, our team has a strong track record of 5+ years providing tailored relocation solutions in Calgary, from careful packing and secure loading to safe transportation and on-time delivery. We focus on efficiency, safety, and customer satisfaction.</p>
+      <section className="relative overflow-hidden py-20">        
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="space-y-4 text-center">
+            <h2 className="text-2xl md:text-4xl font-bold">Customized Moving Services for Every Relocation Need</h2>
+            <p>As a trusted moving agency, our team has a strong track record of 5+ years providing tailored relocation solutions in Calgary, from careful packing and secure loading to safe transportation and on-time delivery. We focus on efficiency, safety, and customer satisfaction.</p>
           </div>
 
-          <div className="relative mt-12">
-            <ServiceCard />
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <ServiceCard
+              link={`${BASE_URL}/services/commercial-movers`}
+              heading="Commercial Movers"
+              content="Let us handle your office, retail, clinic, or warehouse move with unmatched attention and expertise when it's time to relocate your business."
+              button="Discover more →"
+            />
+            <ServiceCard
+              link={`${BASE_URL}/services/residential-movers`}
+              heading="Residential Movers"
+              content="Moving to a new apartment, condo, or house doesn't have to be a waste of your time or out of your budget."
+              button="Discover more →"
+            />
+            <ServiceCard
+              link={`${BASE_URL}/services/full-service-movers`}
+              heading="Full-Service Movers"
+              content="Whether you’re relocating a single piece of furniture, a small apartment, or a large home, Shiftrix, one of the leading full-service moving companies."
+              button="Discover more →"
+            />
+            <ServiceCard
+              link={`${BASE_URL}/services/furniture-movers`}
+              heading="Furniture Movers"
+              content="At Shiftrix, we provide professional furniture moving services for both residential and commercial."
+              button="Discover more →"
+            />
+            <ServiceCard
+              link={`${BASE_URL}/services/local-movers`}
+              heading="Local Movers"
+              content="Shiftrix makes local moving easy and stress-free, whether it's moving to a new home across town or relocating the office."
+              button="Discover more →"
+            />
+            <ServiceCard
+              link={`${BASE_URL}/services/long-distance-movers`}
+              heading="Long Distance Movers"
+              content="At Shiftrix, you will find what you are looking for in long-distance movers, whether you are a professional, a family, or a business."
+              button="Discover more →"
+            />
           </div>
 
           <div className="text-center mt-12">
-            <Link href={`${BASE_URL}/services`} aria-label="View All Services" className="inline-flex items-center gap-2 hover:text-indigo-800 hover:scale-103 transition-transform duration-300 font-medium">View All Services →</Link>
+            <Link href={`${BASE_URL}/services`} aria-label="View All Services" className="inline-flex items-center gap-2 font-medium hover:text-indigo-800 hover:scale-103 transition-transform duration-300">View All Services →</Link>
           </div>
         </div>
       </section>
 
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="max-w-7xl mx-auto px-4">
             <AboutSection
               image="/shiftrix-mover-and-packer.jpg"
               title="The Professional Moving Company Calgary Trusts"
@@ -204,32 +238,33 @@ export default function HomePage() {
 
       <section className="relative py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl text-gray-900 md:text-4xl font-bold text-center">Explore our blog for expert tips and advice</h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+          <div className="space-y-3 text-center pb-8">
+            <h2 className="text-2xl md:text-4xl font-bold">Explore our blog for expert tips and advice</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {blogs.slice(0, 3).map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
           </div>
+
           <div className="text-center mt-6">
-            <Link href={`${BASE_URL}/blog`} aria-label="View All Blogs" className="inline-flex items-center gap-2 text-gray-600 hover:text-indigo-800 hover:scale-103 transition">View All Blogs →</Link>
+            <Link href={`${BASE_URL}/blog`} aria-label="View All Blogs" className="inline-flex items-center gap-2 hover:text-indigo-800 hover:scale-103 transition-transform duration-300 font-medium">View All Blogs →</Link>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="max-w-7xl mx-auto px-4 pb-20">
+      <section className="max-w-7xl mx-auto px-4 pb-20">
           <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
-            <div className="relative text-center pb-8">
+            <div className="space-y-3 text-center pb-8">
                 <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
-                <p className="mt-3">Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
+                <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Left Content */}
               <div className="relative">
-                <div className="mt-6">
-                  <ContactSection/>
-                </div>
+                <ContactSection/>
               </div>
 
               {/* Right Form */}
@@ -242,18 +277,21 @@ export default function HomePage() {
 
       <section className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="relative text-center pb-8">
-                <h2 className="text-2xl md:text-4xl font-bold text-gray-900 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-3 text-center pb-8">
+              <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>
 
-            <FaqSection
-              title="Are moving services affordable at Shiftrix?"
-              content={`At Shiftrix, you are in direct contact with professional movers. Shiftrix is the only moving agency in Calgary that allows residents to hire an experienced crew without paying any commission or broker fee. Apart from this, our regular crew, owned transport, and logistics give us leverage for better negotiation.`}
-            />
-            <FaqSection
-              title="Does Shiftrix provide the same-day moving service in Calgary?"
-              content={`Yes, our moving agency facilitates in Calgary. Only if our team and trucks are available to meet your needs, whether arising from last-minute lease changes or unexpected events. We welcome and assist every client; same-day scheduling depends on our current booking capacity and the size of your move.`}
-            />
+            <div className="space-y-3">
+              <FaqSection
+                title="Are moving services affordable at Shiftrix?"
+                content={`At Shiftrix, you are in direct contact with professional movers. Shiftrix is the only moving agency in Calgary that allows residents to hire an experienced crew without paying any commission or broker fee. Apart from this, our regular crew, owned transport, and logistics give us leverage for better negotiation.`}
+              />
+              <FaqSection
+                title="Does Shiftrix provide the same-day moving service in Calgary?"
+                content={`Yes, our moving agency facilitates in Calgary. Only if our team and trucks are available to meet your needs, whether arising from last-minute lease changes or unexpected events. We welcome and assist every client; same-day scheduling depends on our current booking capacity and the size of your move.`}
+              />
+            </div>
+            
         </div>
       </section>
 

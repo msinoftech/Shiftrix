@@ -1,4 +1,5 @@
 import { Blog } from "./types";
+import { BASE_URL } from "./config";
 
 export const blogs: Blog[] = [
   {
@@ -18,7 +19,7 @@ export const blogs: Blog[] = [
     content:
     `<p>Moving to a new home, especially a long-distance move and a new region, is one of life's most significant transitions. Whether you are relocating locally or across the country, the success of your move hinges on meticulous planning and systematic execution.  We have created a hassle-free checklist for moving day and after moving day, based on our clients' experience. They shared their feedback in response to our request. This comprehensive guide transforms from a stressful moving experience into a manageable, organized process.</p>
     <h2>Why You Need a Moving Day Checklist</h2>
-    <p>Without a structured approach, moving day quickly becomes chaotic. <b>A detailed checklist serves as your roadmap</b> and reduces the last-minute panic. <a href="https://shiftrix.ca/">Professional movers</a> demonstrate efficiency in transitions with systematic plans. Your checklist becomes a decision-making tool that not only eliminates confusion and allocates resources efficiently but also protects your belongings throughout the relocation process.​
+    <p>Without a structured approach, moving day quickly becomes chaotic. <b>A detailed checklist serves as your roadmap</b> and reduces the last-minute panic. <a href='${BASE_URL}'>Professional movers</a> demonstrate efficiency in transitions with systematic plans. Your checklist becomes a decision-making tool that not only eliminates confusion and allocates resources efficiently but also protects your belongings throughout the relocation process.​
     The most successful moves share one common element: <b>preparation begins weeks before moving day.</b> By breaking down tasks into manageable phases, you gain control over what can otherwise feel overwhelming.​</p>
     <h3>Prepare Your Checklist</h3>
     <h4>Creating Your Foundational Moving Document</h4>
@@ -33,7 +34,7 @@ export const blogs: Blog[] = [
     <h3>Starting Early Maximises Efficiency</h3>
     <p>Begin your moving day well before the movers arrive. <b>Complete any last-minute packing and cleaning as early as possible</b> to give yourself a buffer for unexpected delays. Early starts offer psychological advantages, preventing the panic that comes with rushed timelines.​Double-check all rooms, cupboards, closets, and spaces where items accumulate—behind doors, under beds, in storage areas. These locations often contain forgotten belongings.</p>
     <h3>Coordinating With Your Moving Team</h3>
-    <p>Introduction and communication set the tone for smooth operations. <b>Greet <a href="https://shiftrix.ca/">your moving crew,</a> introduce yourself, and discuss high-priority items and specific placement instructions</b> for your new home. Clearly identify which boxes contain fragile items requiring extra care. <b>Monitor weather conditions and adjust plans accordingly.</b> If rain threatens, cover boxes and furniture with tarps. Watch the movers' progress without hovering, staying available for questions and decisions. Remaining calm under pressure—which moving day guarantees—influences how the team performs.​</p>
+    <p>Introduction and communication set the tone for smooth operations. <b>Greet <a href='${BASE_URL}'>your moving crew,</a> introduce yourself, and discuss high-priority items and specific placement instructions</b> for your new home. Clearly identify which boxes contain fragile items requiring extra care. <b>Monitor weather conditions and adjust plans accordingly.</b> If rain threatens, cover boxes and furniture with tarps. Watch the movers' progress without hovering, staying available for questions and decisions. Remaining calm under pressure—which moving day guarantees—influences how the team performs.​</p>
     <h3>Protecting Your Most Valuable Possessions</h3>
     <p><b>Keep expensive and sentimental items with you,</b> rather than entrusting them to the moving truck. Jewellery, cash, important documents, and irreplaceable heirlooms should travel with you. This provides peace of mind throughout the moving process.  Before the moving truck departs, ensure all utilities at your previous residence are turned off. Check that all windows and doors lock securely. Walk through the empty home one final time, looking inside closets, cabinets, and storage spaces you might have missed.​</p>
     <h3>Managing Pets and Family During the Transition</h3>
@@ -75,7 +76,7 @@ export const blogs: Blog[] = [
     metaTitle: "Packing Tips for Moving Urgently",
     metaDesc: "This guide to packing tips not only enables you to move quickly but also keeps your things safe and organised.",
     content:
-    `<p>When you suddenly have to move, it catches you off guard. You need to act as quickly as possible, plan smart, and make the right decisions under this pressure. Instead of letting chaos take over, a clear plan with a <a href="https://shiftrix.ca/">local moving agency</a> can help you get things done. This guide to packing tips not only enables you to move quickly but also keeps your things safe and organised.</p>
+    `<p>When you suddenly have to move, it catches you off guard. You need to act as quickly as possible, plan smart, and make the right decisions under this pressure. Instead of letting chaos take over, a clear plan with a <a href='${BASE_URL}'>local moving agency</a> can help you get things done. This guide to packing tips not only enables you to move quickly but also keeps your things safe and organised.</p>
     <p>In a short time, you have to decide what to take and what to leave. The key is to focus on what matters most and use what you already have instead of searching for new supplies. Break packing into steps and stay flexible. Stressful situations can be controlled better.</p>
     <h2>Packing Tips for Moving in a Hurry</h2>
     <h3>Prioritise Essentials First—Your 10-Minute Sweep</h3>
@@ -146,11 +147,134 @@ export const blogs: Blog[] = [
     <p>Otherwise, consider portable moving containers or traditional truck rentals, depending on your needs. A 10-12-foot truck for a local move costs approximately $150-$200. Containers offer flexibility—you pack at your own pace—and often cost less than full-service movers, particularly for long-distance moves.​</p>
     <p>If choosing container services, load at the company's yard rather than pay for home delivery. If you're not in a rush, slower delivery rates save you money, as transportation costs are passed on to you as savings.​</p>
     <h3>Maximising Professional Help Wisely</h3>
-    <p><b><a href="https://shiftrix.ca/">Hiring professional movers</a> isn't always as expensive as you think if you plan strategically.</b> Early bookings can be a better deal, as they often include discounts. You can choose after comparing the price and service of multiple companies.​</p>
+    <p><b><a href='${BASE_URL}'>Hiring professional movers</a> isn't always as expensive as you think if you plan strategically.</b> Early bookings can be a better deal, as they often include discounts. You can choose after comparing the price and service of multiple companies.​</p>
     <p>Some companies bundle services—packing, loading, and unloading—at lower rates than when purchased individually. Ask about special offers and discounts; reputable Canadian movers frequently provide exclusive deals for customers who book early or move during off-peak periods.​</p>
     <h3>Tax Deductions: Don't Forget This Benefit</h3>
     <p><b>If you're moving for work or education, save every receipt</b>—your moving expenses might be tax-deductible. If you're relocating to a new city for employment or attending post-secondary education at least 40 kilometres away, the Canada Revenue Agency allows deductions for eligible moving expenses.​ Consult with your accountant.</p>
     <h3>Conclusion: Your Budget-Friendly Move Awaits</h3>
     <p>Moving within Canada doesn't have to break the bank. <b>The key is combining several money-saving strategies.</b> Set a genuine budget after reviewing the multiple quotes. Don't hesitate to ask family and friends for help with heavy lifting.​ You'll enjoy a smooth relocation with thoughtful planning, whether you're moving across town or across the country.</p>`,
+  },
+  {
+    id: 4,
+    title: "The Complete Every Calgary Homeowner Needs",
+    slug: "before-moving-day-checklist",
+    category: "",
+    excerpt: "Moving soon to Calgary? Use this complete before moving day checklist to stay organized, stress-free, and fully prepared — from 4 weeks out to the night before.",
+    image: "/before-moving-day-checklist.jpg",
+    status: "published",
+    author: "Shiftrix",
+    published_at: "2026-04-09",
+    updated_at: "2026-04-09",
+    keywords: "Before Moving Day Checklist, Checklist of Before Moving Day Checklist, Complete Checklist Before Moving Day",
+    metaTitle: "A Complete Before Moving Day Checklist | Shiftrix Calgary Movers",
+    metaDesc: "Moving soon to Calgary? Use this complete before moving day checklist to stay organized, stress-free, and fully prepared — from 4 weeks out to the night before.",
+    content:
+    `<p>Moving can be exciting if you avoid the last-minute rush successfully, whether you are relocating to a new place nearby or outside the city boundaries for a fresh start. However, the weeks closing up to moving day can feel completely shattering.</p>
+    <p>Whether it is residential or commercial, moving stress does not come from the move itself. It comes from forgetting things, leaving tasks too late, or not knowing where to start. That is where a solid before moving day checklist saves you.</p>
+    <p>This guide walks you through everything you need to do — day by day, week by week — so nothing slips through the cracks. Think of it as your personal moving plan, built around how real people actually move.</p>
+    
+    <h2>Why You Need a Before Moving Day Checklist</h2>
+    <p>No one is born an expert at moving efficiently. Most people figure it out the hard way — standing in an empty apartment at 11 PM, surrounded by half-packed boxes and a sink full of dishes they forgot to deal with.</p>
+    <p>So, A complete checklist gives you a clear sequence to follow. It breaks a task down into smaller, manageable steps. You stop trying to remember everything at once and start working through it one item at a time.</p>
+    <p>It also keeps the whole household on the same page. Whether you are moving solo or coordinating with a partner, kids, or roommates, a shared plan means fewer surprises and a lot less friction.</p>
+    <p>Simply put, a checklist does not eliminate the work of moving. It just makes sure you are doing the right work at the right time.</p>
+    
+    <h2>Complete Checklist Before Moving Day</h2>
+    <h3>2 to 4 Weeks Before Moving</h3>
+    <p>This is when you lay the groundwork. Decisions made now save you serious time and energy later.</p>
+    
+    <p><strong>Book your movers early.</strong> If you are planning to hire a <a href='${BASE_URL}/services/residential-movers'>Residential moving service</a>, lock in your date as soon as possible — especially for summer and long weekends when availability fills up fast in Calgary.</p>
+    <p><strong>Confirm your move-in and move-out dates.</strong> Get exact times in writing with your landlord or real estate agent.</p>
+    <p><strong>Start decluttering room by room.</strong> Donate, sell, or toss anything you haven't used in a year. Lower numbers mean less to pack and a lower moving cost.</p>
+    <p><strong>Order packing supplies.</strong> Boxes, tape, bubble wrap, markers, and labels. Over-order — you will use them.</p>
+    <p><strong>Begin packing non-essentials.</strong> Books, seasonal clothes, decor, and items you rarely use can be boxed up well in advance.</p>
+    <p><strong>Notify important parties of your address change.</strong> This includes Canada Post, your bank, CRA, employer, insurance providers, and subscriptions.</p>
+    <p><strong>Schedule utility transfers or cancellations.</strong> Utilities in Alberta, such as electricity, gas, and internet, require advance notice. Book the transfer dates now.</p>
+    <p><strong>Ensure childcare or pet care for moving day.</strong> This Arrangement makes the whole day safer and smoother for everyone.</p>
+    <p><strong>Take inventory of valuables.</strong> Document electronics, furniture, and anything fragile with photos. This protects you if anything goes wrong.</p>
+    
+    <h3>1 Week Before Moving</h3>
+    <p>You should be well into packing by now. This week is about tightening everything up.</p>
+    <p><strong>Pack all but the essentials.</strong> Leave out only what you need to function day to day for the next week.</p>
+    <p><strong>Confirm your moving booking.</strong> Call or message your <a href='${BASE_URL}'>Moving agency</a> to confirm the date, time, arrival window, and address details.</p>
+    <p><strong>Defrost your fridge and freezer.</strong> Give them at least 24 to 48 hours to fully defrost and dry out before moving day.</p>
+    <p><strong>Dispose of or donate perishable food.</strong> Use up what you can. Plan meals around what is left in the fridge and pantry.</p>
+    <p><strong>Disassemble large furniture.</strong> Bed frames, bookshelves, and wardrobe units are much easier to handle when broken down in advance.</p>
+    <p><strong>Label every box clearly.</strong> On at least two sides of the box, write the destination place with a brief description.</p>
+    <p><strong>Set aside important documents.</strong> Passports, lease agreements, mortgage papers, insurance policies, and medical records should travel with you — not in the moving truck.</p>
+    <p><strong>Measure doorways and hallways at the new place.</strong> Confirm that large furniture will actually fit before moving day.</p>
+    <p><strong>Return borrowed items and collect anything you have lent out.</strong> Now is the time to recover that camping gear, tools, or dishes you lent to a neighbor.</p>
+    
+    <h3>4 Days Before Moving</h3>
+    <p>Four days out is a good checkpoint. Things you might ask yourself: What is still unpacked? What still needs to be sorted?</p>
+    <p><strong>Pack most of your kitchen.</strong> Keep only a few plates, mugs, and utensils for the last few days. Everything else can be boxed up.</p>
+    <p><strong>Charge and back up all electronics.</strong> Phones, laptops, tablets, and external drives should all be backed up and ready to go.</p>
+    <p><strong>Confirm elevator bookings if you are in a condo or apartment.</strong> Both your current building and the new one may require advance notice to reserve a service elevator.</p>
+    <p><strong>Prepare your vehicle.</strong> If you are driving to your new place, make sure your car has a full tank and is roadworthy.</p>
+    <p><strong>Sort and pack your garage, storage unit, and basement.</strong> These areas tend to get left until last and can take longer than expected.</p>
+    <p><strong>Set aside a box of items you will need on moving day.</strong> Snacks, phone charger, keys, toilet paper, a change of clothes, and basic cleaning supplies.</p>
+    
+    <h3>2 Days Before Moving</h3>
+    <p>Almost there. This is the time to wrap things up and make sure your space is nearly ready to hand over.</p>
+    <p><strong>Finish all packing.</strong> Every room should be boxed up except for your overnight essentials.</p>
+    <p><strong>Clean out your closets, cabinets, and storage spaces.</strong> Do a walkthrough of every room, including the attic, crawl space, and storage locker if you have one.</p>
+    <p><strong>Confirm the moving truck size and number of movers.</strong> If your inventory has changed, let your moving company know so they can adjust if needed.</p>
+    <p><strong>Confirm moving day logistics with your building or neighborhood.</strong> Some Calgary condos and HOAs have specific rules about parking and move times.</p>
+    <p><strong>Prepare cash or a payment method for tips.</strong> Tipping movers is not mandatory, but it is always appreciated for a job well done.</p>
+    <p><strong>Do your last grocery shop.</strong> Stock the new place with basics so you are not scrambling the night you arrive.</p>
+    <p><strong>Disassemble and prep any remaining furniture.</strong> If you have not taken apart the dining table or bed yet, now is the time.</p>
+    
+    <h3>The Day Before Movers Arrive</h3>
+    <p>Tomorrow is the big day. Tonight is about getting everything in order, so you wake up ready.</p>
+    <p><strong>Do a final walkthrough of every room.</strong> Check inside closets, behind doors, under beds, and in drawers. People consistently forget things in these spots.</p>
+    <p><strong>Move boxes and furniture to an accessible area.</strong> Group items near the front door or hallway to make loading faster and easier for your movers.</p>
+    <p><strong>Keep valuables and irreplaceable items separate.</strong> Important documents, jewelry, medications, and fragile personal items should be packed in a bag you carry yourself.</p>
+    <p><strong>Confirm the start time with your movers again.</strong> A quick message the night before avoids any morning confusion.</p>
+    <p><strong>Charge all your devices.</strong> You will need your phone working all day. Plug in anything that needs a charge.</p>
+    <p><strong>Get a decent sleep.</strong> Moving day is physically demanding. You need to be sharp and energized. Do not stay up packing until 3 AM if you can avoid it.</p>
+    <p><strong>Prepare snacks and drinks for moving day.</strong> Have water, coffee, and easy food on hand. Your movers will appreciate it too.</p>
+    <p><strong>Set out your moving day essentials bag.</strong> Everything you need immediate access to — phone, keys, wallet, charger, medications — should be easy to grab.</p>
+    
+    <h2>Common Things People Forget Before Moving</h2>
+    <p>Even the most organized people miss a few things. Here are the ones that come up most often.</p>
+    <p><strong>Updating their address with the CRA.</strong> Your tax information, benefits, and refunds are tied to this. Do not skip it.</p>
+    <p><strong>Canceling or transferring local memberships.</strong> Gyms, libraries, recreational programs, and community associations all need a heads-up.</p>
+    <p><strong>Checking expiry dates on medications.</strong> Moving is a natural time to clean out the medicine cabinet and dispose of expired items.</p>
+    <p><strong>Notifying their child's school or daycare.</strong> If you are moving within Calgary or to a new district, this needs to be done as early as possible.</p>
+    <p><strong>Take photos before you leave.</strong> Document the condition of your old home with photos or video, especially if you are a renter. This protects your deposit.</p>
+    <p><strong>Removing wall-mounted items.</strong> TVs, mirrors, artwork, and shelving brackets get left behind more often than you think.</p>
+    <p><strong>Handling the keys and fobs.</strong> Returning all copies to your landlord, property manager, or building concierge is easy to forget in the chaos.</p>
+    <p><strong>Packing cleaning supplies last.</strong> You will want them to do a final wipe-down of the old place before you leave.</p>
+    
+    <h2>Pro Tips from Calgary Movers</h2>
+    <p>At Shiftrix, we have helped hundreds of Calgary families and individuals move across the city and across the country. Here is what we consistently see make the biggest difference.</p>
+    <p><strong>Start earlier than you think you need to.</strong> Most people underestimate how long packing takes. If two weeks is enough, plan for three. You will not regret the buffer.</p>
+    <p><strong>Pack by room, not by category.</strong> It seems logical to pack all your books together or all your kitchenware together. But packing room by room makes unpacking at the new place far more organized and efficient.</p>
+    <p><strong>Do not overpack boxes.</strong> Heavy boxes damage your back and the boxes themselves. Keep heavier items like books in smaller boxes and fill larger boxes with lighter things like linens and pillows.</p>
+    <p><strong>Label the top and sides of every box.</strong> When boxes are stacked, you can only see the top. When they are lined up against a wall, you can only see the sides. Label both.</p>
+    <p><strong>Calgary winters can complicate things.</strong> If you are planning to move between October and March, be prepared. You may need to protect floors with runners, keep pathways salted, and clear. Also, remember that it may need extra time in the schedule due to slower loading and unloading.</p>
+    <p><strong>Communicate with your movers.</strong> Let them know about fragile items, tight hallways, parking restrictions, or anything else that could affect the move. A good moving team will adapt — but only if they know what they are dealing with ahead of time.</p>
+    <p><strong>Have a plan for the first night.</strong> Pack a bag like you are staying in a hotel. Clean sheets, towels, toiletries, a phone charger, and whatever you need to get through the first night comfortably. Everything else can wait until tomorrow.</p>
+    
+    <p>For what comes now and on the next day, check out the <a href='${BASE_URL}/blog/complete-moving-day-and-after-moving-day-home-relocation-checklist'>Moving day and after moving day checklist</a> to keep the momentum going once the truck rolls.</p>
+    `,
+    faq: [
+      {
+        question: "What do I need to do before moving day?",
+        answer: "After confirming the moving day, there is a list of things to do in order: decluttering, finding and booking movers, updating your address, and systematically packing. At least a week before, confirm all logistics with your moving company."
+      },
+      {
+        question: "How early should I start packing before moving day?",
+        answer: "Ideally, start packing non-essential items four to six weeks before your move. Most people need at least two to three weeks to pack an average-sized home properly. Starting packing early not only reduces stress but also gives enough time to deal with unexpected problems."
+      },
+      {
+        question: "What should I do 4 days before moving?",
+        answer: "Four days out, focus on packing your kitchen down to essentials, confirming elevator bookings, sorting out your garage and storage areas, and preparing a moving day bag with everything you will need immediate access to."
+      },
+      {
+        question: "What should I do 2 days before the moving?",
+        answer: "Finish all packing, confirm final logistics with your moving company, conduct a thorough walkthrough of storage and closet spaces, and settle payment or tips with your movers."
+      }
+    ],
   },
 ];

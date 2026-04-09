@@ -14,20 +14,16 @@ interface DynamicCountersProps {
 
 const DynamicCounters: React.FC<DynamicCountersProps> = ({ counters }) => {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 items-center">
           {counters.map((item, index) => (
-            <div key={index} className="col-span-1 flex flex-col items-center p-6 bg-white rounded-lg shadow-sm h-full">
-              <div className="h-12 w-12 flex items-center justify-center mb-3">
+            <div key={index} className="col-span-1 flex flex-col items-center p-6 bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full space-y-2">
+              <div className="h-12 w-12 flex items-center justify-center">
                 <Image src={item.icon} alt="" width={80} height={80} className="object-contain" />
               </div>
-              <div className="text-3xl font-extrabold text-gray-900">
-                {item.counter_value}
-              </div>
-              <div className="text-sm mt-2">
-                {item.caption}
-              </div>
+              <div className="text-4xl font-bold text-gray-900">{item.counter_value}</div>
+              <p>{item.caption}</p>
             </div>
           ))}
         </div>

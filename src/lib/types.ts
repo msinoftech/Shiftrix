@@ -13,6 +13,10 @@ export interface Blog {
   keywords: string;
   metaTitle: string;
   metaDesc: string;
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export interface testimonial {

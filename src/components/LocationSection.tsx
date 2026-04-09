@@ -7,7 +7,7 @@ interface LocationSectionProps {
 const LocationSection: React.FC<LocationSectionProps> = ({ mapUrl }) => {
   return (
     <section className="relative">
-      <div className="">
+      <div className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-12 items-center">
           <div>
             <div className="relative overflow-hidden">

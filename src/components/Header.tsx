@@ -69,15 +69,15 @@ export default function Header() {
           <div className="relative flex items-center justify-between">
             {/* Logo */}
             <Link href="/" aria-label="Home" className="flex">
-              <div className="relative w-[100px] sm:w-[150px]">
-                <Image src={logo} alt="shiftrix moved with precision" width={150} height={50} className="w-full object-contain"/>
+              <div className="relative">
+                <Image src={logo} alt="shiftrix moved with precision" width={150} height={45} className="object-contain"/>
               </div>
             </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8 mx-auto">
               {NAV.map((item) => (
-                <Link key={item.href} href={item.href} aria-label={item.name} className="relative group px-1 py-2 text-md font-semibold text-gray-900 hover:text-indigo-800">
+                <Link key={item.href} href={item.href} aria-label={item.name} className="relative group font-medium text-gray-900 hover:text-indigo-800">
                   {item.name}
                   <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-br from-indigo-800 to-indigo-500 transition-all duration-300 group-hover:w-full" />
                 </Link>
@@ -86,11 +86,11 @@ export default function Header() {
 
             {/* CTA + Mobile Toggle */}
             <div className="flex items-center gap-3">
-              <a href={phoneHref} role="button" aria-label="Schedule a Call" className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-md bg-gradient-to-br from-indigo-800 to-indigo-500 text-white hover-shadow-md">Schedule a Call
+              <Link href={phoneHref} role="button" aria-label="Schedule a Call" className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-md bg-gradient-to-br from-indigo-800 to-indigo-500 text-white hover-shadow-md">Schedule a Call
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12h14M12 5l7 7-7 7" stroke="rgba(255,255,255, 1)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
+              </Link>
 
               {/* Mobile Toggle */}
               <button onClick={() => setOpen(!open)} className="md:hidden inline-flex items-center cursor-pointer justify-center rounded-md text-indigo-800" aria-label="Toggle menu">
@@ -105,7 +105,7 @@ export default function Header() {
                 )}
               </button>
 
-              <a href={phoneHref} role="button" aria-label="Schedule a Call" className="md:hidden inline-flex items-center justify-center px-3 py-2 rounded-md bg-gradient-to-br from-indigo-800 to-indigo-500 text-white text-sm font-medium shadow">Schedule a Call</a>
+              <Link href={phoneHref} role="button" aria-label="Schedule a Call" className="md:hidden inline-flex items-center justify-center px-3 py-2 rounded-md bg-gradient-to-br from-indigo-800 to-indigo-500 text-white text-sm font-medium shadow">Schedule a Call</Link>
             </div>
           </div>
         </div>
