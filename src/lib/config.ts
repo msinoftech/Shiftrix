@@ -1,6 +1,7 @@
 export const APP_NAME = "Shiftrix";
 export const BASE_URL = "https://www.shiftrix.ca";
 
+
 export const contactInfo = {
   logo: "/shiftrix-logo.png",
   phone: "+1 4039215240",

@@ -109,7 +109,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-gray-300 py-4">
           <div className="relative">
-            <p>2025 © all reserved to{" "}<Link className="text-indigo-700" href="https://miraculoussoft.com" aria-label="Miraculoussoft Solution" target="_blank" rel="noopener noreferrer">Miraculoussoft Solution</Link>.
+            <p>2025 © all reserved to{" "}<Link className="text-indigo-700 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-indigo-500" href="https://miraculoussoft.com" aria-label="Miraculoussoft Solution" target="_blank" rel="noopener noreferrer">Miraculoussoft Solution</Link>.
             </p>
           </div>
         </div>
