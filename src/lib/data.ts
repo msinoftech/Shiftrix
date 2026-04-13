@@ -156,7 +156,7 @@ export const blogs: Blog[] = [
   },
   {
     id: 4,
-    title: "The Complete Every Calgary Homeowner Needs",
+    title: "Title: A Complete Before Moving Day Checklist | Shiftrix Calgary Movers",
     slug: "before-moving-day-checklist",
     category: "",
     excerpt: "Moving soon to Calgary? Use this complete before moving day checklist to stay organized, stress-free, and fully prepared — from 4 weeks out to the night before.",
