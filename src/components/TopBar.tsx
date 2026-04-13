@@ -10,24 +10,26 @@ export default function Topbar() {
 
   return (
       <div className="text-white bg-gradient-to-br from-indigo-800 to-indigo-500">
-        <div className="max-w-7xl mx-auto px-4 py-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="max-w-7xl mx-auto px-4 py-2">
           {/* Left side - Phone & Email */}
-          <div className="col-span-2 sm:col-span-1 lg:col-span-2 flex flex-row justify-between items-center sm:items-start sm:justify-start gap-2">
-            <Link href={phoneHref} aria-label="Phone Number" className="flex items-center gap-1 justify-center sm:justify-start">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
+              <Link href={phoneHref} aria-label="Phone Number" className="inline-flex items-center gap-1 justify-center sm:justify-start">
               <svg width="19px" height="19px" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg"><g strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.5562 12.9062L16.1007 13.359C16.1007 13.359 15.0181 14.4355 12.0631 11.4972C9.10812 8.55901 10.1907 7.48257 10.1907 7.48257L10.4775 7.19738C11.1841 6.49484 11.2507 5.36691 10.6342 4.54348L9.37326 2.85908C8.61028 1.83992 7.13596 1.70529 6.26145 2.57483L4.69185 4.13552C4.25823 4.56668 3.96765 5.12559 4.00289 5.74561C4.09304 7.33182 4.81071 10.7447 8.81536 14.7266C13.0621 18.9492 17.0468 19.117 18.6763 18.9651C19.1917 18.9171 19.6399 18.6546 20.0011 18.2954L21.4217 16.883C22.3806 15.9295 22.1102 14.2949 20.8833 13.628L18.9728 12.5894C18.1672 12.1515 17.1858 12.2801 16.5562 12.9062Z" fill="#ffffff"></path> </g></svg>
               <span>{phone}</span>
-            </Link>
-            <Link href={emailHref} aria-label="Email Address" className="flex items-center gap-1 justify-center sm:justify-start">
+              </Link>
+              <Link href={emailHref} aria-label="Email Address" className="inline-flex items-center gap-1 justify-center sm:justify-start">
               <svg width="22px" height="22px" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg"><g strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clipRule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="#ffffff"></path> </g></svg>
               <span>{email}</span>
-            </Link>
-          </div>
+              </Link>
+            </div>
 
-          {/* Right side - Social Icons */}
-          <div className="flex items-center justify-center sm:justify-end gap-3 mt-2 sm:mt-0">
-            {socialLinks.map((item, i) => (
-              <a key={i} href={item.link} target="_blank" rel="noopener noreferrer" aria-label={item.ariaLabel} className="text-white" dangerouslySetInnerHTML={{ __html: item.icon }}/>
-            ))}
+            {/* Right side - Social Icons */}
+            <div className="flex items-center justify-center sm:justify-end gap-3 mt-1 sm:mt-0">
+              {socialLinks.map((item, i) => (
+                <a key={i} href={item.link} target="_blank" rel="noopener noreferrer" aria-label={item.ariaLabel} className="text-white" dangerouslySetInnerHTML={{ __html: item.icon }}/>
+              ))}
+            </div>
           </div>
         </div>
       </div>
