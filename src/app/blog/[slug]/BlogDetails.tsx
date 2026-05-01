@@ -27,13 +27,7 @@ export default function BlogDetails({ post, blogs }: BlogDetailsProps) {
                 <div className="mt-10">
                   <h2 className="text-2xl font-bold text-neutral-900 mb-4">Frequently Asked Questions</h2>
                   <div className="space-y-4">
-                    {faqItems.map((faq) => (
-                      <FaqSection
-                        key={faq.question}
-                        title={faq.question}
-                        content={faq.answer}
-                      />
-                    ))}
+                    <FaqSection items={faqItems.map((faq) => ({ title: faq.question, content: faq.answer }))} />
                   </div>
                 </div>
               )}
