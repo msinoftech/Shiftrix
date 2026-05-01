@@ -1,9 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { APP_NAME, BASE_URL } from "@/lib/config";
+import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+
+const { address, phone, logo } = contactInfo;
 
 export const metadata: Metadata = {
     title: `Residential Movers Calgary | Apartment, Condo & House Moves | ${APP_NAME}`,
@@ -36,16 +39,49 @@ export const metadata: Metadata = {
     },  
 };
 
+const faqItems = [
+    {
+        title: "How far in advance should I book residential movers in Calgary?",
+        content: "For a hassle-free and budget-friendly move, especially during peak season (May–September), we recommend booking your residential movers at least 2–4 weeks in advance. That said, Shiftrix welcome last-minute and same-week residential moves whenever capacity allows — call us to check availability.",
+    },
+    {
+        title: "Do you move condos with elevator restrictions in Calgary?",
+        content: "Yes — this is one of our specialties. We coordinate elevator bookings, manage lobby access, and work within your building's move-in/move-out hours. Just let us know your building's requirements when you book.",
+    },
+    {
+        title: "What is the average cost of residential moving services in Calgary?",
+        content: "Costs vary based on home size, floors, distance, and access conditions. As a guide, a 1-bedroom apartment move starts around $350–$550 locally, while a 4-bedroom house move can range from $1,400–$2,800. Shiftrix provides detailed upfront quotes — no surprises.",
+    },
+    {
+        title: "Do you offer residential relocation services outside Calgary?",
+        content: "Yes. While our residential moving services are centred in Calgary, we regularly serve surrounding communities including Airdrie, Chestermere, Cochrane, Okotoks, and Strathmore. Contact us for availability and pricing.",
+    },
+    {
+        title: "Are your movers trained to handle fragile or high-value items?",
+        content: "Absolutely. Our residential movers are trained in proper packing and handling techniques for fragile items, including artwork, mirrors, antiques, and electronics. We use protective materials throughout every residential move.",
+    },
+    {
+        title: "What neighbourhoods in Calgary do your residential movers cover?",
+        content: "We cover all Calgary neighbourhoods — including Beltline, Mission, Kensington, Inglewood, Tuscany, Evanston, Panorama Hills, Auburn Bay, Mahogany, Sage Hill, and all communities in between. We also serve Airdrie, Chestermere, and Okotoks.",
+    },
+
+];
+
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
         {
+            "@type": "WebSite",
+            "@id": `${BASE_URL}/#website`,
+            "url": `${BASE_URL}`,
+            "name": `${APP_NAME}`
+        },
+        {
         "@type": "WebPage",
-        "@id": `${BASE_URL}/services/residential-movers#webpage`,
+        "@id": `${BASE_URL}/services/residential-movers/#webpage`,
         "url": `${BASE_URL}/services/residential-movers`,
         "name": `Residential Movers Calgary | Apartment, Condo & House Moves | ${APP_NAME}`,
         "description": "Need trusted residential movers in Calgary? Shiftrix handles condo, apartment, and house relocations across Beltline, Kensington, Tuscany, Airdrie & every Calgary neighbourhood. Get your free quote today.",
-        "keywords": "residential movers in Calgary, trusted residential moving services in Calgary for smooth relocation, residential relocation services Calgary",
         "isPartOf": {
             "@id": `${BASE_URL}/#website`
         },
@@ -53,15 +89,12 @@ const schemaData = {
             "@id": `${BASE_URL}/#organization`
         },
         "breadcrumb": {
-            "@id": `${BASE_URL}/services/residential-movers#breadcrumb`
+            "@id": `${BASE_URL}/services/residential-movers/#breadcrumb`
         },
-        "mainEntity": {
-            "@id": `${BASE_URL}/services/residential-movers#faq`
-        }
         },
         {
         "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/residential-movers#breadcrumb`,
+        "@id": `${BASE_URL}/services/residential-movers/#breadcrumb`,
         "itemListElement": [
             {
             "@type": "ListItem",
@@ -84,58 +117,40 @@ const schemaData = {
         ]
         },
         {
+            "@type": "Service",
+            "serviceType": "Residential Moving Service",
+            "provider": {
+                "@type": "MovingCompany",
+                "name": `${APP_NAME}`,
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": `${address}`,
+                    "addressLocality": "Chestermere",
+                    "addressRegion": "AB",
+                    "addressCountry": "CA"
+                },
+                "telephone": `${phone}`,
+                "areaServed": "Calgary, AB",
+                "logo": `${logo}`
+            },
+            "name": `Residential Movers Calgary | Apartment, Condo & House Moves | ${APP_NAME}`,
+            "description": "Need trusted residential movers in Calgary? Shiftrix handles condo, apartment, and house relocations across Beltline, Kensington, Tuscany, Airdrie & every Calgary neighbourhood. Get your free quote today.",
+            "areaServed": {
+                "@type": "City",
+                "name": "Calgary"
+            }
+        },
+        {
             "@type": "FAQPage",
-            "@id": `${BASE_URL}/services/residential-movers#faq`,
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How far in advance should I book residential movers in Calgary?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "For a hassle-free and budget-friendly move, especially during peak season (May–September), we recommend booking your residential movers at least 2–4 weeks in advance. That said, Shiftrix welcomes last-minute and same-week residential moves whenever capacity allows — call us to check availability."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you move condos with elevator restrictions in Calgary?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes — this is one of our specialties. We coordinate elevator bookings, manage lobby access, and work within your building's move-in and move-out hours. Just let us know your building's requirements when you book."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is the average cost of residential moving services in Calgary?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Costs vary based on home size, floors, distance, and access conditions. As a guide, a 1-bedroom apartment move starts around $350–$550 locally, while a 4-bedroom house move can range from $1,400–$2,800. Shiftrix provides detailed upfront quotes with no surprises."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you offer residential relocation services outside Calgary?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. While our residential moving services are centred in Calgary, we regularly serve surrounding communities including Airdrie, Chestermere, Cochrane, Okotoks, and Strathmore. Contact us for availability and pricing."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Are your movers trained to handle fragile or high-value items?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Absolutely. Our residential movers are trained in proper packing and handling techniques for fragile items, including artwork, mirrors, antiques, and electronics. We use protective materials throughout every residential move."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What neighbourhoods in Calgary do your residential movers cover?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We cover all Calgary neighbourhoods including Beltline, Mission, Kensington, Inglewood, Tuscany, Evanston, Panorama Hills, Auburn Bay, Mahogany, Sage Hill, and more. We also serve nearby areas such as Airdrie, Chestermere, and Okotoks."
-                }
+            "@id": `${BASE_URL}/services/residential-movers/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.title,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.content
               }
-            ]
+            }))
         }
     ]
 };
@@ -148,17 +163,18 @@ export default function ResidentialMoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Residential Movers</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">Calgary's Trusted Moving Partner For Residential Relocation</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative">
                     <Image src="/condo-movers.jpg" alt="residential movers in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
                 <div className="space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">Calgary's Trusted Residential Movers</h2>
                     <p className="font-bold"><i>Your Home Deserves More Than Just a Moving Truck</i></p>
                     <p>Apartment, Condo & House Relocations — Handled with Care, Every Single Time. Moving is one of the most significant events in a person's life — and we treat it that way. At Shiftrix, our residential movers in Calgary understand that behind every box is a memory, and behind every doorstep is a fresh beginning.</p>
                     <p>Whether you're leaving a downtown condo in Beltline, upgrading to a family home in Tuscany, or relocating within the same block in Kensington — our residential relocation services are built around you. Not around a clipboard. Not around a cookie-cutter process.</p>
                     <p>We show up prepared, we work efficiently, and we leave you feeling settled. That's the Shiftrix promise.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -178,7 +194,7 @@ export default function ResidentialMoversPage() {
                     <ul className="list-disc list-inside">
                         <li>Elevator booking coordination</li>
                         <li>Lobby & corridor protection</li>
-                        <li>Pre-move Parking permission</li>
+                        <li>Pre-move parking permission</li>
                         <li>Lift scheduling</li>
                     </ul>
                 </div>
@@ -189,7 +205,7 @@ export default function ResidentialMoversPage() {
                     <p>Calgary's growing townhouse communities, inside and out.</p>
                     <ul className="list-disc list-inside">
                         <li>Narrow staircase expertise</li>
-                        <li>Balcony & patio item Protection</li>
+                        <li>Balcony & patio item protection</li>
                         <li>Move-day rule compliance</li>
                     </ul>
                 </div>
@@ -341,30 +357,7 @@ export default function ResidentialMoversPage() {
             </div>
 
             <div className="space-y-3">
-                <FaqSection
-                title="How far in advance should I book residential movers in Calgary?"
-                content={`For a hassle-free and budget-friendly move, especially during peak season (May–September), we recommend booking your residential movers at least 2–4 weeks in advance. That said, Shiftrix welcome last-minute and same-week residential moves whenever capacity allows — call us to check availability.`}
-                />
-                <FaqSection
-                title="Do you move condos with elevator restrictions in Calgary?"
-                content={`Yes — this is one of our specialties. We coordinate elevator bookings, manage lobby access, and work within your building's move-in/move-out hours. Just let us know your building's requirements when you book.`}
-                />
-                <FaqSection
-                title="What is the average cost of residential moving services in Calgary?"
-                content={`Costs vary based on home size, floors, distance, and access conditions. As a guide, a 1-bedroom apartment move starts around $350–$550 locally, while a 4-bedroom house move can range from $1,400–$2,800. Shiftrix provides detailed upfront quotes — no surprises.`}
-                />
-                <FaqSection
-                title="Do you offer residential relocation services outside Calgary?"
-                content={`Yes. While our residential moving services are centred in Calgary, we regularly serve surrounding communities including Airdrie, Chestermere, Cochrane, Okotoks, and Strathmore. Contact us for availability and pricing.`}
-                />
-                <FaqSection
-                title="Are your movers trained to handle fragile or high-value items?"
-                content={`Absolutely. Our residential movers are trained in proper packing and handling techniques for fragile items, including artwork, mirrors, antiques, and electronics. We use protective materials throughout every residential move.`}
-                />
-                <FaqSection
-                title="What neighbourhoods in Calgary do your residential movers cover?"
-                content={`We cover all Calgary neighbourhoods — including Beltline, Mission, Kensington, Inglewood, Tuscany, Evanston, Panorama Hills, Auburn Bay, Mahogany, Sage Hill, and all communities in between. We also serve Airdrie, Chestermere, and Okotoks.`}
-                />
+                <FaqSection items={faqItems} />
             </div>
         </div>
     </section>

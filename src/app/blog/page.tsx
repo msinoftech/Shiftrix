@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { APP_NAME, BASE_URL } from "@/lib/config";
 import BlogClient from "@/app/blog/BlogClient";
+import { contactInfo } from "@/lib/config";
+const { logo } = contactInfo;
 
 // Static metadata (server-only)
 export const metadata: Metadata = {
@@ -55,7 +57,6 @@ const blogSchemaData = {
         "query-input": "required name=search_term_string"
       }
     },
-
     {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
@@ -63,7 +64,7 @@ const blogSchemaData = {
       "url": `${BASE_URL}`,
       "logo": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/shiftrix-logo-black.png`,
+        "url": `${logo}`,
         "width": 512,
         "height": 512
       },
@@ -74,7 +75,6 @@ const blogSchemaData = {
         "https://www.youtube.com/@infoShiftrix"
       ]
     },
-
     {
       "@type": "WebPage",
       "@id": `${BASE_URL}/blog/#webpage`,
@@ -92,7 +92,6 @@ const blogSchemaData = {
       },
       "inLanguage": "en-CA"
     },
-
     {
       "@type": "BreadcrumbList",
       "@id": `${BASE_URL}/blog/#breadcrumb`,
@@ -111,7 +110,6 @@ const blogSchemaData = {
         }
       ]
     },
-
     {
       "@type": "Blog",
       "@id": `${BASE_URL}/blog/#blog`,
@@ -127,7 +125,6 @@ const blogSchemaData = {
     }
   ]
 };
-
 
 export default function BlogPage() {
   return <>

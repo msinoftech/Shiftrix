@@ -1,9 +1,12 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { APP_NAME, BASE_URL } from "@/lib/config";
+import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+import Link from "next/link";
+
+const { logo } = contactInfo;
 
 export const metadata: Metadata = {
     title: "Long-distance Movers and Packers On A Budget",
@@ -33,9 +36,19 @@ export const metadata: Metadata = {
       title: "Long-distance Movers and Packers On A Budget",
       description: "At Shiftrix, you will find what you are looking for in long-distance movers, whether you are a professional, a family, or a business, with packing, loading, and transport for even small loads.",
       images: [`${BASE_URL}/long-distance-movers.jpg`],
+    },    
+};
+
+const faqItems = [
+    {
+        title: "Approximately how much does it cost to book a long-distance mover?",
+        content: "The average cost for long-distance moves (100 kilometres) in Calgary is $4,000-$5,500, depending on distance, weight, services provided, and any additional fees. Local, small moves can cost as little as $400 in, while long, significant moves can cost over $ 5,000.",
     },
-    
-  };
+    {
+        title: "How to move household items hassle-free across Canada?",
+        content: "Apart from creating a simple checklist for decluttering and packing, and setting key deadlines, such as utility changes and address updates, you should look for a trusted long-distance moving service, as professional movers use secure packing methods, organised inventories, and confirmed schedules to move your belongings safely and on time anywhere in Canada.",
+    },
+];
 
 const schemaData = {
     "@context": "https://schema.org",
@@ -51,7 +64,7 @@ const schemaData = {
             "@id": `${BASE_URL}/services/long-distance-movers/#webpage`,
             "url": `${BASE_URL}/services/long-distance-movers`,
             "name": "Long-distance Movers and Packers On A Budget",
-            "isPartOf": {"@id": `${BASE_URL}/services/long-distance-movers/#website`},
+            "isPartOf": { "@id": `${BASE_URL}/#website` },
             "description": "At Shiftrix, you will find what you are looking for in long-distance movers, whether you are a professional, a family, or a business, with packing, loading, and transport for even small loads.",
             "inLanguage": "en-CA",
             "breadcrumb": {"@id": `${BASE_URL}/services/long-distance-movers/#breadcrumb`}
@@ -75,11 +88,12 @@ const schemaData = {
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "long distance movers"
+                "name": "long distance movers",
+                "item": `${BASE_URL}/services/long-distance-movers`
             }
           ]
-      },
-      {
+        },
+        {
           "@type": "Service",
           "serviceType": "Long Distance Movers",
           "name": "Long-distance Movers and Packers On A Budget",
@@ -89,7 +103,7 @@ const schemaData = {
           "@type": "MovingCompany",
           "name": `${APP_NAME}`,
           "url": `${BASE_URL}/services/long-distance-movers`,
-          "logo": `${BASE_URL}/shiftrix-logo.png`
+          "logo": `${logo}`
           },
           "areaServed": [
           {"@type": "City", "name": "Calgary"},
@@ -103,7 +117,19 @@ const schemaData = {
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Warehouse Moving"}}
           ]
           }
-      }
+        },
+        {
+            "@type": "FAQPage",
+            "@id": `${BASE_URL}/services/long-distance-movers/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.title,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.content
+              }
+            }))
+        }
     ]
 };
 
@@ -115,7 +141,7 @@ export default function LongDistanceMoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Long Distance Movers</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">Long-distance Movers and Packers On A Budget</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* left Image */}
                 <div className="flex-1">
@@ -123,8 +149,9 @@ export default function LongDistanceMoversPage() {
                 </div>
                 {/* right Content */}
                 <div className="flex-1 space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">Long-distance Movers and Packers On A Budget</h2>
                     <p>Shiftrix provides affordable long-distance moving services for everyone who needs value without sacrificing quality. We handle your packing with care, load your belongings securely, and transport them safely anywhere in Canada at a price you can afford. Whether you need to move your entire home or just a few important things, our team works to make your move smooth and stress-free.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -253,14 +280,7 @@ export default function LongDistanceMoversPage() {
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
-                <FaqSection
-                title="Approximately how much does it cost to book a long-distance mover?"
-                content={`The average cost for long-distance moves (100 kilometres) in Calgary is $4,000-$5,500, depending on distance, weight, services provided, and any additional fees. Local, small moves can cost as little as $400 in, while long, significant moves can cost over $ 5,000.`}
-                />
-                <FaqSection
-                title="How to move household items hassle-free across Canada?"
-                content={`Apart from creating a simple checklist for decluttering and packing, and setting key deadlines, such as utility changes and address updates, you should look for a trusted long-distance moving service, as professional movers use secure packing methods, organised inventories, and confirmed schedules to move your belongings safely and on time anywhere in Canada.`}
-                />
+                <FaqSection items={faqItems} />
             </div>
         </div>
     </section>

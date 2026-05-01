@@ -1,9 +1,10 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { APP_NAME, BASE_URL } from "@/lib/config";
+import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: `Full Service Moving Company in Calgary | ${APP_NAME}`,
@@ -37,16 +38,40 @@ export const metadata: Metadata = {
     
 };
 
+const faqItems = [
+    {
+        title: "What does a full-service moving company actually do?",
+        content: "A full-service moving company manages the entire relocation process on your behalf — including packing, loading, transportation, unloading, and unpacking. You are not required to handle any part of the move yourself.",
+    },
+    {
+        title: "Is Shiftrix a full-service moving company in Calgary?",
+        content: "Yes. Shiftrix provides full-service moving in Calgary and the surrounding areas. Whether you are relocating to a single-bedroom apartment, a large family home, or a corporate space, we deliver end-to-end moving solutions customised to your needs.",
+    },
+    {
+        title: "Is hiring a full-service packing and moving company worth it?",
+        content: "Absolutely. When you factor in the time, physical effort, risk of damage, and cost of sourcing your own materials, engaging a full-service packing and moving company typically delivers better value and a significantly smoother experience — particularly for large or complex moves.",
+    },
+    {
+        title: "How far in advance should I book a full-service moving solution?",
+        content: "At least two to four weeks in advance, especially during peak moving seasons (spring and summer).  A grace period for planning and preparation always leads to a smoother move, and it is also budget-friendly. However, we accommodate last-minute requests whenever possible.",
+    },
+];
+
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
         {
+            "@type": "WebSite",
+            "@id": `${BASE_URL}/#website`,
+            "name": `${APP_NAME}`,
+            "url": `${BASE_URL}`,
+        },
+        {
         "@type": "WebPage",
-        "@id": `${BASE_URL}/services/full-service-movers#webpage`,
+        "@id": `${BASE_URL}/services/full-service-movers/#webpage`,
         "url": `${BASE_URL}/services/full-service-movers`,
         "name": `Full Service Moving Company in Calgary | ${APP_NAME}`,
         "description": "Shiftrix is one of the best full-service moving companies in Calgary. We handle packing, loading, transport, and unpacking — so you don't have to. Get a free quote today.",
-        "keywords": "full-service packing and moving company, Full Service Moving Company in Calgary, full-service moving and packing service in Calgary, best full-service moving companies, full-service moving and packing service in Calgary",
         "isPartOf": {
             "@id": `${BASE_URL}/#website`
         },
@@ -54,15 +79,15 @@ const schemaData = {
             "@id": `${BASE_URL}/#organization`
         },
         "breadcrumb": {
-            "@id": `${BASE_URL}/services/full-service-movers#breadcrumb`
+            "@id": `${BASE_URL}/services/full-service-movers/#breadcrumb`
         },
         "mainEntity": {
-            "@id": `${BASE_URL}/services/full-service-movers#faq`
+            "@id": `${BASE_URL}/services/full-service-movers/#faq`
         }
         },
         {
         "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/full-service-movers#breadcrumb`,
+        "@id": `${BASE_URL}/services/full-service-movers/#breadcrumb`,
         "itemListElement": [
             {
             "@type": "ListItem",
@@ -85,42 +110,16 @@ const schemaData = {
         ]
         },
         {
-        "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/full-service-movers#faq`,
-        "mainEntity": [
-            {
-            "@type": "Question",
-            "name": "What does a full-service moving company actually do?",
-            "acceptedAnswer": {
+            "@type": "FAQPage",
+            "@id": `${BASE_URL}/services/full-service-movers/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.title,
+              "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A full-service moving company manages the entire relocation process, including packing, loading, transportation, unloading, and unpacking. This allows customers to move without handling the physical and logistical challenges themselves."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "Is hiring a full-service packing and moving company worth it?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Absolutely. When you factor in the time, physical effort, risk of damage, and cost of sourcing your own materials, engaging a full-service packing and moving company typically delivers better value and a significantly smoother experience — particularly for large or complex moves."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "Is Shiftrix a full-service moving company in Calgary?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Shiftrix provides full-service moving in Calgary and the surrounding areas. Whether you are relocating to a single-bedroom apartment, a large family home, or a corporate space, we deliver end-to-end moving solutions customised to your needs."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "How far in advance should I book a full-service moving solution?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "It is recommended to book at least two to four weeks in advance, especially during peak moving seasons (spring and summer). Planning ahead ensures better availability and a smoother moving experience, although last-minute bookings may still be accommodated depending on availability."
-            }
-            }
-        ]
+                "text": item.content
+              }
+            }))
         }
     ]
 };
@@ -133,16 +132,17 @@ export default function FullServiceMoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Full Service Moving Solution</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">Full Service Moving Company in Calgary</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="flex-1">
                     <Image src="/full-service-mover.jpg" alt="full-service packing and moving company" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
                 </div>
                 <div className="flex-1 space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">Full Service Moving Company in Calgary</h2>
                     <p><strong><i>Complete, End-to-End Moving — All Under One Roof</i></strong></p>
                     <p>When it comes to relocating your home or office, nothing beats the convenience of a true full-service moving experience. At Shiftrix, we take complete ownership of your move — from carefully packing every item to delivering and setting it up at your new location. Whether you're moving a single room or an entire property, our team delivers a seamless, stress-free relocation tailored precisely to your needs in Calgary and the surrounding areas.</p>
                     <p>As one of the leading full-service moving companies in Calgary, Shiftrix combines trained professionals, premium packing materials, and reliable transport to ensure your belongings arrive safely and on schedule — every time.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -347,22 +347,7 @@ export default function FullServiceMoversPage() {
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
-                <FaqSection
-                title="What does a full-service moving company actually do?"
-                content={`A full-service moving company manages the entire relocation process on your behalf — including packing, loading, transportation, unloading, and unpacking. You are not required to handle any part of the move yourself.`}
-                />
-                <FaqSection
-                title="Is Shiftrix a full-service moving company in Calgary?"
-                content={`Yes. Shiftrix provides full-service moving in Calgary and the surrounding areas. Whether you are relocating to a single-bedroom apartment, a large family home, or a corporate space, we deliver end-to-end moving solutions customised to your needs.`}
-                />
-                <FaqSection
-                title="Is hiring a full-service packing and moving company worth it?"
-                content={`Absolutely. When you factor in the time, physical effort, risk of damage, and cost of sourcing your own materials, engaging a full-service packing and moving company typically delivers better value and a significantly smoother experience — particularly for large or complex moves.`}
-                />
-                <FaqSection
-                title="How far in advance should I book a full-service moving solution?"
-                content={`At least two to four weeks in advance, especially during peak moving seasons (spring and summer).  A grace period for planning and preparation always leads to a smoother move, and it is also budget-friendly. However, we accommodate last-minute requests whenever possible.`}
-                />
+                <FaqSection items={faqItems} />
             </div>
         </div>
     </section>

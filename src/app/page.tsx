@@ -15,7 +15,7 @@ import AboutSection from "@/components/AboutSection";
 import ProcessSection from "@/components/ProcessSection";
 import WhyHireSection from "@/components/whyhireSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
 import HeroLayout from "@/components/HeroLayout";
 import ServiceCard from "@/components/ServiceCard";
 
@@ -56,160 +56,106 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
 
-  const homeschemaData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://www.shiftrix.ca/#website",
-        "url": "https://www.shiftrix.ca",
-        "name": "Shiftrix",
-        "publisher": {
-          "@id": "https://www.shiftrix.ca/#organization"
+const faqItems = [
+    {
+      title: "Are moving services affordable at Shiftrix?",
+      content: "At Shiftrix, you are in direct contact with professional movers. Shiftrix is the only moving agency in Calgary that allows residents to hire an experienced crew without paying any commission or broker fee. Apart from this, our regular crew, owned transport, and logistics give us leverage for better negotiation.",
+    },
+    {
+      title: "Does Shiftrix provide the same-day moving service in Calgary?",
+      content: "Yes, our moving agency facilitates in Calgary. Only if our team and trucks are available to meet your needs, whether arising from last-minute lease changes or unexpected events. We welcome and assist every client; same-day scheduling depends on our current booking capacity and the size of your move.",
+    }
+];
+
+const homeschemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      "url": `${BASE_URL}`,
+      "name": `${APP_NAME}`,
+      "alternateName": `${APP_NAME}`,
+      "publisher": { "@id": `${BASE_URL}/#organization` }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/#webpage`,
+      "url": `${BASE_URL}`,
+      "name": `Trusted Moving Company in Calgary | ${APP_NAME}`,
+      "description": "Looking for a trusted moving company in Calgary? Shiftrix offers professional residential, commercial, and long-distance moving services. Get a free quote today.",
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
+      "about": { "@id": `${BASE_URL}/#organization` },
+      "breadcrumb": { "@id": `${BASE_URL}/#breadcrumb` }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${BASE_URL}/#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${BASE_URL}`
         }
+      ]
+    },
+    {
+      "@type": ["MovingCompany", "Organization"],
+      "@id": `${BASE_URL}/#organization`,
+      "name": `${APP_NAME}`,
+      "alternateName": `${APP_NAME}`,
+      "url": `${BASE_URL}`,
+      "logo": `${logo}`,
+      "image": `${logo}`,
+      "email": `${email}`,
+      "telephone": `${phone}`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": `${address}`,
+        "addressLocality": "Chestermere",
+        "addressRegion": "AB",
+        "postalCode": "T1X 2W1",
+        "addressCountry": "CA"
       },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.shiftrix.ca/#webpage",
-        "url": "https://www.shiftrix.ca",
-        "name": "Trusted Moving Company in Calgary | Shiftrix",
-        "description": "Looking for a trusted moving company in Calgary? Shiftrix offers professional residential, commercial, and long-distance moving services. Get a free quote today.",
-        "isPartOf": {
-          "@id": "https://www.shiftrix.ca/#website"
-        },
-        "about": {
-          "@id": "https://www.shiftrix.ca/#organization"
-        },
-        "mainEntity": {
-          "@id": "https://www.shiftrix.ca/#faq"
+      "areaServed": [
+        "Calgary", "Chestermere", "Airdrie", "Cochrane", "Okotoks", "Langdon", "Strathmore"
+      ],
+      "description": "Professional moving agency in Calgary providing customized residential and commercial moving services with 5+ years of experience.",
+      "sameAs": [
+        "https://www.facebook.com/shiftrix/",
+        "https://www.instagram.com/shiftrix_movers/",
+        "https://x.com/infoShiftrix",
+        "https://www.youtube.com/@infoShiftrix"
+      ]
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Moving Service",
+      "provider": { "@id": `${BASE_URL}/#organization` },
+      "areaServed": {
+        "@type": "City",
+        "name": "Calgary"
+      },
+      "description": "Professional, customized moving services including residential, commercial, and long-distance moves."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${BASE_URL}/#FAQPage`,
+      "mainEntity": faqItems.map((item) => ({
+        "@type": "Question",
+        "name": item.title,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.content
         }
-      },
-      {
-        "@type": [
-          "MovingCompany",
-          "LocalBusiness"
-        ],
-        "@id": "https://www.shiftrix.ca/#organization",
-        "name": "Shiftrix",
-        "url": "https://www.shiftrix.ca",
-        "logo": "https://www.shiftrix.ca/shiftrix-logo.png",
-        "image": "https://www.shiftrix.ca/shiftrix-logo.png",
-        "email": "info.shiftrix@gmail.com",
-        "telephone": "+1-403-472-9110",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "120 Dawson Wharf View",
-          "addressLocality": "Chestermere",
-          "addressRegion": "AB",
-          "postalCode": "T1X 2W1",
-          "addressCountry": "CA"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 51.0501,
-          "longitude": -113.8290
-        },
-        "areaServed": [
-          { "@type": "City", "name": "Calgary" },
-          { "@type": "City", "name": "Chestermere" },
-          { "@type": "City", "name": "Airdrie" },
-          { "@type": "City", "name": "Cochrane" },
-          { "@type": "City", "name": "Okotoks" }
-        ],
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday"
-            ],
-            "opens": "08:00",
-            "closes": "20:00"
-          }
-        ],
-        "priceRange": "$$",
-        "sameAs": [
-          "https://www.facebook.com/shiftrix/",
-          "https://www.instagram.com/shiftrix_movers/",
-          "https://x.com/infoShiftrix",
-          "https://www.youtube.com/@infoShiftrix"
-        ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "87"
-        },
-        "review": [
-          {
-            "@type": "Review",
-            "author": {
-              "@type": "Person",
-              "name": "John M"
-            },
-            "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": "5"
-            },
-            "reviewBody": "Excellent moving service in Calgary. Very professional and careful with our belongings."
-          },
-          {
-            "@type": "Review",
-            "author": {
-              "@type": "Person",
-              "name": "Sarah L"
-            },
-            "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": "5"
-            },
-            "reviewBody": "Highly recommend Shiftrix for residential moves. On-time and affordable."
-          }
-        ]
-      },
-      {
-        "@type": "Service",
-        "@id": "https://www.shiftrix.ca/#service",
-        "serviceType": "Moving Services",
-        "provider": {
-          "@id": "https://www.shiftrix.ca/#organization"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Calgary"
-        },
-        "description": "Professional, customized moving services including residential, commercial, and long-distance moves."
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.shiftrix.ca/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Are moving services affordable at Shiftrix?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Shiftrix provides affordable moving services without broker fees, ensuring direct contact with professional movers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Shiftrix offer same-day moving?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, same-day moving is available depending on team and truck availability."
-            }
-          }
-        ]
-      }
-    ]
-  };
+      }))
+    }
+  ]
+};
 
   return (
-      <>
+    <>
       {/* Add Structured Data for Home Page */}
       <Script id="homepage-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeschemaData, null, 2),}}/>
 
@@ -224,42 +170,36 @@ export default function HomePage() {
             <p>As a trusted moving agency, our team has a strong track record of 5+ years providing tailored relocation solutions in Calgary, from careful packing and secure loading to safe transportation and on-time delivery. We focus on efficiency, safety, and customer satisfaction.</p>
           </div>
 
-          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             <ServiceCard
               link={`${BASE_URL}/services/commercial-movers`}
               heading="Commercial Movers"
               content="Let us handle your office, retail, clinic, or warehouse move with unmatched attention and expertise when it's time to relocate your business."
-              button="Discover more →"
             />
             <ServiceCard
               link={`${BASE_URL}/services/residential-movers`}
               heading="Residential Movers"
               content="Moving to a new apartment, condo, or house doesn't have to be a waste of your time or out of your budget."
-              button="Discover more →"
             />
             <ServiceCard
               link={`${BASE_URL}/services/full-service-movers`}
               heading="Full-Service Movers"
               content="Whether you’re relocating a single piece of furniture, a small apartment, or a large home, Shiftrix, one of the leading full-service moving companies."
-              button="Discover more →"
             />
             <ServiceCard
               link={`${BASE_URL}/services/furniture-movers`}
               heading="Furniture Movers"
               content="At Shiftrix, we provide professional furniture moving services for both residential and commercial."
-              button="Discover more →"
             />
             <ServiceCard
               link={`${BASE_URL}/services/local-movers`}
               heading="Local Movers"
               content="Shiftrix makes local moving easy and stress-free, whether it's moving to a new home across town or relocating the office."
-              button="Discover more →"
             />
             <ServiceCard
               link={`${BASE_URL}/services/long-distance-movers`}
               heading="Long Distance Movers"
               content="At Shiftrix, you will find what you are looking for in long-distance movers, whether you are a professional, a family, or a business."
-              button="Discover more →"
             />
           </div>
 
@@ -339,14 +279,7 @@ export default function HomePage() {
             </div>
 
             <div className="space-y-3">
-              <FaqSection
-                title="Are moving services affordable at Shiftrix?"
-                content={`At Shiftrix, you are in direct contact with professional movers. Shiftrix is the only moving agency in Calgary that allows residents to hire an experienced crew without paying any commission or broker fee. Apart from this, our regular crew, owned transport, and logistics give us leverage for better negotiation.`}
-              />
-              <FaqSection
-                title="Does Shiftrix provide the same-day moving service in Calgary?"
-                content={`Yes, our moving agency facilitates in Calgary. Only if our team and trucks are available to meet your needs, whether arising from last-minute lease changes or unexpected events. We welcome and assist every client; same-day scheduling depends on our current booking capacity and the size of your move.`}
-              />
+              <FaqSection items={faqItems} />
             </div>
             
         </div>
@@ -357,6 +290,6 @@ export default function HomePage() {
         heading="What Our Clients Say"
         testimonials={testimonials}
       />
-      </>
+    </>
   );
 }

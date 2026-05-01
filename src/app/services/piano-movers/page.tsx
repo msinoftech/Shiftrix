@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { APP_NAME, BASE_URL, contactInfo  } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+import Link from "next/link";
 
-const { address, phone } = contactInfo;
+const { address, phone, logo } = contactInfo;
 
 export const metadata: Metadata = {
     title: "Piano Mover in Calgary | Grand, Upright & Baby Grand Piano Moving – Shiftrix",
@@ -38,6 +39,29 @@ export const metadata: Metadata = {
     },  
 };
 
+const faqItems = [
+    {
+        title: "How far in advance of moving day should I book a piano mover in Calgary?",
+        content: "At least 5–7 business days. Most of the buildings require a freight elevator booking or have a restricted move-in window — common in Calgary condos and apartment buildings. Earlier notice allows piano movers to coordinate that on your behalf.",
+    },
+    {
+        title: "Do I need to tune my piano after it is moved?",
+        content: "Yes — every piano should be tuned after a move. Strings shift pitch during transport due to vibration, temperature change, and humidity transition. At least wait 3 weeks from the moving day to allow the piano to acclimate to its new environment t before scheduling a tuning appointment.",
+    },
+    {
+        title: "What types of pianos does Shiftrix move in Calgary?",
+        content: "We move upright pianos, studio pianos, console pianos, baby grand pianos, parlor grand pianos, and digital pianos throughout Calgary and surrounding communities, including Chestermere, Airdrie, Cochrane, and Okotoks.",
+    },
+    {
+        title: "Is Shiftrix insured for piano moves in Calgary?",
+        content: "Yes. Every piano move includes comprehensive cargo insurance coverage. We also document the condition of your instrument with photos at pickup and delivery as a standard part of every job.",
+    },
+    {
+        title: "Will you disassemble and reassemble my grand piano?",
+        content: "Yes. Baby grand and grand piano moves require full disassembly — legs, lyre, pedal assembly, lid, and music desk are all removed, individually wrapped, and transported separately. Reassembly and level check at the destination are included in every grand piano move.",
+    },
+];
+
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -52,7 +76,7 @@ const schemaData = {
         "@id": `${BASE_URL}/services/piano-movers/#webpage`,
         "url": `${BASE_URL}/services/piano-movers`,
         "name": "Piano Mover in Calgary | Grand, Upright & Baby Grand Piano Moving – Shiftrix",
-        "isPartOf": {"@id": `${BASE_URL}/services/piano-movers/#website`},
+        "isPartOf": { "@id": `${BASE_URL}/#website` },
         "description": "Your trusted piano mover in Calgary? Shiftrix offers insured, precision piano-moving services for grand, upright, and baby grand pianos across all Calgary neighbourhoods. Transparent pricing, no surprises. Get a free quote.",
         "inLanguage": "en-CA",
         "breadcrumb": {"@id": `${BASE_URL}/services/piano-movers/#breadcrumb`}
@@ -76,7 +100,8 @@ const schemaData = {
         {
             "@type": "ListItem",
             "position": 3,
-            "name": "piano movers"
+            "name": "piano movers",
+            "item": `${BASE_URL}/services/piano-movers`
         }
         ]
     },
@@ -94,7 +119,8 @@ const schemaData = {
                 "addressCountry": "CA"
             },
             "telephone": `${phone}`,
-            "areaServed": "Calgary, AB"
+            "areaServed": "Calgary, AB",
+            "logo": `${logo}`
         },
         "name": "Piano Mover in Calgary",
         "description": "Insured, precision piano moving service for upright, baby grand, and grand pianos across all Calgary neighbourhoods.",
@@ -105,49 +131,15 @@ const schemaData = {
     },
     {
         "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/piano-movers#faq`,
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How far in advance of moving day should I book a piano mover in Calgary?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "At least 5–7 business days. Most of the buildings require a freight elevator booking or have a restricted move-in window — common in Calgary condos and apartment buildings. Earlier notice allows piano movers to coordinate that on your behalf."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need to tune my piano after it is moved?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes — every piano should be tuned after a move. Strings shift pitch during transport due to vibration, temperature change, and humidity transition. At least wait 3 weeks from the moving day to allow the piano to acclimate to its new environment t before scheduling a tuning appointment."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What types of pianos does Shiftrix move in Calgary?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We move upright pianos, studio pianos, console pianos, baby grand pianos, parlor grand pianos, and digital pianos throughout Calgary and surrounding communities, including Chestermere, Airdrie, Cochrane, and Okotoks."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Shiftrix insured for piano moves in Calgary?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Every piano move includes comprehensive insurance coverage. We also document the condition of your instrument with photos at pickup and delivery as a standard part of every job."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Will you disassemble and reassemble my grand piano?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Baby grand and grand piano moves require full disassembly — legs, lyre, pedal assembly, lid, and music desk are all removed, individually wrapped, and transported separately. Reassembly and level check at the destination are included in every grand piano move."
-            }
+        "@id": `${BASE_URL}/services/piano-movers/#faq`,
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.title,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.content
           }
-        ]
+        }))
     }
     ]
 };
@@ -159,15 +151,16 @@ export default function PianoMoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Piano Movers</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">Calgary's Piano Moving Service — Protecting What Matters Most</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative">
                     <Image src="/piano-mover-2.jpg" alt="piano moving service in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
                 <div className="space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">Calgary's Piano Moving Service — Protecting What Matters Most</h2>
                     <p>Tight condo hallways in the Beltline, century-old staircases in Kensington, steep driveways in Tuscany, and temperature swings from +12°C to -20°C in a single day pose the challenge to move a piano in Calgary, which demands more than a basic truck and a dolly.</p>
                     <p>Shiftrix is a dedicated piano moving company in Calgary that plans every move around your instrument's specific needs. We have moved pianos across NW, SW, SE, and NE Calgary — from Auburn Bay to Panorama Hills, from Mahogany to Varsity — and we bring that local experience to every single job.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -367,26 +360,7 @@ export default function PianoMoversPage() {
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
-                <FaqSection
-                title="How far in advance of moving day should I book a piano mover in Calgary?"
-                content={`At least 5–7 business days. Most of the buildings require a freight elevator booking or have a restricted move-in window — common in Calgary condos and apartment buildings. Earlier notice allows piano movers to coordinate that on your behalf.`}
-                />
-                <FaqSection
-                title="Do I need to tune my piano after it is moved?"
-                content={`Yes — every piano should be tuned after a move. Strings shift pitch during transport due to vibration, temperature change, and humidity transition. At least wait 3 weeks from the moving day to allow the piano to acclimate to its new environment t before scheduling a tuning appointment.`}
-                />
-                <FaqSection
-                title="What types of pianos does Shiftrix move in Calgary?"
-                content={`We move upright pianos, studio pianos, console pianos, baby grand pianos, parlor grand pianos, and digital pianos throughout Calgary and surrounding communities, including Chestermere, Airdrie, Cochrane, and Okotoks.`}
-                />
-                <FaqSection
-                title="Is Shiftrix insured for piano moves in Calgary?"
-                content={`Yes. Every piano move includes comprehensive cargo insurance coverage. We also document the condition of your instrument with photos at pickup and delivery as a standard part of every job.`}
-                />
-                <FaqSection
-                title="Will you disassemble and reassemble my grand piano?"
-                content={`Yes. Baby grand and grand piano moves require full disassembly — legs, lyre, pedal assembly, lid, and music desk are all removed, individually wrapped, and transported separately. Reassembly and level check at the destination are included in every grand piano move.`}
-                />
+                <FaqSection items={faqItems} />
             </div>
             
         </div>

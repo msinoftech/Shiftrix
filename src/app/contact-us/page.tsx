@@ -5,7 +5,7 @@ import ContactSection from "@/components/ContactSection";
 import ContactForm from "@/components/ContactForm";
 import LocationSection from "@/components/LocationSection";
 
-const { phone, address } = contactInfo;
+const { phone, address, logo, email } = contactInfo;
 
 export const metadata: Metadata = {
   title: `Contact Us - ${APP_NAME}`,
@@ -46,6 +46,7 @@ const contactSchemaData = {
   "@graph": [
     {
       "@type": "WebPage",
+      "@id": `${BASE_URL}/contact-us/#webpage`,
       "url": `${BASE_URL}/contact-us`,
       "name": `Contact Us - ${APP_NAME}`,
       "inLanguage": "en-CA",
@@ -58,21 +59,23 @@ const contactSchemaData = {
     },
     {
       "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
       "name": `${APP_NAME}`,
       "url": `${BASE_URL}`,
-      "logo": `${BASE_URL}/shiftrix-logo.png`,
-      "foundingDate": "2020",
+      "logo": `${logo}`,
+      "foundingDate": "2025",
       "founder": {
         "@type": "Person",
-        "name": `${APP_NAME} Team`,
+        "name": `${APP_NAME}`,
       },
       "description": "Shiftrix Mover, your trusted mover and dispatch support partner in the USA. Our dedicated dispatchers are ready to empower truck owners and fleet companies. Reach out to us today.",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": `${phone}`,
-        "contactType": "Customer Service",
+        "email": `${email}`,
+        "contactType": "Customer Support",
         "areaServed": "Canada",
-        "availableLanguage": ["en", "fr"],
+        "availableLanguage": ["en"],
       },
       "sameAs": [
         "https://www.facebook.com/shiftrix",
@@ -91,7 +94,7 @@ const contactSchemaData = {
       "@type": "ContactPage",
       "name": `Contact Us - ${APP_NAME}`,
       "url": `${BASE_URL}/contact-us`,
-      "primaryImageOfPage": `${BASE_URL}/shiftrix-mover-and-packer.jpg`,
+      "primaryImageOfPage": `${logo}`,
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [

@@ -2,9 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { APP_NAME, BASE_URL } from "@/lib/config";
+import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+
+const { logo } = contactInfo;
 
 export const metadata: Metadata = {
   title: "Professional Furniture Moving Service Calgary | Shiftrix Movers",
@@ -37,6 +39,29 @@ export const metadata: Metadata = {
   },
   
 };
+
+const faqItems = [
+    {
+        title: "How do you protect furniture during a move?",
+        content: "Every item is wrapped in thick moving blankets, secured with stretch film, and fitted with corner protectors before loading. Floors and doorframes at both locations are protected with runners and padding. Nothing goes on the truck unprotected.",
+    },
+    {
+        title: "Can you move just one or two pieces of furniture?",
+        content: "Absolutely. Shiftrix handles single-item furniture moves — a sofa, a dining table, a wardrobe — with the same professionalism as a full-home relocation. Contact us for a quick, transparent quote.",
+    },
+    {
+        title: "Who is offer in-home furniture rearrangement in Calgary?",
+        content: "Shiftrix, we provide in-home furniture rearrangement across Calgary — ideal when you're renovating, redecorating, or simply need heavy pieces moved between rooms or floors.",
+    },
+    {
+        title: "Do your furniture movers disassemble and reassemble?",
+        content: "Yes — disassembly and reassembly of beds, wardrobes, modular desks, cubicles, and sectional sofas is included as standard. We keep all hardware organised and accounted for throughout.",
+    },
+    {
+        title:"Are you able to move office furniture and commercial workstations?",
+        content: "Yes. Shiftrix provides dedicated commercial office movers and commercial relocation services for Calgary businesses of all sizes. We coordinate around your operational hours to minimise disruption.",
+    },
+];
 
 const schemaData = {
     "@context": "https://schema.org",
@@ -76,7 +101,8 @@ const schemaData = {
         {
             "@type": "ListItem",
             "position": 3,
-            "name": "furniture movers"
+            "name": "furniture movers",
+            "item": `${BASE_URL}/services/furniture-movers`
         }
         ]
     },
@@ -90,7 +116,7 @@ const schemaData = {
         "@type": "MovingCompany",
         "name": `${APP_NAME}`,
         "url": `${BASE_URL}/services/furniture-movers`,
-        "logo": `${BASE_URL}/shiftrix-logo.png`
+        "logo": `${logo}`
         },
         "areaServed": [
         {"@type": "City", "name": "Calgary"},
@@ -107,49 +133,15 @@ const schemaData = {
     },
     {
         "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/furniture-movers#faq`,
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How do you protect furniture during a move?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Every item is wrapped in thick moving blankets, secured with stretch film, and fitted with corner protectors before loading. Floors and doorframes at both locations are protected with runners and padding. Nothing goes on the truck unprotected."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can you move just one or two pieces of furniture?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Absolutely. Shiftrix handles single-item furniture moves — a sofa, a dining table, a wardrobe — with the same professionalism as a full-home relocation. Contact us for a quick, transparent quote."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Who is offer in-home furniture rearrangement in Calgary?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Shiftrix, we provide in-home furniture rearrangement across Calgary — ideal when you're renovating, redecorating, or simply need heavy pieces moved between rooms or floors."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do your furniture movers disassemble and reassemble?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes — disassembly and reassembly of beds, wardrobes, modular desks, cubicles, and sectional sofas is included as standard. We keep all hardware organised and accounted for throughout."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are you able to move office furniture and commercial workstations?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Shiftrix provides dedicated commercial office movers and commercial relocation services for Calgary businesses of all sizes. We coordinate around your operational hours to minimise disruption."
-            }
-          },
-        ]
+        "@id": `${BASE_URL}/services/furniture-movers/#faq`,
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.title,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.content
+          }
+        }))
     }
     ]
 };
@@ -163,15 +155,16 @@ export default function FurnitureMoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Furniture Movers</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">Professional Furniture Moving Service in Calgary</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="flex-1">
                     <Image src="/furniture-mover.jpg" alt="furniture moving service in calgary" width={600} height={350} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
                 <div className="flex-1 space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">Professional Furniture Moving Service in Calgary</h2>
                     <p>Moving furniture — whether a single oversized sectional or an entire office floor — demands technique, expertise, DIY, and tools over muscle power.</p>
                     <p>At Shiftrix, our professional furniture movers bring trained technique, purpose-built equipment, and genuine care to every move across Calgary, for both residential and commercial clients. Our crew members have years of experience handling every type of furniture, in all shapes, sizes, and materials. We deliver a furniture-moving service that protects what matters, respects your timeline, and eliminates stress.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -358,28 +351,8 @@ export default function FurnitureMoversPage() {
             <div className="relative text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions — Furniture Moving Service Calgary</h2>
             </div>
-
             <div className="space-y-3">
-                <FaqSection
-                title="How do you protect furniture during a move?"
-                content={`Every item is wrapped in thick moving blankets, secured with stretch film, and fitted with corner protectors before loading. Floors and doorframes at both locations are protected with runners and padding. Nothing goes on the truck unprotected.`}
-                />
-                <FaqSection
-                title="Can you move just one or two pieces of furniture?"
-                content={`Absolutely. Shiftrix handles single-item furniture moves — a sofa, a dining table, a wardrobe — with the same professionalism as a full-home relocation. Contact us for a quick, transparent quote.`}
-                />
-                <FaqSection
-                title="Who is offer in-home furniture rearrangement in Calgary?"
-                content={`Shiftrix, we provide in-home furniture rearrangement across Calgary — ideal when you're renovating, redecorating, or simply need heavy pieces moved between rooms or floors.`}
-                />
-                <FaqSection
-                title="Do your furniture movers disassemble and reassemble?"
-                content={`Yes — disassembly and reassembly of beds, wardrobes, modular desks, cubicles, and sectional sofas is included as standard. We keep all hardware organised and accounted for throughout.`}
-                />
-                <FaqSection
-                title="Are you able to move office furniture and commercial workstations?"
-                content={`Yes. Shiftrix provides dedicated commercial office movers and commercial relocation services for Calgary businesses of all sizes. We coordinate around your operational hours to minimise disruption.`}
-                />
+                <FaqSection items={faqItems} />
             </div>
         </div>
     </section>

@@ -1,9 +1,12 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import Link from "next/link";
 import Script from "next/script";
-import { APP_NAME, BASE_URL } from "@/lib/config";
+import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+
+const { logo } = contactInfo;
 
 export const metadata: Metadata = {
     title: "Office and Commercial Movers in Calgary",
@@ -36,18 +39,43 @@ export const metadata: Metadata = {
     }, 
 };
 
+const faqItems = [
+    {
+        title: "How much do commercial movers charge in Calgary?",
+        content: "Most Calgary commercial moves are priced on an hourly basis or as a fixed project rate, based on an on-site assessment. Rates vary with crew size, access requirements, and timeline. Contact us for a free, no-obligation quote.",
+    },
+    {
+        title: "How far in advance should I book a commercial move?",
+        content: "We recommend booking at least 4–6 weeks in advance for office or multi-floor moves. For warehouse and industrial relocations, 6–8 weeks allow proper logistics planning. Last-minute availability may be possible — call us to check.",
+    },
+    {
+        title: "Can you move us over the weekend to avoid disrupting staff?",
+        content: "Yes — after-hours and weekend commercial moves are one of our most-requested services. We coordinate with your building manager to secure elevator access and loading bay reservations in advance.",
+    },
+    {
+        title: "Do you handle IT equipment and server moves?",
+        content: "Our crew is trained in safe disconnection, secure packing, and careful transport of servers, workstations, and network hardware. We recommend that your IT team supervise reconnection at the destination.",
+    },
+    {
+        title: "What Calgary neighbourhoods do you serve?",
+        content: "We serve all Calgary business districts, including Downtown Core, Beltline, Bridgeland, Inglewood, Kensington, Mission, Eau Claire, Marda Loop, University District, Currie Barracks, Quarry Park, and surrounding suburban commercial zones."
+    },
+    {
+        title: "Are you insured for commercial moves?",
+        content: "Yes. Shiftrix carries full commercial liability insurance. Details are available on request before your move.",
+    },
+];
+
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
     {
-        // 1. WebSite Definition
         "@type": "WebSite",
         "@id": `${BASE_URL}/#website`,
         "url": `${BASE_URL}`,
         "name": `${APP_NAME}`
     },
     {
-        // 2. WebPage Definition for the Subpage
         "@type": "WebPage",
         "@id": `${BASE_URL}/services/commercial-movers/#webpage`,
         "url": `${BASE_URL}/services/commercial-movers`,
@@ -76,7 +104,8 @@ const schemaData = {
         {
             "@type": "ListItem",
             "position": 3,
-            "name": "commercial movers"
+            "name": "commercial movers",
+            "item": `${BASE_URL}/services/commercial-movers`
         }
         ]
     },
@@ -90,7 +119,7 @@ const schemaData = {
         "@type": "MovingCompany",
         "name": `${APP_NAME}`,
         "url": `${BASE_URL}/services/commercial-movers`,
-        "logo": `${BASE_URL}/shiftrix-logo.png`
+        "logo": `${logo}`
         },
         "areaServed": [
           {"@type": "City", "name": "Calgary"},
@@ -107,57 +136,15 @@ const schemaData = {
     },
     {
         "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/commercial-movers#faq`,
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How much do commercial movers charge in Calgary?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Most Calgary commercial moves are priced on an hourly basis or as a fixed project rate, based on an on-site assessment. Rates vary with crew size, access requirements, and timeline. Contact us for a free, no-obligation quote."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How far in advance should I book a commercial move?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We recommend booking at least 4–6 weeks in advance for office or multi-floor moves. For warehouse and industrial relocations, 6–8 weeks allow proper logistics planning. Last-minute availability may be possible — call us to check."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can you move us over the weekend to avoid disrupting staff?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes — after-hours and weekend commercial moves are one of our most-requested services. We coordinate with your building manager to secure elevator access and loading bay reservations in advance."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you handle IT equipment and server moves?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our crew is trained in safe disconnection, secure packing, and careful transport of servers, workstations, and network hardware. We recommend that your IT team supervise reconnection at the destination."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What Calgary neighbourhoods do you serve?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We serve all Calgary business districts, including Downtown Core, Beltline, Bridgeland, Inglewood, Kensington, Mission, Eau Claire, Marda Loop, University District, Currie Barracks, Quarry Park, and surrounding suburban commercial zones."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are you insured for commercial moves?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Shiftrix carries full commercial liability insurance. Details are available on request before your move."
-            }
+        "@id": `${BASE_URL}/services/commercial-movers/#faq`,
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.title,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.content
           }
-        ]
+        }))
     }
     ]
 };
@@ -170,16 +157,17 @@ export default function CommercialmoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Commercial Movers</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">Commercial Moving Services in Calgary</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex-1 relative">
                     <Image src="/trusted-commercial-moving-company.jpg" alt="Commercial Movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
                 <div className="flex-1 space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">Commercial Moving Services in Calgary</h2>
                     <p><strong>Trusted Commercial Movers for Office & Business Relocations</strong></p>
                     <p>We know what's at stake when your business moves — because we've completed over 100 commercial moves across Calgary.</p>
                     <p>At Shiftrix, we understand that a commercial move is far more than shifting desks and boxes. It is a careful transition that can define the future of your operations, your team's productivity, and your reputation with clients. That is why Calgary businesses — from marketing studios in Kensington to multi-floor corporate headquarters in the Downtown Core — trust Shiftrix to execute their commercial relocation services with precision, discretion, and zero drama. Our professional crew has more than 5 years of hands-on experience in commercial moves across Calgary, giving us an unmatched understanding of the unique challenges that business relocations present: tight building access windows, IT infrastructure sensitivities, staff communication, and the relentless pressure to get back to business fast. When you choose Shiftrix as your commercial office movers, you are choosing a team that plans every detail so you don't have to.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -346,30 +334,7 @@ export default function CommercialmoversPage() {
             </div>
 
             <div className="space-y-3">
-                <FaqSection
-                title="How much do commercial movers charge in Calgary?"
-                content={`Most Calgary commercial moves are priced on an hourly basis or as a fixed project rate, based on an on-site assessment. Rates vary with crew size, access requirements, and timeline. Contact us for a free, no-obligation quote.`}
-                />
-                <FaqSection
-                title="How far in advance should I book a commercial move?"
-                content={`We recommend booking at least 4–6 weeks in advance for office or multi-floor moves. For warehouse and industrial relocations, 6–8 weeks allow proper logistics planning. Last-minute availability may be possible — call us to check.`}
-                />
-                <FaqSection
-                title="Can you move us over the weekend to avoid disrupting staff?"
-                content={`Yes — after-hours and weekend commercial moves are one of our most-requested services. We coordinate with your building manager to secure elevator access and loading bay reservations in advance.`}
-                />
-                <FaqSection
-                title="Do you handle IT equipment and server moves?"
-                content={`Our crew is trained in safe disconnection, secure packing, and careful transport of servers, workstations, and network hardware. We recommend that your IT team supervise reconnection at the destination.`}
-                />
-                <FaqSection
-                title="What Calgary neighbourhoods do you serve?"
-                content={`We serve all Calgary business districts, including Downtown Core, Beltline, Bridgeland, Inglewood, Kensington, Mission, Eau Claire, Marda Loop, University District, Currie Barracks, Quarry Park, and surrounding suburban commercial zones.`}
-                />
-                <FaqSection
-                title="Are you insured for commercial moves?"
-                content={`Yes. Shiftrix carries full commercial liability insurance. Details are available on request before your move.`}
-                />
+                <FaqSection items={faqItems} />
             </div>
         </div>
     </section>

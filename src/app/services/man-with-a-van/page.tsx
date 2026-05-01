@@ -1,9 +1,12 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { APP_NAME, BASE_URL } from "@/lib/config";
+import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+import Link from "next/link";
+
+const { logo } = contactInfo;
 
 export const metadata: Metadata = {
     title: `Man With a Van Moving Service in Calgary | ${APP_NAME}`,
@@ -37,29 +40,37 @@ export const metadata: Metadata = {
     
 };
 
+const faqItems = [
+    {
+        title: "What is a man with a van moving service?",
+        content: "Collectively, a driver, a van, or a small truck is known as man with a van. It is typically a flexible, budget-friendly moving option for smaller jobs, such as moving a few pieces of furniture, a single room, or a small apartment. They also offer a workforce for loading and unloading on your demand.",
+    },
+    {
+        title:"Do I have to prepare for a man with a van?",
+        content: "Yes, if you hire only a driver and a loading truck. Although Man with a Van Service, like Shifrix, charges an additional fee for its workforce. Otherwise, a 2-mover and a van service is the best choice. They can manage everything, including disassembling, packing, loading, unloading, and reassembling your belongings, or assisting you with this.",
+    },
+];
+
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
     {
-        // 1. WebSite Definition
         "@type": "WebSite",
         "@id": `${BASE_URL}/#website`,
         "url": `${BASE_URL}`,
         "name": `${APP_NAME}`
     },
     {
-        // 2. WebPage Definition for the Subpage
         "@type": "WebPage",
         "@id": `${BASE_URL}/services/man-with-a-van/#webpage`,
         "url": `${BASE_URL}/services/man-with-a-van`,
         "name": `Man With a Van Moving Service in Calgary | ${APP_NAME}`,
-        "isPartOf": {"@id": `${BASE_URL}/services/man-with-a-van/#website`},
+        "isPartOf": { "@id": `${BASE_URL}/#website` },
         "description": "Need a man with a van in Calgary? Shiftrix handles single items, small loads & student studio moves — fast, affordable & always on time. Book today.",
         "inLanguage": "en-CA",
         "breadcrumb": {"@id": `${BASE_URL}/services/man-with-a-van/#breadcrumb`}
     },
     {
-        // 3. Breadcrumb List
         "@type": "BreadcrumbList",
         "@id": `${BASE_URL}/services/man-with-a-van/#breadcrumb`,
         "itemListElement": [
@@ -78,12 +89,12 @@ const schemaData = {
         {
             "@type": "ListItem",
             "position": 3,
-            "name": "man with a van"
+            "name": "man with a van",
+            "item": `${BASE_URL}/services/man-with-a-van`
         }
         ]
     },
     {
-        // 4. Specific Service Definition (Man with a van)
         "@type": "Service",
         "serviceType": "Man With A Van",
         "name": `Man With a Van Moving Service in Calgary | ${APP_NAME}`,
@@ -93,7 +104,7 @@ const schemaData = {
         "@type": "MovingCompany",
         "name": `${APP_NAME}`,
         "url": `${BASE_URL}/services/man-with-a-van`,
-        "logo": `${BASE_URL}/shiftrix-logo.png`
+        "logo": `${logo}`
         },
         "areaServed": [
           {"@type": "Place", name: "Calgary" },
@@ -111,25 +122,15 @@ const schemaData = {
     },
     {
         "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/man-with-a-van#faq`,
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is a man with a van moving service?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Collectively, a driver, a van, or a small truck is known as &apos;man with a van&apos;. It is typically a flexible, budget-friendly moving option for smaller jobs, such as moving a few pieces of furniture, a single room, or a small apartment. They also offer a workforce for loading and unloading on your demand."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I have to prepare for 'a man with a van'?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, if you hire only a driver and a loading truck. Although Man with a Van Service, like Shifrix, charges an additional fee for its workforce. Otherwise, a 2-mover and a van service is the best choice. They can manage everything, including disassembling, packing, loading, unloading, and reassembling your belongings, or assisting you with this."
-            }
-          },
-        ]
+        "@id": `${BASE_URL}/services/man-with-a-van/#faq`,
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.title,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.content
+          }
+        }))
     }
     ]
 };
@@ -142,17 +143,18 @@ export default function ManWithVanPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Man With A Van</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">Man With a Van Moving Service in Calgary</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="relative">
                     <Image src="/man-with-van-mover.jpg" alt="man with a van moving service in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
-                <div className="space-y-3">
-                    <div className="text-2xl md:text-3xl font-bold text-gray-900">Man With a Van Moving Service in Calgary</div> 
+                <div className="space-y-3"> 
                     <h2 className="text-xl md:text-2xl font-bold">When One Van Is All the Move You Need</h2>
                     <p>Calgary is always moving. But sometimes people don't need a full-scale operation and shouldn't have to pay for one, such as upgrading the space and passing heirlooms from one home to another.</p>
                     <p>For that, Shiftrix's man with a van moving service in Calgary is special for these moments. We come, we handle your items with care, and we get the job done — cleanly, quickly, and without the overhead of a large crew you don't need.</p>
                     <p>Whether you're moving a single sectional sofa, hauling a heavy dining table across the city, or setting up your very first studio space, our man and van moving service in Calgary gives you the exact level of support your situation calls for — nothing more, nothing less.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -315,14 +317,7 @@ export default function ManWithVanPage() {
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
-                <FaqSection
-                title="What is a man with a van moving service?"
-                content={`Collectively, a driver, a van, or a small truck is known as "man with a van". It is typically a flexible, budget-friendly moving option for smaller jobs, such as moving a few pieces of furniture, a single room, or a small apartment. They also offer a workforce for loading and unloading on your demand.`}
-                />
-                <FaqSection
-                title="Do I have to prepare for &apos;a man with a van&apos;?"
-                content={`Yes, if you hire only a driver and a loading truck. Although Man with a Van Service, like Shifrix, charges an additional fee for its workforce. Otherwise, a 2-mover and a van service is the best choice. They can manage everything, including disassembling, packing, loading, unloading, and reassembling your belongings, or assisting you with this.`}
-                />
+                <FaqSection items={faqItems} />
             </div>           
         </div>
     </section>

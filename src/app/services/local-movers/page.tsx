@@ -1,9 +1,11 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import Link from "next/link";
 import Script from "next/script";
 import { APP_NAME, BASE_URL } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+
 
 export const metadata: Metadata = {
   title: `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
@@ -37,16 +39,40 @@ export const metadata: Metadata = {
   
 };
 
+const faqItems = [
+    {
+        title: "What does being a local mover mean?",
+        content: "Those professional movers who are familiar with the local route, traffic hours, and local rules. Local movers can save a lot of time by avoiding traffic jams, getting permission from local authorities, or taking a shorter route. Also, they can quickly arrange support, such as extra crew for loading or unloading, packing supplies, etc. They are an ideal choice for moving locally to a nearby city or within the city.",
+    },
+    {
+        title: "How much does it cost to hire local movers per hour?",
+        content: "In Calgary, the starting price of hiring a local mover is around $120 per hour for a standard 2-mover crew with a truck. It can vary depending on the region, location, scheduling time (likely higher on the weekend), and included services (deassemble, loading, unloading, reassemble, etc.), but all is negotiable.",
+    },
+    {
+        title: "How much experience does Shiftrix have in providing local moving services in Calgary?",
+        content: "With almost 5 years of hands-on experience serving Calgary residents, we are now providing a full-package local moving service with an experienced crew and secure transport, including deassembly, packing, loading, and unloading, etc., for home and office relocation.",
+    },
+    {
+        title: "Can you actually trust local movers in Calgary?",
+        content: "Yes, Shiftrix is one of those who has established a strong reputation among Calgary residents for delivering high-quality local moving services. Over the past five years, we have successfully relocated more than 1,000 clients, many of whom came to us through referrals, recommendations, and trusted relationships.",
+    },
+];
+
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": `${BASE_URL}/#website`,
+            "name": `${APP_NAME}`,
+            "url": `${BASE_URL}`,
+        },
         {
         "@type": "WebPage",
         "@id": `${BASE_URL}/services/local-movers/#webpage`,
         "url": `${BASE_URL}/services/local-movers`,
         "name": `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
         "description": "Searching for reliable local movers in Calgary? Shiftrix provides professional, customized local moving services with 5+ years of experience in Calgary, Chestermere, and surrounding areas.",
-        "keywords": "Same-Day local moving Service in calgary, Trusted Local Movers in calgary, Affordable calgary local mover",
         "isPartOf": {
             "@id": `${BASE_URL}/#website`
         },
@@ -56,9 +82,6 @@ const schemaData = {
         "breadcrumb": {
             "@id": `${BASE_URL}/services/local-movers/#breadcrumb`
         },
-        "mainEntity": {
-            "@id": `${BASE_URL}/services/local-movers/#faq`
-        }
         },
         {
         "@type": "BreadcrumbList",
@@ -85,42 +108,16 @@ const schemaData = {
         ]
         },
         {
-        "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/local-movers/#faq`,
-        "mainEntity": [
-            {
-            "@type": "Question",
-            "name": "What does being a local mover mean?",
-            "acceptedAnswer": {
+            "@type": "FAQPage",
+            "@id": `${BASE_URL}/services/local-movers/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.title,
+              "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Those professional movers who are familiar with the local route, traffic hours, and local rules. Local movers can save a lot of time by avoiding traffic jams, getting permission from local authorities, or taking a shorter route. Also, they can quickly arrange support, such as extra crew for loading or unloading, packing supplies, etc. They are an ideal choice for moving locally to a nearby city or within the city."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "How much does it cost to hire local movers per hour?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "In Calgary, the starting price of hiring a local mover is around $120 per hour for a standard 2-mover crew with a truck. It can vary depending on the region, location, scheduling time (likely higher on the weekend), and included services (de-assemble, loading, unloading, reassemble, etc.), but all is negotiable."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "How much experience does Shiftrix have in providing local moving services in Calgary?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "With almost 5 years of hands-on experience serving Calgary residents, we are now providing a full-package local moving service with an experienced crew and secure transport, including deassembly, packing, loading, and unloading, etc., for home and office relocation."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "Can you actually trust local movers in Calgary?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, Shiftrix is one of those who has established a strong reputation among Calgary residents for delivering high-quality local moving services. Over the past five years, we have successfully relocated more than 1,000 clients, many of whom came to us through referrals, recommendations, and trusted relationships."
-            }
-            }
-        ]
+                "text": item.content
+              }
+            }))
         }
     ]
 };
@@ -133,7 +130,7 @@ export default function LocalMoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Local Movers</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">Trusted Local Movers for Homes and Businesses Around Calgary</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* left Image */}
                 <div className="flex-1">
@@ -141,9 +138,10 @@ export default function LocalMoversPage() {
                 </div>
                 {/* right Content */}
                 <div className="flex-1 space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">Trusted Local Movers for Homes and Businesses Around Calgary</h2>
                     <p>Opposing your worries, relocating within the city is neither complicated nor expensive if you have found a reliable, professional crew. At Shiftrix, we deliver exceptional moving services that exceed the expectations of homeowners, renters, and businesses throughout Calgary and the surrounding areas. Your requirements may differ with a shift to a new neighbourhood, upsizing, downsizing, or choosing a better location for your office. But our team's aim always remains the same: to handle everything with care from start to finish.</p>
                     <p>We bring the local crew, the truck, the supply material, and the essential tools. You show up at the new place.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -253,22 +251,7 @@ export default function LocalMoversPage() {
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
-                <FaqSection
-                title="What does being a local mover mean?"
-                content={`Those professional movers who are familiar with the local route, traffic hours, and local rules. Local movers can save a lot of time by avoiding traffic jams, getting permission from local authorities, or taking a shorter route. Also, they can quickly arrange support, such as extra crew for loading or unloading, packing supplies, etc. They are an ideal choice for moving locally to a nearby city or within the city.`}
-                />
-                <FaqSection
-                title="How much does it cost to hire local movers per hour?"
-                content={`In Calgary, the starting price of hiring a local mover is around $120 per hour for a standard 2-mover crew with a truck. It can vary depending on the region, location, scheduling time (likely higher on the weekend), and included services (deassemble, loading, unloading, reassemble, etc.), but all is negotiable.`}
-                />
-                <FaqSection
-                title="How much experience does Shiftrix have in providing local moving services in Calgary?"
-                content={`With almost 5 years of hands-on experience serving Calgary residents, we are now providing a full-package local moving service with an experienced crew and secure transport, including deassembly, packing, loading, and unloading, etc., for home and office relocation.`}
-                />
-                <FaqSection
-                title="Can you actually trust local movers in Calgary?"
-                content={`Yes, Shiftrix is one of those who has established a strong reputation among Calgary residents for delivering high-quality local moving services. Over the past five years, we have successfully relocated more than 1,000 clients, many of whom came to us through referrals, recommendations, and trusted relationships.`}
-                />
+                <FaqSection items={faqItems} />
             </div>
         </div>
     </section>

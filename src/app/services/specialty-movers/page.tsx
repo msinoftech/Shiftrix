@@ -2,9 +2,11 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
-import { APP_NAME, BASE_URL } from "@/lib/config";
+import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
-import FaqSection from "@/components/FaqSection";
+import { FaqSection } from "@/components/FaqSection";
+
+const { logo } = contactInfo;
 
 export const metadata: Metadata = {
     title: "Most Reliable Specialty Movers in Calgary | Shiftrix",
@@ -38,29 +40,37 @@ export const metadata: Metadata = {
     
 };
 
+const faqItems = [
+    {
+        title: "What Makes Us One of the Best Speciality Moving Companies?",
+        content: "Shiftrix is one of the leading moving companies, recognised for expertise, certified professionals, and specialised equipment for safely handling delicate items. We provide transparent pricing, comprehensive insurance, climate-controlled transport, and personalised service to meet your needs.",
+    },
+    {
+        title: "What items should I set aside during a move?",
+        content: "Always keep essential items, such as medicines, keys, and Valuable items like necessary documents, jewellery, and laptops, with you. Items that require special handling, such as perishable foods that can spoil and contaminate other items, and liquids, including fuel, motor oil, and kerosene, can pose fire and safety risks.",
+    },
+];
+
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
     {
-        // 1. WebSite Definition
         "@type": "WebSite",
         "@id": `${BASE_URL}/#website`,
         "url": `${BASE_URL}`,
         "name": `${APP_NAME}`
     },
     {
-        // 2. WebPage Definition for the Subpage
         "@type": "WebPage",
         "@id": `${BASE_URL}/services/specialty-movers/#webpage`,
         "url": `${BASE_URL}/services/specialty-movers`,
         "name": "Most Reliable Specialty Movers in Calgary | Shiftrix",
-        "isPartOf": {"@id": `${BASE_URL}/services/specialty-movers/#website`},
+        "isPartOf": { "@id": `${BASE_URL}/#website` },
         "description": "Calgary's trusted specialty movers for fine art, antiques, safes, pool tables & industrial equipment.Professional crew. Secured and climate-controlled transport. Get a free quote.",
         "inLanguage": "en-CA",
         "breadcrumb": {"@id": `${BASE_URL}/services/specialty-movers/#breadcrumb`}
     },
     {
-        // 3. Breadcrumb List
         "@type": "BreadcrumbList",
         "@id": `${BASE_URL}/services/specialty-movers/#breadcrumb`,
         "itemListElement": [
@@ -79,29 +89,29 @@ const schemaData = {
         {
             "@type": "ListItem",
             "position": 3,
-            "name": "Specialty Movers"
+            "name": "Specialty Movers",
+            "item": `${BASE_URL}/services/specialty-movers`
         }
         ]
     },
     {
-        // 4. Specific Service Definition (Specialty Movers)
         "@type": "Service",
         "serviceType": "Specialty Movers",
-        "name": "Most Reliable Specialty Movers in Calgary | Shiftrix",
+        "name": `Most Reliable Specialty Movers in Calgary | ${APP_NAME}`,
         "description": "Calgary's trusted specialty movers for fine art, antiques, safes, pool tables & industrial equipment.Professional crew. Secured and climate-controlled transport. Get a free quote.",
         "url": `${BASE_URL}/services/specialty-movers`,
         "provider": {
         "@type": "MovingCompany",
         "name": `${APP_NAME}`,
         "url": `${BASE_URL}/services/specialty-movers`,
-        "logo": `${BASE_URL}/shiftrix-logo.png`
+        "logo": `${logo}`
         },
         "areaServed": [
           { "@type": "City", name: "Calgary" },
         ],
         "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Most Reliable Specialty Movers in Calgary | Shiftrix",
+        "name": `Most Reliable Specialty Movers in Calgary | ${APP_NAME}`,
         "itemListElement": [
             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Piano Moving"}},
             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fine Art & Antiques Moving"}},
@@ -113,25 +123,15 @@ const schemaData = {
     },
     {
         "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/residential-movers#faq`,
-        "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "What Makes Us One of the Best Speciality Moving Companies?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Shiftrix is one of the leading moving companies, recognised for expertise, certified professionals, and specialised equipment for safely handling delicate items. We provide transparent pricing, comprehensive insurance, climate-controlled transport, and personalised service to meet your needs."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What items should I set aside during a move?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Always keep essential items, such as medicines, keys, and Valuable items like necessary documents, jewellery, and laptops, with you. Items that require special handling, such as perishable foods that can spoil and contaminate other items, and liquids, including fuel, motor oil, and kerosene, can pose fire and safety risks."
-            }
-        },
-        ]
+        "@id": `${BASE_URL}/services/specialty-movers/#faq`,
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.title,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.content
+          }
+        }))
     }
     ]
 };
@@ -144,15 +144,16 @@ export default function SpecialtyMoversPage() {
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Specialty Movers</h1>
+            <h1 className="text-3xl md:text-4xl font-bold pb-12">What Is Specialty Moving? Guide for Calgary Homeowners</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative">
                     <Image src="/special-item-mover.jpg" alt="Specialty Movers in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
                 <div className="space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">What Is Specialty Moving? Guide for Calgary Homeowners</h2>
                     <p>Specialty moving is a custom relocation service that handles items beyond standard dimensions, of extraordinary weight, highly fragile, and incomparable. - "One-size-fits-all" moving simply doesn't work there. Such items require trained hands, specialist tools, and detailed planning before a single item leaves your home or business. Shiftrix offers precision specialty relocation services tailored to your specific item, address, and timeline.</p>
                     <p>Specialty items we move include: fine art and paintings, antique furniture and heirlooms, heavy safes and vault installations, pool tables and billiard sets, and large industrial or commercial equipment. Moving a piano? See our <Link href={`${BASE_URL}/services/piano-movers`} className="text-blue-600 hover:underline">dedicated piano movers</Link> for specialist piano relocation across Calgary.</p>
+
+                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
                 </div>
             </div>
         </div>
@@ -170,55 +171,8 @@ export default function SpecialtyMoversPage() {
                     <Image src="/special-item-mover-2.jpg" alt="specialty movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
-
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-                <div className="order-2 md:order-1">
-                    <Image src="/special-item-mover-3.jpg" alt="Specialty moving services" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                <div className="order-1 md:order-2 relative space-y-3">
-                    <h2 className="text-2xl md:text-3xl font-bold">Why Specialty Movers?</h2>
-                    <p>Specialty movers use their experience, skilled teams, and the right tools to move delicate or complicated items safely and efficiently. This helps you avoid the stress, risk, and hard work of moving on your own. They pack and handle your fragile belongings with care, use the right equipment, and make sure everything arrives on time. Even the most challenging moves become smooth and easy.</p>
-                </div>
-            </div> */}
         </div>
     </section>
-
-    {/* <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="relative">
-                    <Image src="/special-item-mover-2.jpg" alt="Specialty moving company" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                <div className="space-y-3 relative">
-                    <h2 className="text-2xl md:text-3xl font-bold">Comprehensive Specialty Moving Solutions in Calgary</h2>
-                    <p>At Shiftrix, we&apos;re full-service speciality moving experts serving the Calgary community. Our process begins with a detailed consultation to understand your specific needs, followed by custom planning and professional execution.</p>
-                    <h3 className="text-xl font-semibold">We have specialised equipment and climate-controlled transport for moving:</h3>
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p>Piano</p>
-                    </div>
-
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p>Fine Art & Antiques</p>
-                    </div>
-
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p>Heavy Machinery & Industrial Equipment</p>
-                    </div>
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p>Fragile Collections & Heirlooms.</p>
-                    </div>
-                    <div className="flex items-start gap-4 px-3 py-2 bg-white rounded-xl shadow hover:shadow-md transition">
-                        <div className="w-2 h-2 min-w-2 min-h-2 bg-blue-600 mt-2 rounded-sm"></div>
-                        <p>Pool Tables & Billiard Equipment, etc.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> */}
 
     <section className="relative py-20">
         <div className="max-w-7xl mx-auto px-4 space-y-18">
@@ -317,14 +271,7 @@ export default function SpecialtyMoversPage() {
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>
             <div className="space-y-3">
-                <FaqSection
-                title="What Makes Us One of the Best Speciality Moving Companies?"
-                content={`Shiftrix is one of the leading moving companies, recognised for expertise, certified professionals, and specialised equipment for safely handling delicate items. We provide transparent pricing, comprehensive insurance, climate-controlled transport, and personalised service to meet your needs.`}
-                />
-                <FaqSection
-                title="What items should I set aside during a move?"
-                content={`Always keep essential items, such as medicines, keys, and Valuable items like necessary documents, jewellery, and laptops, with you. Items that require special handling, such as perishable foods that can spoil and contaminate other items, and liquids, including fuel, motor oil, and kerosene, can pose fire and safety risks.`}
-                />
+                <FaqSection items={faqItems} />
             </div>
         </div>
     </section>

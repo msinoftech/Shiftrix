@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { blogs } from "@/lib/data";
 import { APP_NAME, BASE_URL } from "@/lib/config";
 import BlogDetails from "./BlogDetails";
+import { contactInfo } from "@/lib/config";
+const { logo } = contactInfo;
 
 // Define page props for this dynamic route
 type PageProps = { params: Promise<{ slug: string }> };
@@ -63,11 +65,10 @@ export default async function BlogPage({ params }: PageProps) {
       // Website Definition
       {
         "@type": "WebSite",
-        "@id": `${url}/#website`,
-        "name": `${APP_NAME} - ${post.title}`,
-        "url": `${url}`,
+        "@id": `${BASE_URL}/#website`,
+        "name": `${APP_NAME}`,
+        "url": `${BASE_URL}`,
       },
-      // WebPage for the Blog Post
       {
         "@type": "WebPage",
         "@id": `${url}/#webpage`,
@@ -78,7 +79,6 @@ export default async function BlogPage({ params }: PageProps) {
         "inLanguage": "en-CA",
         "breadcrumb": { "@id": `${url}/#breadcrumb` },
       },
-      // BreadcrumbList
       {
         "@type": "BreadcrumbList",
         "@id": `${url}/#breadcrumb`,
@@ -103,7 +103,6 @@ export default async function BlogPage({ params }: PageProps) {
           },
         ],
       },
-      // BlogPosting
       {
         "@type": "BlogPosting",
         "@id": `${url}/#blogposting`,
@@ -128,7 +127,7 @@ export default async function BlogPage({ params }: PageProps) {
           "url": `${BASE_URL}`,
           "logo": {
             "@type": "ImageObject",
-            "url": `${BASE_URL}/shiftrix-logo.png`,
+            "url": `${logo}`,
           },
         },
       },

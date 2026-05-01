@@ -5,21 +5,22 @@ interface ServiceCardProps {
   link: string;
   heading: string;
   content: string;
-  button: string;
 }
 
-export default function ServiceCard({ link, heading, content, button }: ServiceCardProps) {
+export default function ServiceCard({ link, heading, content }: ServiceCardProps) {
   const waveGradientId = useId();
 
   return (
-      <div className="relative group bg-gradient-to-br via-indigo-100 to-indigo-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div className="relative group bg-gradient-to-br via-indigo-100 to-indigo-50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl scale-103 hover:scale-100 transition-all duration-500">
         <Link href={link} aria-label={heading}>
           <div className="relative md:items-stretch z-10 mb-6">
             <div className="p-6 pb-8 space-y-2">
               <div className="text-xl font-bold text-gray-900 group-hover:text-indigo-800 transition-colors">{heading}</div>
               <p>{content}</p>
-              <div className="flex item-end justify-end mb-4">
-                <span className="gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-br from-indigo-500 to-indigo-500 rounded-full shadow group-hover:from-indigo-800 hover:to-indigo-500 transition-all">{button}</span>
+              <div className="flex items-end justify-end mb-4">
+                <span className="inline-flex h-11 w-11 items-center justify-center text-sm font-medium text-white bg-gradient-to-br from-indigo-500 to-indigo-500 rounded-xl shadow group-hover:from-indigo-800 hover:to-indigo-500 transition-all">
+                  <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path></g></svg>
+                </span>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BASE_URL, contactInfo, socialLinks } from "@/lib/config";
+import { APP_NAME, BASE_URL, contactInfo, socialLinks } from "@/lib/config";
 import ContactActions from "./ContactActions";
 
 export default function Footer() {
@@ -12,7 +12,7 @@ export default function Footer() {
 
   // Common data
   const companyInfo = {
-    description: "Shiftirix is one of the moving companies in Calgary, helping to relocate hassle-free for over five years. Your move, our commitment to excellence.",
+    description: `${APP_NAME} is a trusted moving company in Calgary, delivering smooth, hassle-free residential and commercial relocations backed by over five years of experience - with precision, professionalism, and a commitment.`,
   };
 
   const usefulLinks = [
@@ -109,8 +109,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-gray-300 py-4">
           <div className="relative">
-            <p>2025 © all reserved to{" "}<Link className="text-indigo-700 underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-indigo-500" href="https://miraculoussoft.com" aria-label="Miraculoussoft Solution" target="_blank" rel="noopener noreferrer">Miraculoussoft Solution</Link>.
-            </p>
+            <p>© 2025 {APP_NAME} Moving Services. All rights reserved. | Calgary, AB</p>
           </div>
         </div>
       </div>
