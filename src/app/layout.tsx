@@ -15,6 +15,17 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: `${APP_NAME} | shiftrix moved with precision`,
   description: "experience of more than 5 years, we make sure that the net revenues of our owner-operators and fleets increase by at least 20% every year by providing them with a good value load.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -53,7 +64,7 @@ export default function RootLayout({
         </noscript>
 
         <Header />
-          <main>{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
