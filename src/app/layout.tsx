@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { APP_NAME } from "@/lib/config";
+import { APP_NAME, BASE_URL } from "@/lib/config";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -25,6 +25,28 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  openGraph: {
+    title: `${APP_NAME} | shiftrix moved with precision`,
+    description: "experience of more than 5 years, we make sure that the net revenues of our owner-operators and fleets increase by at least 20% every year by providing them with a good value load.",
+    url: `${BASE_URL}`,
+    siteName: `${APP_NAME}`,
+    images: [
+      {
+        url: `${BASE_URL}/shiftrix-mover-and-packer.jpg`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en-CA",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: `${APP_NAME} | shiftrix moved with precision`,
+    description: "experience of more than 5 years, we make sure that the net revenues of our owner-operators and fleets increase by at least 20% every year by providing them with a good value load.",
+    images: [`${BASE_URL}/shiftrix-mover-and-packer.jpg`],
   },
 };
 
