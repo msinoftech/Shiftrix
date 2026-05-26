@@ -123,8 +123,8 @@ const homeschemaData = {
       ],
       "description": "Professional moving agency in Calgary providing customized residential and commercial moving services with 5+ years of experience.",
       "sameAs": [
-        "https://www.facebook.com/shiftrix/",
-        "https://www.instagram.com/shiftrix_movers/",
+        "https://www.facebook.com/shiftrix",
+        "https://www.instagram.com/shiftrix_movers",
         "https://x.com/infoShiftrix",
         "https://www.youtube.com/@infoShiftrix"
       ]

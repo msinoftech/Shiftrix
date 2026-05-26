@@ -102,8 +102,8 @@ const serviceschemaData = {
       ],
       "description": "Explore all the services we offer in Calgary — from local and residential moves to long-distance, commercial, piano, and specialty moving. Find the right relocation service for your move.",
       "sameAs": [
-        "https://www.facebook.com/shiftrix/",
-        "https://www.instagram.com/shiftrix_movers/",
+        "https://www.facebook.com/shiftrix",
+        "https://www.instagram.com/shiftrix_movers",
         "https://x.com/infoShiftrix",
         "https://www.youtube.com/@infoShiftrix"
       ]
