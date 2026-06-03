@@ -3,7 +3,7 @@ import Script from "next/script";
 import { APP_NAME, BASE_URL, contactInfo  } from "@/lib/config";
 import Link from "next/link";
 
-import { blogs } from "@/lib/data";
+import { getLatestBlogs } from "@/lib/data";
 import { testimonials } from "@/lib/testimonials";
 import { whyhireus } from "@/lib/whyhireus";
 
@@ -240,7 +240,7 @@ const homeschemaData = {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {blogs.slice(0, 3).map((post) => (
+            {getLatestBlogs(3).map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
           </div>

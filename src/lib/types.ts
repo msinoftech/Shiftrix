@@ -9,11 +9,11 @@ export interface Blog {
   status: string;
   author: string;
   published_at: string;
-  updated_at: string;
   keywords: string;
   metaTitle: string;
   metaDesc: string;
   faq?: {
+    id: string;
     question: string;
     answer: string;
   }[];

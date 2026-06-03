@@ -1,14 +1,16 @@
 "use client";
 import { useState } from "react";
-import { blogs } from "@/lib/data";
+import { getPublishedBlogsByDate } from "@/lib/data";
 import BlogCard from "@/components/BlogCard";
+
+const sortedBlogs = getPublishedBlogsByDate();
 
 export default function BlogClient() {
   const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(blogs.length / itemsPerPage);
+  const totalPages = Math.ceil(sortedBlogs.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = blogs.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = sortedBlogs.slice(startIndex, startIndex + itemsPerPage);
   const handlePageChange = (page: number) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
@@ -23,7 +25,7 @@ export default function BlogClient() {
           ))}
         </div>
 
-        {blogs.length > itemsPerPage && (
+        {sortedBlogs.length > itemsPerPage && (
           <div className="flex justify-center items-center mt-10 space-x-2">
             {/* Previous Button */}
             <button

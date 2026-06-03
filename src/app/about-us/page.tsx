@@ -149,7 +149,7 @@ const counters = [
       <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
         <div className="max-w-7xl mx-auto px-4">
           <AboutSection
-            image={`${BASE_URL}/shiftrix-mover-and-packer.jpg`}
+            image={`/shiftrix-mover-and-packer.jpg`}
             title="More Than Movers-Your Relocation Partners"
             content={`Shiftrix started in Calgary as a small, dedicated moving team that grew into a professional moving company known for reliability and care. We make every move as simple as possible through trust, planning, and client-first service. From the consultation to the final delivery, we prioritise clear communication, careful handling, and efficient execution. We do more than move your belongings—we help you start the next chapter of your life.`}
             listTitle=""
@@ -171,7 +171,7 @@ const counters = [
           {/* Left Images */}
           <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-lg">
-              <Image src={`${BASE_URL}/about-image.jpg`} alt="Our Success Story & Growth" width={600} height={400} className="w-full h-full object-cover"/>
+              <Image src={`/about-image.jpg`} alt="Our Success Story & Growth" width={600} height={400} className="w-full h-full object-cover"/>
             </div>
           </div>
 
@@ -250,7 +250,7 @@ const counters = [
 
           <div className="relative">
             <div className="rounded-3xl h-full overflow-hidden shadow-lg">
-              <Image src={`${BASE_URL}/real-stories-real-movers.jpg`} alt="Real Stories, Real Moves" width={600} height={400} className="w-full h-full object-cover"/>
+              <Image src={`/real-stories-real-movers.jpg`} alt="Real Stories, Real Moves" width={600} height={400} className="w-full h-full object-cover"/>
             </div>
           </div>
 

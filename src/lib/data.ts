@@ -12,8 +12,7 @@ export const blogs: Blog[] = [
     image: "/specialty-moving-services-toronto-for-safe-and-secure-moves.webp",
     status: "published",
     author: "Shiftrix",
-    published_at: "2025-12-29",
-    updated_at: "2025-12-29",
+    published_at: "2026-01-15",
     keywords: "Moving Day, After Moving Day",
     metaTitle: "A Complete Moving Day and After Moving Day Home Relocation Checklist",
     metaDesc: "a hassle-free checklist for moving day and after moving day, to transform your stressful moving experience into a manageable, organised process.",
@@ -71,8 +70,7 @@ export const blogs: Blog[] = [
     image: "/shiftrix-movers-toronto.webp",
     status: "published",
     author: "Shiftrix",
-    published_at: "2025-12-29",
-    updated_at: "2025-12-29",
+    published_at: "2026-02-20",
     keywords: "Packing Tips for urgent moving, Quick Moving packing tips",
     metaTitle: "Packing Tips for Moving Urgently",
     metaDesc: "This guide to packing tips not only enables you to move quickly but also keeps your things safe and organised.",
@@ -123,8 +121,7 @@ export const blogs: Blog[] = [
     image: "/furniture-movers-across-canada-saves-time.webp",
     status: "published",
     author: "Shiftrix",
-    published_at: "2025-12-29",
-    updated_at: "2025-12-29",
+    published_at: "2026-03-10",
     keywords: "Saving Money on Your Next Move , Ways to Save Money for Moving, Budget-friendly tips for next move",
     metaTitle: "Top 7 Ways to Save Money When You're Moving",
     metaDesc: "This guide shares proven money-saving strategies that'll help you stick to your budget whilst keeping your belongings safe during the transition.​",
@@ -165,7 +162,6 @@ export const blogs: Blog[] = [
     status: "published",
     author: "Shiftrix",
     published_at: "2026-04-09",
-    updated_at: "2026-04-09",
     keywords: "Before Moving Day Checklist, Checklist of Before Moving Day Checklist, Complete Checklist Before Moving Day",
     metaTitle: "A Complete Before Moving Day Checklist | Shiftrix Calgary Movers",
     metaDesc: "Moving soon to Calgary? Use this complete before moving day checklist to stay organized, stress-free, and fully prepared — from 4 weeks out to the night before.",
@@ -261,18 +257,22 @@ export const blogs: Blog[] = [
     `,
     faq: [
       {
+        id: "before-moving-day-prep",
         question: "What do I need to do before moving day?",
         answer: "After confirming the moving day, there is a list of things to do in order: decluttering, finding and booking movers, updating your address, and systematically packing. At least a week before, confirm all logistics with your moving company."
       },
       {
+        id: "when-to-start-packing",
         question: "How early should I start packing before moving day?",
         answer: "Ideally, start packing non-essential items four to six weeks before your move. Most people need at least two to three weeks to pack an average-sized home properly. Starting packing early not only reduces stress but also gives enough time to deal with unexpected problems."
       },
       {
+        id: "four-days-before-moving",
         question: "What should I do 4 days before moving?",
         answer: "Four days out, focus on packing your kitchen down to essentials, confirming elevator bookings, sorting out your garage and storage areas, and preparing a moving day bag with everything you will need immediate access to."
       },
       {
+        id: "two-days-before-moving",
         question: "What should I do 2 days before the moving?",
         answer: "Finish all packing, confirm final logistics with your moving company, conduct a thorough walkthrough of storage and closet spaces, and settle payment or tips with your movers."
       }
@@ -288,7 +288,6 @@ export const blogs: Blog[] = [
     status: "published",
     author: "Shiftrix",
     published_at: "2026-04-29",
-    updated_at: "2026-04-29",
     keywords: "tips for moving a piano, Move a Piano Without Risk",
     metaTitle: "Move a Piano Without Risk: Why DIY Always Costs More",
     metaDesc: "Moving a piano? Why DIY can lead to damage and injury. Find expert tips to move a piano safely in Clagary with a professional crew.",
@@ -328,5 +327,250 @@ export const blogs: Blog[] = [
     <p>When you're ready to plan your move in Calgary, start with a conversation and a proper assessment from <a href='${BASE_URL}/services/local-movers'>experienced local movers in Calgary</a>. It takes a few minutes. It costs nothing. And it's the single decision most likely to ensure your piano arrives exactly as it should — ready to be played, not repaired.</p>
     `,
     faq: [],
+  },
+  {
+    id: 6,
+    title: "It's Not Hard To Move a Home in Calgary if You're Prepared",
+    slug: "its-not-hard-to-move-a-home-in-calgary-if-your-prepared",
+    category: "Calgary Moving Guide",
+    excerpt: "This guide cuts through the noise. You'll find out exactly how to move a home in Calgary, and how to avoid the common mistakes we make.",
+    image: "/its-not-hard-to-move-a-home-in-calgary-if-your-prepared.jpg",
+    status: "published",
+    author: "Shiftrix",
+    published_at: "2026-06-03",
+    keywords: "",
+    metaTitle: "Expert Tips and Tricks To Move A Home In Calgary",
+    metaDesc: "This guide cuts through the noise. You'll find out exactly how to move a home in Calgary, and how to avoid the common mistakes we make.",
+    content: 
+    `<p>Leave it here. Why are you moving? When you must move house, do it. No worries. </p>
+    <p>Collecting and carrying memories is always exciting when moving to a new home. But the process of actually getting there? It's a lot to do with one specific date: wrapping up items, figuring out the budget, finding a trustworthy crew, and coordinating.</p>
+    <p><i>Moving day in Calgary doesn't have to be stressful — the right team makes all the difference.</i></p>
+    <p>This guide cuts through the noise. You'll find out exactly how much a Calgary house move costs, what factors push that number up or down, and how to avoid the common mistakes that turn moving day into moving disaster.</p>
+    
+    <nav class="post-toc" aria-label="Table of contents">
+      <div class="post-toc__header">
+        <span class="post-toc__icon" aria-hidden="true">📑</span>
+        <h2 class="post-toc__title">Table of Contents</h2>
+      </div>
+      <ol class="post-toc__list">
+        <li class="post-toc__item">
+          <a href="#how-much-does-it-cost-to-move-a-home-in-calgary" class="post-toc__link">
+            <span class="post-toc__number">01</span>
+            <span class="post-toc__label">How Much Does It Cost to Move a Home in Calgary?</span>
+          </a>
+        </li>
+        <li class="post-toc__item">
+          <a href="#what-affects-your-moving-cost" class="post-toc__link">
+            <span class="post-toc__number">02</span>
+            <span class="post-toc__label">What Affects Your Moving Cost</span>
+          </a>
+        </li>
+        <li class="post-toc__item">
+          <a href="#how-to-choose-the-right-moving-company" class="post-toc__link">
+            <span class="post-toc__number">03</span>
+            <span class="post-toc__label">How to Choose the Right Moving Company</span>
+          </a>
+        </li>
+        <li class="post-toc__item">
+          <a href="#moving-day-tips-that-actually-help" class="post-toc__link">
+            <span class="post-toc__number">04</span>
+            <span class="post-toc__label">Moving Day Tips That Actually Help</span>
+          </a>
+        </li>
+        <li class="post-toc__item">
+          <a href="#frequently-asked-questions" class="post-toc__link">
+            <span class="post-toc__number">05</span>
+            <span class="post-toc__label">Frequently Asked Questions</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+    <h2 id="how-much-does-it-cost-to-move-a-home-in-calgary">How Much Does It Cost to Move a Home in Calgary?</h2>
+    <p>Home size and the hiring process of movers are the key determinants in residential moving costs. Although broker fees and online platform charges slightly increase the budget compared to hiring a residential mover in Calgary directly. Typically, a two-person crew with a truck can charge between $100 and $175 per hour.</p>
+    
+    <div class="pricing-table-wrap">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th scope="col">Home Size</th>
+            <th scope="col">Estimated Time</th>
+            <th scope="col">Approx. Cost (CAD)</th>
+            <th scope="col">What's Included</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Studio / 1-Bedroom</td>
+            <td>2–3 hrs</td>
+            <td>$250–$525</td>
+            <td>2 movers + truck</td>
+          </tr>
+          <tr>
+            <td>2-Bedroom</td>
+            <td>3–5 hrs</td>
+            <td>$425–$875</td>
+            <td>2–3 movers + truck</td>
+          </tr>
+          <tr>
+            <td>3-Bedroom House</td>
+            <td>5–8 hrs</td>
+            <td>$700–$1,400</td>
+            <td>3 movers + truck</td>
+          </tr>
+          <tr>
+            <td>4+ Bedroom Home</td>
+            <td>7–12 hrs</td>
+            <td>$1,100–$2,200+</td>
+            <td>3–4 movers + large truck</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <blockquote class="tip-blockquote">
+      <p><strong>💡 Quick Tip</strong></p>
+      <p>Prices above are estimates for local Calgary moves. Add $50–$150 if you need packing services, or if there are flights of stairs, long carries, or specialty items like a piano.</p>
+    </blockquote>
+    
+    <h3>Does the Day of the Week Matter?</h3>
+    <p>Yes — it can affect price and availability. Weekends and month-end dates (especially the last Friday of the month) are peak periods. You'll often get a better rate booking a Tuesday or Wednesday mid-month. <a href='${BASE_URL}/services/local-movers'>Affordable local movers</a> tend to fill fast during summer, so booking 2–3 weeks ahead is smart.</p>
+
+    <img src="/how-much-does-It-cost-to-move-a-home-in-calgary.jpg" alt="how much does It cost to move a home in calgary" class="w-full h-auto rounded-lg shadow-md" />
+    
+    <h2 id="what-affects-your-moving-cost">What Affects Your Moving Cost</h2>
+    <p>Two quotes for the same neighborhood can look completely different. That's normal — and Here's why.</p>
+    
+    <h3>Distance Within Calgary</h3>
+    <p>Moving across the city costs more than moving a few blocks. Crews charge for drive time. If you're relocating from the NW to the SE — say, Tuscany to Mahogany — factor in extra travel time. <a href='${BASE_URL}/services/residential-movers'>Residential moving services</a> that know Calgary well can often route smarter and save you an hour.</p>
+
+    <h3>Volume and Weight of Your Belongings</h3>
+    <p>A three-bedroom filled with IKEA furniture moves differently than one with solid hardwood pieces and a full china cabinet. Heavy or awkward items add crew time. A grand piano, for example, usually requires a separate quote from <a href='${BASE_URL}/services/piano-movers'>local piano movers</a> — it's a specialized job.</p>
+
+    <h3>Access To Your Space</h3>
+    <p>Easy access reduces moving hours, which means lower cost. Flip side, Fourth-floor walk-up without an elevator, tight hallways, low-clearance parking garages, all that's going to cost more.</p>
+
+    <h3>Packing and Packing Materials</h3>
+    <p>If you'd rather not pack yourself, find the <a href='${BASE_URL}/services/full-service-movers'>full-service movers and packers</a> who handle everything — boxes, wrapping, and labeling. Convenient, but it adds to the final bill. Most companies also offer partial packing, in which they handle only fragile or awkward belongings that require specialized expertise.</p>
+
+    <h2 id="how-to-choose-the-right-moving-company">How to Choose the Right Moving Company in Calgary</h2>
+    <p>Not every moving company is the same. Calgary has dozens of options — some great, some not so much. Here's how to tell the difference.</p>
+
+    <h3>What to Look For</h3>
+    <ul>
+    <li>Licensed and insured in Alberta (ask directly — reliable companies have no issue answering)</li>
+    <li>Transparent, written estimates with no hidden fees</li>
+    <li>Real customer reviews on Google (look at both the good and the critical ones)</li>
+    <li>Experience with your type of move — condo, house, commercial</li>
+    <li>Clearly listed services: hourly or flat-rate, packing available, storage options</li>
+    </ul>
+
+    <h3>Questions Worth Asking Before You Book</h3>
+    <ul>
+    <li>Do you charge the same for travel time, either different or just working time?</li>
+    <li>What happens after that if something gets damaged?</li>
+    <li>Is the quote a final or an estimate?</li>
+    <li>Are your movers employees or subcontractors?</li>
+    </ul>
+
+    <p>A reliable moving company answers all of this without hesitation. If someone gets evasive about insurance or pricing structure, keep looking.</p>
+
+    <p>Professional movers handle your furniture with care — ask about insurance and how they protect large items.</p>
+
+    <img src="/how-to-choose-the-right-moving-company-in-calgary.jpg" alt="how to choose the right moving company in calgary" class="w-full h-auto rounded-lg shadow-md" />
+
+    <h2 id="moving-day-tips-that-actually-help">Moving Day Tips That Actually Help</h2>
+    <p>A smooth move in Calgary doesn't happen by accident. For that, you have to be prepared.</p>
+
+    <section class="moving-glance" aria-labelledby="moving-glance-title">
+      <div class="moving-glance__inner">
+        <header class="moving-glance__header">
+          <p class="moving-glance__badge">Quick reference</p>
+          <h3 id="moving-glance-title" class="moving-glance__title">
+            <span class="moving-glance__icon" aria-hidden="true">📦</span>
+            Your Calgary Moving Day at a Glance
+          </h3>
+        </header>
+        <div class="moving-glance__grid">
+          <article class="moving-glance__card">
+            <div class="moving-glance__value">2–3</div>
+            <p class="moving-glance__desc">Weeks ahead to book movers during peak season</p>
+          </article>
+          <article class="moving-glance__card">
+            <div class="moving-glance__value">8 AM</div>
+            <p class="moving-glance__desc">Best start time — beat traffic and afternoon fatigue</p>
+          </article>
+          <article class="moving-glance__card">
+            <div class="moving-glance__value">1 Box</div>
+            <p class="moving-glance__desc">Essentials bag — keep it with you, not on the truck</p>
+          </article>
+          <article class="moving-glance__card">
+            <div class="moving-glance__value">$50–$100</div>
+            <p class="moving-glance__desc">Tip per mover for a full-day job done well</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <h3>Before Moving Day</h3>
+    <p>If it does not yet, you must have a <a href='${BASE_URL}/blog/before-moving-day-checklist'>checklist before moving day</a> and follow it. What to do:</p>
+    <ul>
+    <li>Defrost your fridge 24 hours in advance. Movers can't take a frosted appliance.</li>
+    <li>Disassemble beds and large furniture the night before.</li>
+    <li>Label every box clearly — room name on the side, not the top.</li>
+    <li>Pack an "open first" box: kettle, mugs, toilet paper, phone charger, snacks.</li>
+    </ul>
+
+    <h3>On Moving Day</h3>
+    <p>Hassle-free settling at the new place always makes one feel relaxed if you know what to do on moving day and after moving day, in what order.</p>
+    <ul>
+    <li>Clear a path before the crew arrives. Every minute spent navigating clutter costs you.</li>
+    <li>Keep pets and kids in a separate, safe space.</li>
+    <li>Do a final walkthrough of doubtful corner -every room, closet, and cabinet before the truck leaves.</li>
+    <li>Confirm your new address with the driver before they head out.</li>
+    </ul>
+
+    <blockquote class="tip-blockquote">
+      <p><strong>💡 Local Tip</strong></p>
+      <p>Calgary winters are no joke. If you're moving between November and March, tell your movers in advance. Good crews bring floor runners and extra padding to protect your floors and furniture from slush and ice.</p>
+    </blockquote>
+
+    <h3>Items That Need Extra Attention</h3>
+    <p>A blanket and some packing tape are not enough for certain things. For those valuable or heavy things, talk about specialty handling.</p>
+    <ul>
+    <li><a href='${BASE_URL}/services/furniture-movers'>Professional furniture movers</a> for antiques, oversized sofas, or wall units</li>
+    <li>Local piano movers for upright or grand pianos</li>
+    <li>Art and fragile items — often best to transport these yourself</li>
+    </ul>
+    `,
+    faq: [
+      {
+        id: "calgary-moving-cost",
+        question: "How much do local moving companies charge in Calgary?",
+        answer: "Most Calgary movers charge $100–$175 per hour for a two-person crew. A typical 2-bedroom apartment move runs $400–$800, depending on how far you're going and how much you have. Always get a written estimate that breaks down hourly rate, minimum hours, and any additional fees before you book."
+      },
+      {
+        id: "calgary-booking-advance",
+        question: "How far in advance should I book movers in Calgary?",
+        answer: "For moves between May and September, book at least 2–3 weeks out. Month-end dates — especially the last Friday or Saturday of June, July, and August — fill up even faster. Off-peak months, such as October through April, offer more flexibility and sometimes lower rates."
+      },
+      {
+        id: "calgary-local-vs-long-distance",
+        question: "What's the difference between a local and long-distance move in Calgary?",
+        answer: `Local moves stay within Calgary or nearby communities and are typically billed hourly. Long-distance moves — anything over roughly 80 km — are usually quoted by weight and distance rather than time. If you're heading out of Alberta entirely, you'll want <a href='${BASE_URL}/services/long-distance-movers'>long-distance movers</a> who specialize in interprovincial moves and understand the logistics involved.`
+      }
+    ],
   }
 ];
+
+export function getPublishedBlogsByDate() {
+  return [...blogs]
+    .filter((b) => b.status === "published")
+    .sort(
+      (a, b) =>
+        new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+    );
+}
+
+export function getLatestBlogs(limit = 3) {
+  return getPublishedBlogsByDate().slice(0, limit);
+}

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 
 export interface FaqItem {
+  id?: string;
   title: string;
   content?: string;
 }
@@ -22,7 +23,7 @@ export const FaqSection = ({ items = [] }: FaqSectionProps) => {
       {safeItems.map((item: FaqItem, index: number) => {
         const isOpen = openIndex === index;
         return (
-          <div key={`${item.title}-${index}`} className="faq-block-inner">
+          <div key={item.id ?? `${item.title}-${index}`} id={item.id} className="faq-block-inner">
             <details open={isOpen} className="group overflow-hidden rounded-2xl border border-gray-200/70 bg-white/95 shadow-[0_10px_35px_-18px_rgba(17,24,39,0.35)] transition-all duration-300 open:border-indigo-500">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-6 py-5 text-left marker:content-none" onClick={(e) => { e.preventDefault(); setOpenIndex((prev) => (prev === index ? null : index));}}>
                 <h3 className="text-base font-semibold leading-relaxed text-gray-900 group-open:text-indigo-500">{item.title}</h3>
