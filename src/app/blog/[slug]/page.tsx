@@ -116,7 +116,6 @@ export default async function BlogPage({ params }: PageProps) {
           "url": imageUrl,
         },
         "datePublished": post.published_at,
-        "dateModified": post.updated_at,
         "author": {
           "@type": "Person",
           "name": post.author,
