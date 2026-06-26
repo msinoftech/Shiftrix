@@ -1,5 +1,7 @@
 "use client";
 import { contactInfo } from "@/lib/config";
+import Link from "next/link";
+
 
 export default function ContactActions() {
   const { phone } = contactInfo;
@@ -18,7 +20,7 @@ export default function ContactActions() {
           transition-all duration-300 hover:shadow-2xl
         ">
         {/* WhatsApp Chat */}
-        <a href={`https://wa.me/${phoneHref}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center space-y-1">
+        <Link href={`https://wa.me/${phoneHref}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center space-y-1">
           <div className="relative bg-white p-3 rounded-full shadow hover:bg-green-200 transition">
             <svg
               height="32px"
@@ -35,10 +37,10 @@ export default function ContactActions() {
             <span className="absolute top-1 right-1 w-2 h-2 bg-indigo-500 rounded-full"></span>
           </div>
           <span className="text-sm font-medium">Chat</span>
-        </a>
+        </Link>
 
         {/* Consult */}
-        <a href="/contact-us" target="_blank" className="flex flex-col items-center space-y-1">
+        <Link href="/contact-us" target="_blank" className="flex flex-col items-center space-y-1">
           <div className="bg-white p-3 rounded-full shadow hover:bg-indigo-200 transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -59,10 +61,10 @@ export default function ContactActions() {
             </svg>
           </div>
           <span className="text-sm font-medium">Consult</span>
-        </a>
+        </Link>
 
         {/* Call */}
-        <a href={`tel:${phoneHref}`} className="flex flex-col items-center space-y-1">
+        <Link href={`tel:${phoneHref}`} className="flex flex-col items-center space-y-1">
           <div className="bg-white p-3 rounded-full shadow hover:bg-green-200 transition">
             <svg
               className="w-6 h-6"
@@ -82,7 +84,7 @@ export default function ContactActions() {
             </svg>
           </div>
           <span className="text-sm font-medium">Call</span>
-        </a>
+        </Link>
       </div>
     </div>
   );

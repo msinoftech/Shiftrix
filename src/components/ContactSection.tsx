@@ -1,5 +1,6 @@
 import React from "react";
 import { contactInfo } from "@/lib/config";
+import Link from "next/link";
 
 const ContactSection = () => {
   const { phone, email, address } = contactInfo;
@@ -29,7 +30,7 @@ const ContactSection = () => {
           </div>
           <div>
             <strong className="block text-gray-800">Phone Number:</strong>
-            <a href={phoneHref} className="text-md hover:text-indigo-800">{phone}</a>
+            <Link href={phoneHref} className="text-md hover:text-indigo-800">{phone}</Link>
           </div>
         </li>
 
@@ -42,7 +43,7 @@ const ContactSection = () => {
           </div>
           <div>
             <strong className="block text-gray-800">Email Address:</strong>
-            <a href={emailHref} className="text-md hover:text-indigo-800">{email}</a>
+            <Link href={emailHref} className="text-md hover:text-indigo-800">{email}</Link>
           </div>
         </li>
       </ul>

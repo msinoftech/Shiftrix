@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { contactInfo } from "@/lib/config";
+import Link from "next/link";
 
 type FormData = {
   name: string;
@@ -122,7 +123,7 @@ const ContactForm = () => {
         <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg hover:bg-indigo-800 transition-transform transform cursor-pointer" aria-disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Request Quote"}
         </button>
-        <div className="text-sm mt-2 text-gray-500">Or <a href={phoneHref} className="underline hover:text-indigo-800">book a call</a></div>
+        <div className="text-sm mt-2 text-gray-500">Or <Link href={phoneHref} className="underline hover:text-indigo-800">book a call</Link></div>
       </div>
 
       {status === "success" && (
