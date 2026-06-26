@@ -47,7 +47,7 @@ export default function BlogClient() {
                 onClick={() => handlePageChange(page)}
                 className={`px-3 py-2 rounded-md text-sm font-medium border ${
                   currentPage === page
-                    ? "bg-red-600 text-white border-red-600"
+                    ? "bg-indigo-600 text-white border-indigo-600"
                     : "text-gray-700 border-gray-300 hover:bg-gray-100"
                 }`}
               >

@@ -24,7 +24,7 @@ export default function Header() {
   const phoneHref = `tel:${phone.replace(/[^+\d]/g, "")}`;
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const isMobileActive = (href: string) =>
+  const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   // Detect scroll to toggle sticky header
@@ -78,20 +78,22 @@ export default function Header() {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8 mx-auto">
-              {NAV.map((item) => (
-                <Link key={item.href} href={item.href} aria-label={item.name} className="relative group font-medium text-gray-900 hover:text-indigo-800">
-                  {item.name}
-                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-br from-indigo-800 to-indigo-500 transition-all duration-300 group-hover:w-full" />
-                </Link>
-              ))}
+              {NAV.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <Link key={item.href} href={item.href} aria-label={item.name} aria-current={active ? "page" : undefined} className={`relative group font-medium hover:text-indigo-800 ${active ? "text-indigo-800" : "text-gray-900"}`}>
+                    {item.name}
+                    <span className={`absolute left-0 -bottom-1 h-[2px] bg-gradient-to-br from-indigo-800 to-indigo-500 transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* CTA + Mobile Toggle */}
             <div className="flex items-center gap-3">
-              <Link href={phoneHref} role="button" aria-label="Schedule a Call" className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-md bg-gradient-to-br from-indigo-800 to-indigo-500 text-white hover-shadow-md">Schedule a Call
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14M12 5l7 7-7 7" stroke="rgba(255,255,255, 1)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <Link href={phoneHref} role="button" aria-label="Schedule a Call" className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-md bg-gradient-to-br from-indigo-800 to-indigo-500 text-white hover-shadow-md">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+                Book a Call
               </Link>
 
               {/* Mobile Toggle */}
@@ -131,9 +133,9 @@ export default function Header() {
           <div className="px-3 py-3 flex-1 overflow-y-auto">
             <nav className="flex flex-col">
               {NAV.map((item) => (
-                <Link key={item.href} href={item.href} aria-label={item.name} onClick={() => setOpen(false)} className={`flex items-center justify-between py-4 border-b border-gray-200 ${isMobileActive(item.href) ? "text-indigo-600" : "text-slate-900"}`}>
-                  <span className={`pl-1 ${isMobileActive(item.href) ? "border-l-[3px] border-indigo-500" : ""}`}>{item.name}</span>
-                  <svg className={`w-5 h-5 ${isMobileActive(item.href) ? "text-indigo-500" : "text-gray-400"}`} viewBox="0 0 24 24" fill="none">
+                <Link key={item.href} href={item.href} aria-label={item.name} aria-current={isActive(item.href) ? "page" : undefined} onClick={() => setOpen(false)} className={`flex items-center justify-between py-4 border-b border-gray-200 ${isActive(item.href) ? "text-indigo-600" : "text-slate-900"}`}>
+                  <span className={`pl-1 ${isActive(item.href) ? "border-l-[3px] border-indigo-500" : ""}`}>{item.name}</span>
+                  <svg className={`w-5 h-5 ${isActive(item.href) ? "text-indigo-500" : "text-gray-400"}`} viewBox="0 0 24 24" fill="none">
                     <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </Link>
@@ -152,7 +154,10 @@ export default function Header() {
 
           <div className="px-5 py-4 border-t border-gray-200 bg-[#f5f5f7]">
             <div className="flex flex-col gap-3">
-              <Link href={phoneHref} role="button" aria-label="Schedule a Call" onClick={() => setOpen(false)} className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium text-center shadow-lg hover:bg-indigo-800 transition-transform transform">Schedule a Call</Link>
+              <Link href={phoneHref} role="button" aria-label="Schedule a Call" onClick={() => setOpen(false)} className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium text-center shadow-lg hover:bg-indigo-800 transition-transform transform">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+                Book a Call
+              </Link>
             </div>
           </div>
         </div>

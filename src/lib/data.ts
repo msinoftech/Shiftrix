@@ -559,7 +559,7 @@ export const blogs: Blog[] = [
         answer: `Local moves stay within Calgary or nearby communities and are typically billed hourly. Long-distance moves — anything over roughly 80 km — are usually quoted by weight and distance rather than time. If you're heading out of Alberta entirely, you'll want <a href='${BASE_URL}/services/long-distance-movers'>long-distance movers</a> who specialize in interprovincial moves and understand the logistics involved.`
       }
     ],
-  }
+  },
 ];
 
 export function getPublishedBlogsByDate() {
