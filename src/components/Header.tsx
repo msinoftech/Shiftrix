@@ -93,7 +93,7 @@ export default function Header() {
             <div className="flex items-center gap-3">
               <Link href={phoneHref} role="button" aria-label="Schedule a Call" className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-md bg-gradient-to-br from-indigo-800 to-indigo-500 text-white hover-shadow-md">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
-                Book a Call
+                Quick a Call
               </Link>
 
               {/* Mobile Toggle */}
@@ -156,7 +156,7 @@ export default function Header() {
             <div className="flex flex-col gap-3">
               <Link href={phoneHref} role="button" aria-label="Schedule a Call" onClick={() => setOpen(false)} className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium text-center shadow-lg hover:bg-indigo-800 transition-transform transform">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
-                Book a Call
+                Quick a Call
               </Link>
             </div>
           </div>
