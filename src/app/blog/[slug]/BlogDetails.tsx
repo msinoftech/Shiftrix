@@ -130,8 +130,8 @@ export default function BlogDetails({ post, blogs }: BlogDetailsProps) {
                         <Image src={item.image} alt={item.title} width={80} height={80} className="rounded-lg object-cover w-full h-full"/>
                       </div>
                       <div>
-                        <h3 className="font-medium text-gray-800 group-hover:text-indigo-600 transition">{item.title}</h3>
-                        <p className="text-sm line-clamp-2">{item.excerpt}</p>
+                        <h3 className="text-sm font-medium text-gray-800 group-hover:text-indigo-600 transition">{item.title.slice(0, 50)}...</h3>
+                        <p className="text-sm line-clamp-2">{item.excerpt.slice(0, 70)}...</p>
                       </div>
                     </Link>
                   </li>
