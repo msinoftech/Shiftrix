@@ -72,7 +72,7 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" aria-label="Home" className="flex">
               <div className="relative">
-                <Image src={logo} alt="shiftrix moved with precision" width={150} height={45} className="object-contain"/>
+                <Image src={logo} alt="shiftrix moved with precision" width={200} height={50} className="object-contain"/>
               </div>
             </Link>
 
