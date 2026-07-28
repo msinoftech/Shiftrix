@@ -40,7 +40,7 @@ export default function Footer() {
           <div>
             <div className="space-y-3">
               <Link href={`${BASE_URL}`} className="inline-block" aria-label="Home">
-                <Image src={logo} width={230} height={50} alt="shiftrix moved with precision" className="object-contain"/>
+                <Image src={logo} width={230} height={60} alt="shiftrix moved with precision" className="object-contain"/>
               </Link>
               <p>{companyInfo.description}</p>
             </div>
