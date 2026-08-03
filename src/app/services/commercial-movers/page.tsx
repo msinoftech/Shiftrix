@@ -155,7 +155,7 @@ export default function CommercialmoversPage() {
     {/* Schema Markup */}
     <Script id="commercial-moving-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
-    <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
+    <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
         <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold pb-12">Commercial Moving Services in Calgary</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -173,7 +173,7 @@ export default function CommercialmoversPage() {
         </div>
     </section>
 
-     <section className="py-20 bg-gray-50">
+     <section className="py-10 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
             {/* Heading Section */}
             <div className="text-center space-y-3 mb-12">
@@ -229,8 +229,8 @@ export default function CommercialmoversPage() {
         </div>
     </section>
 
-    <section className="relative py-20">
-        <div className="container mx-auto px-4 space-y-18">
+    <section className="relative py-10 md:py-20">
+        <div className="container mx-auto px-4 space-y-10 md:space-y-18">
             
             <div className="text-center space-y-3 mb-12">
                 <h2 className="text-2xl md:text-3xl font-bold">Specialists in Diverse Commercial Relocation Services</h2>
@@ -273,7 +273,7 @@ export default function CommercialmoversPage() {
         </div>
     </section>
 
-    <section className="py-20 bg-gray-50">
+    <section className="py-10 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
             
             <div className="max-w-4xl mx-auto text-center mb-12">
@@ -308,33 +308,39 @@ export default function CommercialmoversPage() {
         </div>
     </section>
 
-    <section className="max-w-6xl mx-auto px-4 py-20">
-        <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-8">
-                {/* Left Content */}
-                <div className="relative">
-                    <div className="space-y-3">
-                        <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
-                        <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
-                    </div>
-                </div>
+    <section className="py-10 md:py-20">
+        <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+                <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {/* Left Content */}
+                        <div className="relative">
+                            <div className="space-y-3">
+                                <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
+                                <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
+                            </div>
+                        </div>
 
-                {/* Right Form */}
-                <div className="relative">
-                    <ContactForm />
+                        {/* Right Form */}
+                        <div className="relative">
+                            <ContactForm />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-     <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-            <div className="relative text-center space-y-3 pb-8">
-                <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
-            </div>
+    <section className="py-10 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+                <div className="relative text-center space-y-3 pb-8">
+                    <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
+                </div>
 
-            <div className="space-y-3">
-                <FaqSection items={faqItems} />
+                <div className="space-y-3">
+                    <FaqSection items={faqItems} />
+                </div>
             </div>
         </div>
     </section>

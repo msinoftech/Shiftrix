@@ -127,14 +127,16 @@ export default function Contact() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchemaData) }}
       />
 
-      <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 bg-gray-50 pb-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 bg-white p-8 drop-shadow-lg rounded-lg">
-            <div className="relative">
-              <ContactSection />
-            </div>
-            <div className="relative">
-              <ContactForm />
+      <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 bg-gray-50 pb-10 md:pb-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 bg-white p-8 drop-shadow-lg rounded-lg">
+              <div className="relative">
+                <ContactSection />
+              </div>
+              <div className="relative">
+                <ContactForm />
+              </div>
             </div>
           </div>
         </div>

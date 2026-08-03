@@ -160,7 +160,7 @@ const homeschemaData = {
 
       <HeroSection />
 
-      <section className="relative overflow-hidden py-20">        
+      <section className="relative overflow-hidden py-10 md:py-20">        
         <div className="container mx-auto px-4">
           <div className="space-y-4 max-w-5xl mx-auto text-center">
             <h2 className="text-2xl md:text-4xl font-bold">Customized Moving Services for Every Relocation Need</h2>
@@ -206,7 +206,7 @@ const homeschemaData = {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-10 md:py-20 bg-gradient-to-br from-gray-50 to-white">
          <div className="container mx-auto px-4">
             <AboutSection
               image="/shiftrix-mover-and-packer.jpg"
@@ -230,7 +230,7 @@ const homeschemaData = {
         items={whyhireus}
       />
 
-      <section className="relative py-20">
+      <section className="relative py-10 md:py-20">
         <div className="container mx-auto px-4">
           <div className="space-y-3 text-center pb-8">
             <h2 className="text-2xl md:text-4xl font-bold">Explore our blog for expert tips and advice</h2>
@@ -248,37 +248,43 @@ const homeschemaData = {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 pb-20">
-          <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
-            <div className="space-y-3 text-center pb-8">
-                <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
-                <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
-            </div>
+      <section className="pb-10 md:pb-20">
+        <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
+                <div className="space-y-3 text-center pb-8">
+                    <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
+                    <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
+                </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Left Content */}
-              <div className="relative">
-                <ContactSection/>
-              </div>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Left Content */}
+                  <div className="relative">
+                    <ContactSection/>
+                  </div>
 
-              {/* Right Form */}
-              <div className="relative">
-                <ContactForm />
-              </div>
+                  {/* Right Form */}
+                  <div className="relative">
+                    <ContactForm />
+                  </div>
+                </div>
             </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-4">
-            <div className="space-y-3 text-center pb-8">
-              <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
-            </div>
+      <section className="py-10 md:py-20 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+              <div className="space-y-3 text-center pb-8">
+                <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
+              </div>
 
-            <div className="space-y-3">
-              <FaqSection items={faqItems} />
-            </div>
-            
+              <div className="space-y-3">
+                <FaqSection items={faqItems} />
+              </div>
+              
+          </div>
         </div>
       </section>
 

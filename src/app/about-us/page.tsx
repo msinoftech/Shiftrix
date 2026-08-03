@@ -146,7 +146,7 @@ const counters = [
       {/* Schema added to the <head> */}
       <Script id="about-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchemaData) }}/>
 
-      <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
+      <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
         <div className="container mx-auto px-4">
           <AboutSection
             image={`/shiftrix-mover-and-packer.jpg`}
@@ -166,7 +166,7 @@ const counters = [
         counters={counters}
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-10 md:py-20">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Images */}
           <div className="relative">
@@ -200,7 +200,7 @@ const counters = [
         </div>
       </section>
 
-      <section className="bg-white pb-20">
+      <section className="bg-white pb-10 md:pb-20">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12">
 
           <div className="space-y-3">

@@ -17,7 +17,7 @@ export default function BlogClient() {
   };
 
   return (
-    <section className="pb-20 sm:pt-40 md:pt-40 lg:pt-40 pt-40">
+    <section className="pb-10 md:pb-20 sm:pt-40 md:pt-40 lg:pt-40 pt-40">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentItems.map((post) => (

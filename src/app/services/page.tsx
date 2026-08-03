@@ -127,7 +127,7 @@ export default function ServicesPage() {
     {/* Schema JSON-LD */}
     <Script id="services-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceschemaData),}}/>
 
-    <section className="bg-gray-50 sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
+    <section className="bg-gray-50 sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto space-y-4 text-center pb-8">
           <h1 className="text-2xl md:text-4xl font-bold">Our All Relocation Services in Calgary — Choose now Which One Is Right for You?</h1>
@@ -184,23 +184,27 @@ export default function ServicesPage() {
       </div>
     </section>
 
-    <section className="max-w-6xl mx-auto px-4 py-20">
-        <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
-          <div className="relative space-y-3 text-center pb-8">
-              <div className="text-2xl md:text-4xl text-gray-900 font-bold">Pick the service you actually need | Book Our Team</div>
-              <p>Let our experts take the stress out of your next move with a relocation service tailored to your timeline and budget.</p>
-          </div>
+    <section className="py-10 md:py-20">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
+            <div className="relative space-y-3 text-center pb-8">
+                <div className="text-2xl md:text-4xl text-gray-900 font-bold">Pick the service you actually need | Book Our Team</div>
+                <p>Let our experts take the stress out of your next move with a relocation service tailored to your timeline and budget.</p>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Left Content */}
-            <div className="relative">
-                <ContactSection/>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Left Content */}
+              <div className="relative">
+                  <ContactSection/>
+              </div>
+              {/* Right Form */}
+              <div className="relative">
+                <ContactForm />
+              </div>
             </div>
-            {/* Right Form */}
-            <div className="relative">
-              <ContactForm />
-            </div>
-          </div>
+        </div>
+      </div>
       </div>
     </section>
     </>

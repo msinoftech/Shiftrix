@@ -95,7 +95,7 @@ export default function BlogDetails({ post, blogs }: BlogDetailsProps) {
   }, [scrollToAnchor]);
 
   return (
-    <section ref={sectionRef} className="details-page sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-12">
+    <section ref={sectionRef} className="details-page sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
       <div className="container px-4 mx-auto">
         <h1 className="text-3xl font-bold pb-12">{post.title}</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
