@@ -162,7 +162,7 @@ export default function ResidentialMoversPage() {
     <Script id="residential-movers-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold pb-12">Calgary's Trusted Moving Partner For Residential Relocation</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative">
@@ -181,7 +181,7 @@ export default function ResidentialMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-3xl font-bold">We Move Every Type of Calgary Home</h2>
                 <p>Calgary's residential landscape is wonderfully diverse — from high-rise condos on 17th Ave to spacious detached homes in Evanston. Each property type presents its own set of challenges, and our residential moving team is trained to handle them all.</p>
@@ -229,7 +229,7 @@ export default function ResidentialMoversPage() {
     </section>
 
     <section className="relative py-20">
-        <div className="max-w-7xl mx-auto px-4 space-y-18">
+        <div className="container mx-auto px-4 space-y-18">
             <div className="text-center space-y-3">
                 <h2 className="text-2xl md:text-3xl font-bold">What to Do Before Your Residential Movers Arrive</h2>
                 <p>A little preparation goes a long way. Here's your room-by-room checklist to make your residential move in Calgary as smooth as possible:</p>
@@ -303,7 +303,7 @@ export default function ResidentialMoversPage() {
     </section>
 
     <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-12">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Why Calgary Residents Choose Shiftrix</h2>
                 <p className="text-gray-600">There's no shortage of residential moving companies in Calgary. What separates Shiftrix is simple: professionalism, affordability, and customer satisfaction.</p>
@@ -334,7 +334,7 @@ export default function ResidentialMoversPage() {
         </div>
     </section>
 
-    <section className="max-w-7xl mx-auto px-4 py-20">
+    <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left Content */}
@@ -351,7 +351,7 @@ export default function ResidentialMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
             <div className="relative text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>

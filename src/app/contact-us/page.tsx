@@ -128,7 +128,7 @@ export default function Contact() {
       />
 
       <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 bg-gray-50 pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 bg-white p-8 drop-shadow-lg rounded-lg">
             <div className="relative">
               <ContactSection />

@@ -38,7 +38,7 @@ const processSteps: ProcessStep[] = [
 const ProcessSection: React.FC = () => {
   return (
     <section className="relative bg-gradient-to-br from-indigo-800 to-indigo-500 py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center px-4">
+      <div className="container mx-auto text-center px-4">
         <h3 className="text-2xl md:text-4xl font-bold !text-white">Our Moving Solutions Tailored to Your Needs</h3>
 
         {/* Step Container */}

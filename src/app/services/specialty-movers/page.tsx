@@ -143,7 +143,7 @@ export default function SpecialtyMoversPage() {
     <Script id="specialty-movers-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold pb-12">What Is Specialty Moving? Guide for Calgary Homeowners</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative">
@@ -160,7 +160,7 @@ export default function SpecialtyMoversPage() {
     </section>
 
     <section className="relative">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="space-y-3 relative">
@@ -175,7 +175,7 @@ export default function SpecialtyMoversPage() {
     </section>
 
     <section className="relative py-20">
-        <div className="max-w-7xl mx-auto px-4 space-y-18">
+        <div className="container mx-auto px-4 space-y-18">
             <div className="text-center space-y-3 mb-12">
                 <h2 className="text-2xl md:text-3xl font-bold">Specialist Moves, Done Perfectly—Every Time</h2>
                 <p> We show up our skills every time for every specialty, moving - Professional crew, concrete plan, no room for error.</p>
@@ -215,7 +215,7 @@ export default function SpecialtyMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-3xl font-bold">Why Choose Shiftrix?</h2>
                 <p>When you choose Shiftrix, you&apos;re hiring Calgary&apos;s most reliable professional movers to move your items. Our team combines decades of experience, specialised training, and genuine care for your possessions.</p>
@@ -249,7 +249,7 @@ export default function SpecialtyMoversPage() {
         </div>
     </section>
 
-    <section className="max-w-7xl mx-auto px-4 py-20">
+    <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Left Content */}
@@ -266,7 +266,7 @@ export default function SpecialtyMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
             <div className="relative text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>

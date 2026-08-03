@@ -150,7 +150,7 @@ export default function PianoMoversPage() {
     <Script id="piano-movers-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold pb-12">Calgary's Piano Moving Service — Protecting What Matters Most</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative">
@@ -167,7 +167,7 @@ export default function PianoMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* left Content */}
                 <div className="space-y-3">
@@ -207,7 +207,7 @@ export default function PianoMoversPage() {
     </section>
 
     <section className="relative py-20">
-        <div className="max-w-7xl mx-auto px-4 space-y-18">
+        <div className="container mx-auto px-4 space-y-18">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* left Image */}
                 <div className="relative">
@@ -304,7 +304,7 @@ export default function PianoMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-3xl font-bold">Why Choose Shiftrix for Your Piano Move?</h2>
                 <p>Hiring Shiftrix means you can focus on the excitement of your new space while your piano is protected in the trusted hands of Calgary&apos;s best piano movers. We communicate clearly, plan, and execute with precision.</p>
@@ -338,7 +338,7 @@ export default function PianoMoversPage() {
         </div>
     </section>
 
-    <section className="max-w-7xl mx-auto px-4 py-20">
+    <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Left Content */}
@@ -355,7 +355,7 @@ export default function PianoMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
             <div className="relative text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>

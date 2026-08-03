@@ -8,7 +8,7 @@ export default function ContactActions() {
   const phoneHref = `${phone.replace(/[^+\d]/g, "")}`;
 
   return (
-    <div className="max-w-7xl mx-auto relative">
+    <div className="container mx-auto relative">
       <div className="
           fixed bottom-4 left-0 right-0 z-[999] sm:left-auto sm:right-6
           flex justify-around sm:justify-center items-center gap-6

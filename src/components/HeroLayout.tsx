@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="absolute bottom-0 right-0 h-96 w-96 bg-indigo-500/30 rounded-full blur-3xl animate-float-reverse"></div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 relative">
+      <div className="container mx-auto px-4 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 items-center gap-12">
 
           {/* Left Column */}

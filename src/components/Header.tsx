@@ -67,7 +67,7 @@ export default function Header() {
 
       {/* Sticky Header */}
       <div ref={stickyRef} className={`transition-all duration-300 ${ scrolled ? "fixed top-0 left-0 w-full bg-white shadow-md py-3 z-[1000]" : "relative bg-transparent py-2"}`}>
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="relative flex items-center justify-between">
             {/* Logo */}
             <Link href="/" aria-label="Home" className="flex">
@@ -77,7 +77,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8 mx-auto">
+            <nav className="hidden lg:flex items-center gap-8 mx-auto">
               {NAV.map((item) => {
                 const active = isActive(item.href);
                 return (
@@ -97,7 +97,7 @@ export default function Header() {
               </Link>
 
               {/* Mobile Toggle */}
-              <button onClick={() => setOpen(!open)} className="md:hidden inline-flex items-center cursor-pointer justify-center rounded-md text-indigo-800" aria-label="Toggle menu">
+              <button onClick={() => setOpen(!open)} className="lg:hidden inline-flex items-center cursor-pointer justify-center rounded-md text-indigo-800" aria-label="Toggle menu">
                 {open ? (
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24">
                     <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -115,7 +115,7 @@ export default function Header() {
       </div>
 
       {/* Mobile Dropdown */}
-      <div className={`md:hidden fixed inset-0 z-[999999] ${ open ? "pointer-events-auto" : "pointer-events-none"}`}>
+      <div className={`lg:hidden fixed inset-0 z-[999999] ${ open ? "pointer-events-auto" : "pointer-events-none"}`}>
         <div onClick={() => setOpen(false)} aria-label="Close menu overlay" className={`absolute inset-0 bg-black/50 backdrop-blur-[7px] transition-opacity duration-300 cursor-pointer ${ open ? "opacity-100" : "opacity-0"}`} />
 
         <div className={`absolute right-0 top-0 h-screen w-[90%] max-w-sm bg-[#f5f5f7] border-l border-gray-200 shadow-xl transition-transform duration-300 ease-out flex flex-col ${ open ? "translate-x-0" : "translate-x-full"}`}>

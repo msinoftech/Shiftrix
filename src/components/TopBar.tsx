@@ -10,7 +10,7 @@ export default function Topbar() {
 
   return (
       <div className="text-white bg-gradient-to-br from-indigo-800 to-indigo-500">
-        <div className="max-w-7xl mx-auto px-4 py-2">
+        <div className="container mx-auto px-4 py-2">
           {/* Left side - Phone & Email */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
             <div className="flex sm:items-center justify-center gap-2 sm:gap-5">

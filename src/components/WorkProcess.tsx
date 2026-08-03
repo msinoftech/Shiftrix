@@ -46,7 +46,7 @@ export default function WorkProcess() {
 
   return (
     <section className="bg-gray-50 py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-blue-600 uppercase tracking-widest">

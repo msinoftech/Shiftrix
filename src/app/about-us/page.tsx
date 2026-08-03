@@ -147,7 +147,7 @@ const counters = [
       <Script id="about-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchemaData) }}/>
 
       <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <AboutSection
             image={`/shiftrix-mover-and-packer.jpg`}
             title="More Than Movers-Your Relocation Partners"
@@ -167,7 +167,7 @@ const counters = [
       />
 
       <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Images */}
           <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-lg">
@@ -201,7 +201,7 @@ const counters = [
       </section>
 
       <section className="bg-white pb-20">
-        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12">
 
           <div className="space-y-3">
             <h2 className="text-2xl md:text-4xl font-bold">Our Core Values</h2>

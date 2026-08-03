@@ -140,7 +140,7 @@ export default function LongDistanceMoversPage() {
     <Script id="long-distance-movers-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold pb-12">Long-distance Movers and Packers On A Budget</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* left Image */}
@@ -158,7 +158,7 @@ export default function LongDistanceMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center space-y-3 mb-12">
                 <h2 className="text-2xl md:text-3xl font-bold">Why Choose the Most Reliable Long-Distance Movers?</h2>
                 <p>Shiftrix positions itself among the most reliable long distance movers by combining professional crews, modern trucks, and proven processes.​</p>
@@ -196,7 +196,7 @@ export default function LongDistanceMoversPage() {
     </section>
 
     <section className="relative py-20">
-        <div className="max-w-7xl mx-auto px-4 space-y-18">
+        <div className="container mx-auto px-4 space-y-18">
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* left Content */}
@@ -225,7 +225,7 @@ export default function LongDistanceMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="text-center space-y-3 mb-12">
                 <h2 className="text-2xl md:text-3xl font-bold">Why Rely on Shiftrix?</h2>
             </div>
@@ -258,7 +258,7 @@ export default function LongDistanceMoversPage() {
         </div>
     </section>
 
-    <section className="max-w-7xl mx-auto px-4 py-20">
+    <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left Content */}
@@ -275,7 +275,7 @@ export default function LongDistanceMoversPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
             <div className="relative text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>

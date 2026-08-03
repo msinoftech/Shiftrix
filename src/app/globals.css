@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  --brand-gray-900: #111827;
   --brand-indigo-800: #3730a3;
   --brand-indigo-700: #4338ca;
   --brand-indigo-600: #4f46e5;
@@ -15,7 +16,7 @@
 
 body {
   background: var(--background);
-  color: var(--color-gray-600);
+  color: var(--color-gray-700);
   font-family: "Roboto", sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -211,6 +212,9 @@ html:has(.details-page) {
   color: #4338ca;
   font-weight: 600;
 }
+.details-page .post-content strong{
+  color: var(--brand-gray-900);
+}
 .details-page .post-content .moving-glance {
   margin: 2.5rem 0;
   padding: 0;
@@ -309,6 +313,67 @@ html:has(.details-page) {
   line-height: 1.55;
   color: #4b5563;
 }
+
+/* Google Places autocomplete dropdown above hero quote card */
+.pac-container {
+  width: 300px !important;
+  z-index: 10000 !important;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  margin-top: 4px;
+  font-family: inherit;
+}
+.pac-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  line-height: 1.35;
+}
+.pac-item:hover,
+.pac-item-selected {
+  background-color: #eef2ff;
+}
+.pac-icon {
+  margin-top: 2px;
+}
+
+.proudly-logo {
+  position: absolute;  
+  right: 0;
+  transform: translate(-120%, -10%);
+  top: 10px;
+  width: 200px;
+}
+
+/* Responsive styles for moving glance */
+@media (max-width: 1660px){
+  .proudly-logo {
+    width: 200px !important;
+    transform: translate(-80%, -10%) !important;
+  }
+}
+
+@media (max-width: 1500px){
+  .proudly-logo {
+    width: 150px !important;
+    transform: translate(-90%, -10%) !important;
+  }
+}
+
+@media (max-width: 1400px){
+  .proudly-logo {
+    width: 150px !important;
+    transform: translate(-60%, -10%) !important;
+  }
+}
+
+@media (max-width: 1279px){
+  .proudly-logo {
+    display: none !important;
+  }
+}
+
+
 @media (max-width: 768px) {
   .details-page .post-content .moving-glance__inner {
     padding: 2rem 1rem 1.5rem;
@@ -320,6 +385,7 @@ html:has(.details-page) {
     max-width: none;
   }
 }
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .details-page .post-content .moving-glance__grid {
     grid-template-columns: repeat(2, 1fr);

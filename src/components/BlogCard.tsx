@@ -10,10 +10,10 @@ function formatPublishedDate(date: string) {
   });
 }
 
-function truncateExcerpt(text: string, maxLength = 110) {
-  if (text.length <= maxLength) return text;
-  return `${text.slice(0, maxLength).trimEnd()}…`;
-}
+// function truncateExcerpt(text: string, maxLength = 110) {
+//   if (text.length <= maxLength) return text;
+//   return `${text.slice(0, maxLength).trimEnd()}…`;
+// }
 
 export default function BlogCard({ post }: { post: Blog }) {
   const publishedDate = formatPublishedDate(post.published_at);
@@ -57,7 +57,7 @@ export default function BlogCard({ post }: { post: Blog }) {
         </time>
       </Link>
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-5 space-y-3">
         {post.category ? (
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-indigo-600">
             {post.category}
@@ -66,15 +66,13 @@ export default function BlogCard({ post }: { post: Blog }) {
 
         <h3 className="text-lg font-bold leading-snug text-gray-900 transition-colors group-hover:text-indigo-800 md:text-xl">
           <Link href={postHref} aria-label={`Read more about ${post.title}`}>
-            {post.title.slice(0, 60)}...
+            {post.title}
           </Link>
         </h3>
 
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">
-          {truncateExcerpt(post.excerpt)}
-        </p>
+        <p>{post.excerpt}</p>
 
-        <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-4">
+        <div className="mt-2 pt-3 flex items-center justify-between border-t border-gray-100">
           <span className="text-xs text-gray-500">By {post.author}</span>
         </div>
       </div>

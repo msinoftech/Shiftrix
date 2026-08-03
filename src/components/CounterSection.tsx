@@ -15,7 +15,7 @@ interface DynamicCountersProps {
 const DynamicCounters: React.FC<DynamicCountersProps> = ({ counters }) => {
   return (
     <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 items-center">
           {counters.map((item, index) => (
             <div key={index} className="col-span-1 flex flex-col items-center p-6 bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full space-y-2">

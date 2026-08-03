@@ -12,7 +12,7 @@ interface WhyHireSectionProps {
 const WhyHireSection: React.FC<WhyHireSectionProps> = ({ subheading, heading, description, items }) => {
   return (
     <section className="bg-gray-50 py-20">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="container mx-auto px-4">
         <div className="space-y-3 text-center pb-8">
           {subheading && (
             <div className="text-xs font-semibold tracking-widest text-indigo-800 uppercase mb-2">{subheading}</div>

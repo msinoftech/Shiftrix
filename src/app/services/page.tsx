@@ -128,7 +128,7 @@ export default function ServicesPage() {
     <Script id="services-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceschemaData),}}/>
 
     <section className="bg-gray-50 sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto space-y-4 text-center pb-8">
           <h1 className="text-2xl md:text-4xl font-bold">Our All Relocation Services in Calgary — Choose now Which One Is Right for You?</h1>
           <p>Some moves arrive with little warning — a lease that isn't renewed, a sudden job transfer, or an unexpected life change that can't wait. Whatever the circumstances, Shiftrix is ready to help. Our team handles relocations of every scale and type: a few essential items or an entire property, a single room or a full office floor. Regardless of your timeline or the size of your move, we coordinate every detail so you can focus on settling in.</p>
@@ -184,7 +184,7 @@ export default function ServicesPage() {
       </div>
     </section>
 
-    <section className="max-w-7xl mx-auto px-4 py-20">
+    <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
           <div className="relative space-y-3 text-center pb-8">
               <div className="text-2xl md:text-4xl text-gray-900 font-bold">Pick the service you actually need | Book Our Team</div>

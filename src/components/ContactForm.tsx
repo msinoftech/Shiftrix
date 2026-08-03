@@ -49,7 +49,14 @@ const ContactForm = () => {
       const emailRes = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          formType: "contact",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        }),
       });
 
       // Check email API response
@@ -104,7 +111,7 @@ const ContactForm = () => {
       
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-3">
         <select aria-label="Select Service" name="service" required value={formData.service} onChange={handleChange} className="block w-full rounded-xl border border-gray-200 bg-transparent px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-          <option value="">--Select Service--</option>
+          <option value="">Select Service</option>
           <option value="commercial-movers">Commercial Movers</option>
           <option value="residential-movers">Residential Movers</option>
           <option value="full-service-movers">Full Service Movers</option>

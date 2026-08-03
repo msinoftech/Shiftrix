@@ -10,13 +10,12 @@ import { whyhireus } from "@/lib/whyhireus";
 import BlogCard from "@/components/BlogCard";
 import ContactForm from "@/components/ContactForm";
 import ContactSection from "@/components/ContactSection";
-import StatsSection from "@/components/StatsSection";
 import AboutSection from "@/components/AboutSection";
 import ProcessSection from "@/components/ProcessSection";
 import WhyHireSection from "@/components/whyhireSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import { FaqSection } from "@/components/FaqSection";
-import HeroLayout from "@/components/HeroLayout";
+import HeroSection from "@/components/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
 
 const { phone, logo, email, address } = contactInfo;
@@ -159,13 +158,11 @@ const homeschemaData = {
       {/* Add Structured Data for Home Page */}
       <Script id="homepage-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeschemaData, null, 2),}}/>
 
-      <HeroLayout />
-
-      <StatsSection />
+      <HeroSection />
 
       <section className="relative overflow-hidden py-20">        
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="space-y-4 text-center">
+        <div className="container mx-auto px-4">
+          <div className="space-y-4 max-w-5xl mx-auto text-center">
             <h2 className="text-2xl md:text-4xl font-bold">Customized Moving Services for Every Relocation Need</h2>
             <p>As a trusted moving agency, our team has a strong track record of 5+ years providing tailored relocation solutions in Calgary, from careful packing and secure loading to safe transportation and on-time delivery. We focus on efficiency, safety, and customer satisfaction.</p>
           </div>
@@ -210,7 +207,7 @@ const homeschemaData = {
       </section>
 
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-         <div className="max-w-7xl mx-auto px-4">
+         <div className="container mx-auto px-4">
             <AboutSection
               image="/shiftrix-mover-and-packer.jpg"
               title="The Professional Moving Company Calgary Trusts"
@@ -234,7 +231,7 @@ const homeschemaData = {
       />
 
       <section className="relative py-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="space-y-3 text-center pb-8">
             <h2 className="text-2xl md:text-4xl font-bold">Explore our blog for expert tips and advice</h2>
           </div>
@@ -251,7 +248,7 @@ const homeschemaData = {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 pb-20">
+      <section className="max-w-6xl mx-auto px-4 pb-20">
           <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
             <div className="space-y-3 text-center pb-8">
                 <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
@@ -273,7 +270,7 @@ const homeschemaData = {
       </section>
 
       <section className="py-20 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
             <div className="space-y-3 text-center pb-8">
               <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>

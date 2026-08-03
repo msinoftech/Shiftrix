@@ -142,7 +142,7 @@ export default function ManWithVanPage() {
     <Script id="man-with-a-van-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
     <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold pb-12">Man With a Van Moving Service in Calgary</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="relative">
@@ -161,7 +161,7 @@ export default function ManWithVanPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Left Content */}
                 <div className="space-y-3">
@@ -204,7 +204,7 @@ export default function ManWithVanPage() {
     </section>
 
     <section className="relative py-20">
-        <div className="max-w-7xl mx-auto px-4 space-y-18">
+        <div className="container mx-auto px-4 space-y-18">
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative">
@@ -260,7 +260,7 @@ export default function ManWithVanPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
             
             <div className="text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-3xl font-bold">Moving With A Trusted Man with A Van Service</h2>
@@ -295,7 +295,7 @@ export default function ManWithVanPage() {
         </div>
     </section>
 
-    <section className="max-w-7xl mx-auto px-4 py-20">
+    <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Left Content */}
@@ -312,7 +312,7 @@ export default function ManWithVanPage() {
     </section>
 
     <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
             <div className="relative text-center space-y-3 pb-8">
                 <h2 className="text-2xl md:text-4xl font-bold">Frequently Asked Questions</h2>
             </div>
