@@ -1,9 +1,10 @@
 export const APP_NAME = "Shiftrix";
 export const BASE_URL = "https://www.shiftrix.ca";
+//export const BASE_URL = "http://localhost:3002";
 
 
 export const contactInfo = {
-  logo: `/shiftrix-logo-new.png`,
+  logo: `/shiftrix-logo.webp`,
   phone: "+14034729110",
   email: "info.shiftrix@gmail.com",
   address: "120 Dawson wharf view Chestermere"

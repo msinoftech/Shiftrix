@@ -149,6 +149,7 @@ const counters = [
       <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
         <div className="container mx-auto px-4">
           <AboutSection
+            titleTag="h1"
             image={`/shiftrix-mover-and-packer.jpg`}
             title="More Than Movers-Your Relocation Partners"
             content={`Shiftrix started in Calgary as a small, dedicated moving team that grew into a professional moving company known for reliability and care. We make every move as simple as possible through trust, planning, and client-first service. From the consultation to the final delivery, we prioritise clear communication, careful handling, and efficient execution. We do more than move your belongings—we help you start the next chapter of your life.`}

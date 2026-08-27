@@ -3,9 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { GiCheckMark } from "react-icons/gi";
 
+type TitleTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
 interface AboutSectionProps {
   image?: string;
   title: string;
+  titleTag?: TitleTag;
   content: string;
   showImage?: boolean;
   showLink?: boolean;
@@ -21,6 +24,7 @@ interface AboutSectionProps {
 const AboutSection: React.FC<AboutSectionProps> = ({
   image,
   title,
+  titleTag: TitleTag = "h2",
   content,
   showImage = true,
   showLink = true,
@@ -51,7 +55,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
       {/* Right column: Content */}
       <div className={showImage ? "order-2 lg:order-2" : "col-span-1"}>
         <div className="rounded-lg" style={contentStyle}>
-          <h2 className={titleClassName}>{title}</h2>
+          <TitleTag className={titleClassName}>{title}</TitleTag>
           <div className="space-y-4">
             {content.split("\n").map((paragraph, index) => (
               <p key={index}>{paragraph.trim()}</p>

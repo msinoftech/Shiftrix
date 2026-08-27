@@ -22,7 +22,9 @@ function getStickyHeaderHeight(): number {
 }
 
 export default function BlogDetails({ post, blogs }: BlogDetailsProps) {
-  const otherBlogs = getPublishedBlogsByDate().filter((b) => b.slug !== post.slug);
+  const otherBlogs = getPublishedBlogsByDate()
+    .filter((b) => b.slug !== post.slug)
+    .slice(0, 6);
   const faqItems = post.faq ?? [];
   const postContentRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -101,7 +103,7 @@ export default function BlogDetails({ post, blogs }: BlogDetailsProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* LEFT SIDE - Blog Details */}
           <div className="lg:col-span-2">
-            <Image src={post.image} alt={post.title} width={900} height={500} className="rounded-xl mb-6 aspect-[16/8] object-cover"/>
+            <Image src={post.image} alt={post.title} width={900} height={500} className="rounded-xl mb-6 w-full aspect-[16/9] object-cover"/>
             <div
               ref={postContentRef}
               className="post-content space-y-3"
