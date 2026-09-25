@@ -236,8 +236,8 @@ const homeschemaData = {
             <h2 className="text-2xl md:text-4xl font-bold">Explore our blog for expert tips and advice</h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {getLatestBlogs(3).map((post) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {getLatestBlogs(4).map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
           </div>

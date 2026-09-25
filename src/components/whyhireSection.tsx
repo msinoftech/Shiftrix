@@ -25,7 +25,7 @@ const WhyHireSection: React.FC<WhyHireSectionProps> = ({ subheading, heading, de
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 min-[576px]:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((item) => (
             <div key={item.title} className="rounded-2xl shadow-md hover:shadow-lg transition p-6 bg-white text-center space-y-3 hover:-translate-y-1">
               <div className="relative w-20 h-20 mx-auto">

@@ -42,7 +42,7 @@ const ProcessSection: React.FC = () => {
         <h3 className="text-2xl md:text-4xl font-bold !text-white">Our Moving Solutions Tailored to Your Needs</h3>
 
         {/* Step Container */}
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-12 mt-12 md:gap-6 z-10">
+        <div className="relative flex flex-col sm:flex-row items-center justify-between gap-12 mt-12 md:gap-6 z-10">
           <div className="hidden md:block absolute top-15 left-0 right-0 -translate-y-1/2 w-full pointer-events-none z-0 px-8">
             <svg viewBox="0 0 1200 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto opacity-60" preserveAspectRatio="none">
               <path d="M150 60 C225 25, 300 25, 375 60 C450 95, 525 95, 600 60 C675 25, 750 25, 825 60 C900 95, 975 95, 1050 60" stroke="url(#gradient)" strokeWidth="3" strokeDasharray="8 8" strokeLinecap="round" />

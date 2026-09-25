@@ -205,7 +205,7 @@ export default function HeroSection() {
                                         </svg>
                                         ))}
                                     </div>
-                                    <p className="text-[10px] text-gray-500 leading-tight">4.9 Rated on Customers</p>
+                                    <p className="text-xs text-gray-500 leading-tight">4.9 Rated on Customers</p>
                                 </div>
                             </div>
 
@@ -222,7 +222,7 @@ export default function HeroSection() {
                                 </div>
                                 <div>
                                 <p className="text-xs font-bold text-slate-800 leading-tight">500+</p>
-                                <p className="text-[10px] text-gray-500 leading-tight">Happy Customers</p>
+                                <p className="text-xs text-gray-500 leading-tight">Happy Customers</p>
                                 </div>
                             </div>
 
@@ -234,7 +234,7 @@ export default function HeroSection() {
                                 </div>
                                 <div>
                                 <p className="text-xs font-bold text-slate-800 leading-tight">99%</p>
-                                <p className="text-[10px] text-gray-500 leading-tight">Satisfaction</p>
+                                <p className="text-xs text-gray-500 leading-tight">Satisfaction</p>
                                 </div>
                             </div>
                         </div>
