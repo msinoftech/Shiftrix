@@ -6,8 +6,6 @@ import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
 
-const { logo } = contactInfo;
-
 export const metadata: Metadata = {
     title: "Office and Commercial Movers in Calgary",
     description: "Trust Shiftrix for Calgary's leading commercial moving service to handle your office, retail, clinic, or warehouse relocation with unmatched attention to detail and expertise.",
@@ -69,83 +67,88 @@ const faqItems = [
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
-    {
-        "@type": "WebSite",
-        "@id": `${BASE_URL}/#website`,
-        "url": `${BASE_URL}`,
-        "name": `${APP_NAME}`
-    },
-    {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/commercial-movers/#webpage`,
-        "url": `${BASE_URL}/services/commercial-movers`,
-        "name": "Office and Commercial Movers in Calgary",
-        "isPartOf": {"@id": `${BASE_URL}/services/commercial-movers/#website`},
-        "description": "Trust Shiftrix for Calgary's leading commercial moving service to handle your office, retail, clinic, or warehouse relocation with unmatched attention to detail and expertise.",
-        "inLanguage": "en-CA",
-        "breadcrumb": {"@id": `${BASE_URL}/services/commercial-movers/#breadcrumb`}
-    },
-    {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/commercial-movers/#breadcrumb`,
-        "itemListElement": [
         {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
+            "@type": "WebPage",
+            "@id": `${BASE_URL}/services/commercial-movers/#webpage`,
+            "url": `${BASE_URL}/services/commercial-movers`,
+            "name": "Office and Commercial Movers in Calgary",
+            "description": "Trust Shiftrix for Calgary's leading commercial moving service to handle your office, retail, clinic, or warehouse relocation with unmatched attention to detail and expertise.",
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
+            },
+            "about": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/commercial-movers/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/commercial-movers/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/commercial-movers/#faq`
+            },
+            "inLanguage": "en-CA"
         },
         {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/commercial-movers/#service`,
+            "name": "Office and Commercial Movers in Calgary",
+            "serviceType": "Commercial Moving",
+            "description": "Trust Shiftrix for Calgary's leading commercial moving service to handle your office, retail, clinic, or warehouse relocation with unmatched attention to detail and expertise.",
+            "url": `${BASE_URL}/services/commercial-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
+            },
+            "category": "Commercial Moving",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/commercial-movers/#webpage`
+            }
         },
         {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "commercial movers",
-            "item": `${BASE_URL}/services/commercial-movers`
+            "@type": "BreadcrumbList",
+            "@id": `${BASE_URL}/services/commercial-movers/#breadcrumb`,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${BASE_URL}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": `${BASE_URL}/services`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Commercial Movers",
+                "item": `${BASE_URL}/services/commercial-movers`
+              }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "@id": `${BASE_URL}/services/commercial-movers/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+            "@type": "Question",
+            "name": item.title,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.content
+            }
+            }))
         }
-        ]
-    },
-    {
-        "@type": "Service",
-        "serviceType": "Commercial Movers",
-        "name": "Office and Commercial Movers in Calgary",
-        "description": "Trust Shiftrix for Calgary's leading commercial moving service to handle your office, retail, clinic, or warehouse relocation with unmatched attention to detail and expertise.",
-        "url": `${BASE_URL}/services/commercial-movers`,
-        "provider": {
-        "@type": "MovingCompany",
-        "name": `${APP_NAME}`,
-        "url": `${BASE_URL}/services/commercial-movers`,
-        "logo": `${logo}`
-        },
-        "areaServed": [
-          {"@type": "City", "name": "Calgary"},
-        ],
-        "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Commercial Movers Offerings",
-        "itemListElement": [
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Office Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retail Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Warehouse Moving"}}
-        ]
-        }
-    },
-    {
-        "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/commercial-movers/#faq`,
-        "mainEntity": faqItems.map((item) => ({
-          "@type": "Question",
-          "name": item.title,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": item.content
-          }
-        }))
-    }
     ]
 };
 

@@ -1,12 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
+import { APP_NAME, BASE_URL } from "@/lib/config";
 import Script from "next/script";
 import ContactForm from "@/components/ContactForm";
 import ContactSection from "@/components/ContactSection";
 import ServiceCard from "@/components/ServiceCard";
-
-const { phone, address, logo, email } = contactInfo;
 
 export const metadata: Metadata = {
   title: `Our Relocation Services in Calgary | Compare & Choose`,
@@ -46,79 +44,105 @@ const serviceschemaData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": `${BASE_URL}/#website`,
-      "url": `${BASE_URL}`,
-      "name": `${APP_NAME}`,
-      "alternateName": `${APP_NAME}`,
-      "publisher": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@type": "WebPage",
+      "@type": "CollectionPage",
       "@id": `${BASE_URL}/services/#webpage`,
       "url": `${BASE_URL}/services`,
       "name": "Our Relocation Services in Calgary | Compare & Choose",
-      "description": "Explore all the services we offer in Calgary — from local and residential moves to long-distance, commercial, piano, and specialty moving. Find the right relocation service for your move.",
-      "isPartOf": { "@id": `${BASE_URL}/services/#website` },
-      "about": { "@id": `${BASE_URL}/services/#organization` },
+      "description": "Explore residential, commercial, local, long-distance, furniture, piano, full-service, specialty, and man with a van moving services in Calgary from Shiftrix Moving Services.",
+      "isPartOf": {
+        "@id": `${BASE_URL}/#website`
+      },
+      "about": {
+        "@id": `${BASE_URL}/#business`
+      },
+      "mainEntity": {
+        "@id": `${BASE_URL}/#services`
+      },
       "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
-          }
-        ]
-      }
+        "@id": `${BASE_URL}/services/#breadcrumb`
+      },
+      "inLanguage": "en-CA"
     },
     {
-      "@type": ["MovingCompany", "Organization"],
-      "@id": `${BASE_URL}/services/#organization`,
-      "name": `${APP_NAME}`,
-      "alternateName": `${APP_NAME}`,
-      "url": `${BASE_URL}`,
-      "logo": `${logo}`,
-      "image": `${logo}`,
-      "email": `${email}`,
-      "telephone": `${phone}`,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": `${address}`,
-        "addressLocality": "Chestermere",
-        "addressRegion": "AB",
-        "postalCode": "T1X 2W1",
-        "addressCountry": "CA"
-      },
-      "areaServed": [
-        "Calgary", "Chestermere", "Airdrie", "Cochrane", "Okotoks", "Langdon", "Strathmore"
-      ],
-      "description": "Explore all the services we offer in Calgary — from local and residential moves to long-distance, commercial, piano, and specialty moving. Find the right relocation service for your move.",
-      "sameAs": [
-        "https://www.facebook.com/shiftrix",
-        "https://www.instagram.com/shiftrix_movers",
-        "https://x.com/infoShiftrix",
-        "https://www.youtube.com/@infoShiftrix"
+      "@type": "BreadcrumbList",
+      "@id": `${BASE_URL}/services/#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${BASE_URL}`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": `${BASE_URL}/services`
+        }
       ]
     },
     {
-      "@type": "Service",
-      "serviceType": "Moving Service",
-      "provider": { "@id": `${BASE_URL}/services/#organization` },
-      "areaServed": {
-        "@type": "City",
-        "name": "Calgary"
-      },
-      "description": "Explore all the services we offer in Calgary — from local and residential moves to long-distance, commercial, piano, and specialty moving. Find the right relocation service for your move."
-    },
-  ],
+      "@type": "OfferCatalog",
+      "@id": `${BASE_URL}/#services`,
+      "name": "Shiftrix Moving and Relocation Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/commercial-movers/#service`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/residential-movers/#service`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/full-service-movers/#service`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/furniture-movers/#service`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/local-movers/#service`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/long-distance-movers/#service`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/man-with-a-van/#service`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/piano-movers/#service`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": `${BASE_URL}/services/specialty-movers/#service`
+          }
+        }
+      ]
+    }
+  ]
 };
 
 export default function ServicesPage() {

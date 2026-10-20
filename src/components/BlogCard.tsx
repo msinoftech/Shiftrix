@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Blog } from "@/lib/types";
+import PostBadge from "./PostBadge";
 
 function formatPublishedDate(date: string) {
   return new Date(date).toLocaleDateString("en-CA", {
-    year: "numeric",
+    //year: "numeric",
     month: "long",
     day: "numeric",
   });
@@ -58,11 +59,18 @@ export default function BlogCard({ post }: { post: Blog }) {
       </Link>
 
       <div className="flex flex-1 flex-col p-5 space-y-3">
-        {post.category ? (
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-indigo-600">
-            {post.category}
-          </p>
-        ) : null}
+        <div className="flex gap-1 items-center">
+          {post.category ? (
+            <p className="bg-indigo-100 px-2 py-1 rounded-md text-xs font-semibold tracking-wide text-indigo-600">
+              {post.category}
+            </p>
+          ) : null}
+
+          <PostBadge
+            date={post.published_at}
+            published_at={post.published_at}
+          />
+        </div>
 
         <h3 className="text-lg font-bold leading-snug text-gray-900 transition-colors group-hover:text-indigo-800 md:text-xl">
           <Link href={postHref} aria-label={`Read more about ${post.title}`}>

@@ -65,82 +65,88 @@ const faqItems = [
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
-    {
-        "@type": "WebSite",
-        "@id": `${BASE_URL}/#website`,
-        "url": `${BASE_URL}`,
-        "name": `${APP_NAME}`
-    },
-    {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/piano-movers/#webpage`,
-        "url": `${BASE_URL}/services/piano-movers`,
-        "name": "Piano Mover in Calgary | Grand, Upright & Baby Grand Piano Moving – Shiftrix",
-        "isPartOf": { "@id": `${BASE_URL}/#website` },
-        "description": "Your trusted piano mover in Calgary? Shiftrix offers insured, precision piano-moving services for grand, upright, and baby grand pianos across all Calgary neighbourhoods. Transparent pricing, no surprises. Get a free quote.",
-        "inLanguage": "en-CA",
-        "breadcrumb": {"@id": `${BASE_URL}/services/piano-movers/#breadcrumb`}
-    },
-    {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/piano-movers/#breadcrumb`,
-        "itemListElement": [
         {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "piano movers",
-            "item": `${BASE_URL}/services/piano-movers`
-        }
-        ]
-    },
-    {
-        "@type": "Service",
-        "serviceType": "Piano Moving Service",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": `${APP_NAME}`,
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": `${address}`,
-                "addressLocality": "Chestermere",
-                "addressRegion": "AB",
-                "addressCountry": "CA"
+            "@type": "WebPage",
+            "@id": `${BASE_URL}/services/piano-movers/#webpage`,
+            "url": `${BASE_URL}/services/piano-movers`,
+            "name": "Piano Mover in Calgary | Grand, Upright & Baby Grand Piano Moving – Shiftrix",
+            "description": "Your trusted piano mover in Calgary? Shiftrix offers insured, precision piano-moving services for grand, upright, and baby grand pianos across all Calgary neighbourhoods. Transparent pricing, no surprises. Get a free quote.",
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
             },
-            "telephone": `${phone}`,
-            "areaServed": "Calgary, AB",
-            "logo": `${logo}`
+            "about": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/piano-movers/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/piano-movers/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/piano-movers/#faq`
+            },
+            "inLanguage": "en-CA"
         },
-        "name": "Piano Mover in Calgary",
-        "description": "Insured, precision piano moving service for upright, baby grand, and grand pianos across all Calgary neighbourhoods.",
-        "areaServed": {
-            "@type": "City",
-            "name": "Calgary"
+        {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/piano-movers/#service`,
+            "name": "Piano Mover in Calgary | Grand, Upright & Baby Grand Piano Moving – Shiftrix",
+            "serviceType": "Piano Moving",
+            "description": "Your trusted piano mover in Calgary? Shiftrix offers insured, precision piano-moving services for grand, upright, and baby grand pianos across all Calgary neighbourhoods. Transparent pricing, no surprises. Get a free quote.",
+            "url": `${BASE_URL}/services/piano-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
+            },
+            "category": "Piano Moving",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/piano-movers/#webpage`
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${BASE_URL}/services/piano-movers/#breadcrumb`,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${BASE_URL}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": `${BASE_URL}/services`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Piano Movers",
+                "item": `${BASE_URL}/services/piano-movers`
+              }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "@id": `${BASE_URL}/services/piano-movers/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+            "@type": "Question",
+            "name": item.title,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.content
+            }
+            }))
         }
-    },
-    {
-        "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/piano-movers/#faq`,
-        "mainEntity": faqItems.map((item) => ({
-          "@type": "Question",
-          "name": item.title,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": item.content
-          }
-        }))
-    }
     ]
 };
 

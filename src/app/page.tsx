@@ -18,7 +18,7 @@ import { FaqSection } from "@/components/FaqSection";
 import HeroSection from "@/components/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
 
-const { phone, logo, email, address } = contactInfo;
+const { phone, email, address } = contactInfo;
 
 export const metadata: Metadata = {
   title: `Moving Company Calgary | Local & Long Distance Movers | ${APP_NAME}`,
@@ -70,85 +70,204 @@ const homeschemaData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": `${BASE_URL}/#website`,
-      "url": `${BASE_URL}`,
+      "@type": "MovingCompany",
+      "@id": `${BASE_URL}/#business`,
       "name": `${APP_NAME}`,
-      "alternateName": `${APP_NAME}`,
-      "publisher": { "@id": `${BASE_URL}/#organization` }
-    },
-    {
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/#webpage`,
+      "legalName": "Shiftrix Moved With Precision",
+      "alternateName": "Shiftrix Moving Agency",
+      "slogan": "Moved With Precision",
       "url": `${BASE_URL}`,
-      "name": `Trusted Moving Company in Calgary | ${APP_NAME}`,
-      "description": "Looking for a trusted moving company in Calgary? Shiftrix offers professional residential, commercial, and long-distance moving services. Get a free quote today.",
-      "isPartOf": { "@id": `${BASE_URL}/#website` },
-      "about": { "@id": `${BASE_URL}/#organization` },
-      "breadcrumb": { "@id": `${BASE_URL}/#breadcrumb` }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${BASE_URL}/#breadcrumb`,
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": `${BASE_URL}`
-        }
-      ]
-    },
-    {
-      "@type": ["MovingCompany", "Organization"],
-      "@id": `${BASE_URL}/#organization`,
-      "name": `${APP_NAME}`,
-      "alternateName": `${APP_NAME}`,
-      "url": `${BASE_URL}`,
-      "logo": `${logo}`,
-      "image": `${logo}`,
-      "email": `${email}`,
+      "description": "Shiftrix offers a full-service moving solution in Calgary to move residential, commercial, furniture, piano, or other specialty items locally or long-distance.",
       "telephone": `${phone}`,
+      "email": `${email}`,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": `${address}`,
         "addressLocality": "Chestermere",
         "addressRegion": "AB",
-        "postalCode": "T1X 2W1",
         "addressCountry": "CA"
       },
-      "areaServed": [
-        "Calgary", "Chestermere", "Airdrie", "Cochrane", "Okotoks", "Langdon", "Strathmore"
-      ],
-      "description": "Professional moving agency in Calgary providing customized residential and commercial moving services with 5+ years of experience.",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "opens": "07:00",
+        "closes": "20:00"
+      },
+      "hasMap": "https://share.google/Q4pzFp8VuABlI5y94",
       "sameAs": [
-        "https://www.facebook.com/shiftrix",
-        "https://www.instagram.com/shiftrix_movers",
+        "https://share.google/Q4pzFp8VuABlI5y94",
+        "https://www.instagram.com/shiftrix_movers/",
+        "https://www.facebook.com/shiftrix/",
         "https://x.com/infoShiftrix",
         "https://www.youtube.com/@infoShiftrix"
-      ]
-    },
-    {
-      "@type": "Service",
-      "serviceType": "Moving Service",
-      "provider": { "@id": `${BASE_URL}/#organization` },
-      "areaServed": {
-        "@type": "City",
-        "name": "Calgary"
-      },
-      "description": "Professional, customized moving services including residential, commercial, and long-distance moves."
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${BASE_URL}/#FAQPage`,
-      "mainEntity": faqItems.map((item) => ({
-        "@type": "Question",
-        "name": item.title,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": item.content
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Calgary"
+        },
+        {
+          "@type": "City",
+          "name": "Airdrie"
+        },
+        {
+          "@type": "City",
+          "name": "Chestermere"
+        },
+        {
+          "@type": "City",
+          "name": "Strathmore"
+        },
+        {
+          "@type": "City",
+          "name": "Okotoks"
+        },
+        {
+          "@type": "City",
+          "name": "Cochrane"
+        },
+        {
+          "@type": "City",
+          "name": "Red Deer"
+        },
+        {
+          "@type": "City",
+          "name": "Lethbridge"
+        },
+        {
+          "@type": "City",
+          "name": "Edmonton"
+        },
+        {
+          "@type": "City",
+          "name": "Medicine Hat"
+        },
+        {
+          "@type": "City",
+          "name": "Grande Prairie"
         }
-      }))
+      ],
+        "hasOfferCatalog": {
+        "@id": `${BASE_URL}/#services`
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      "url": `${BASE_URL}`,
+      "name": "Shiftrix Moving Services",
+      "alternateName": "Shiftrix",
+      "publisher": {
+        "@id": `${BASE_URL}/#business`
+      },
+      "inLanguage": "en-CA"
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/#webpage`,
+      "url": `${BASE_URL}`,
+      "name": "Moving Company Calgary | Local & Long Distance Movers | Shiftrix",
+      "description": "Professional moving services in Calgary for residential, commercial, local, long-distance and furniture moves. Get a free moving quote from Shiftrix.",
+      "isPartOf": {
+        "@id": `${BASE_URL}/#website`
+      },
+      "about": {
+        "@id": `${BASE_URL}/#business`
+      },
+      "mainEntity": {
+        "@id": `${BASE_URL}/#business`
+      },
+      "inLanguage": "en-CA"
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": `${BASE_URL}/#services`,
+      "name": "Shiftrix Moving Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/commercial-movers/#service`,
+            "name": "Commercial Moving Services",
+            "url": `${BASE_URL}/services/commercial-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/residential-movers/#service`,
+            "name": "Residential Moving Services",
+            "url": `${BASE_URL}/services/residential-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/full-service-movers/#service`,
+            "name": "Full-Service Moving",
+            "url": `${BASE_URL}/services/full-service-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/furniture-movers/#service`,
+            "name": "Furniture Moving Services",
+            "url": `${BASE_URL}/services/furniture-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/local-movers/#service`,
+            "name": "Local Moving Services",
+            "url": `${BASE_URL}/services/local-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/long-distance-movers/#service`,
+            "name": "Long-Distance Moving Services",
+            "url": `${BASE_URL}/services/long-distance-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/piano-movers/#service`,
+            "name": "Piano Moving Services",
+            "url": `${BASE_URL}/services/piano-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            }
+          }
+        }
+      ]
     }
   ]
 };

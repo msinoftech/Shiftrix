@@ -6,8 +6,6 @@ import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
 
-const { logo } = contactInfo;
-
 export const metadata: Metadata = {
   title: "Professional Furniture Moving Service Calgary | Shiftrix Movers",
   description: "Looking for professional furniture movers in Calgary? Relocate or reshuffle within space, house or office - Shiftrix handles sofas, office desks, antiques & more. Get a free quote today",
@@ -66,86 +64,90 @@ const faqItems = [
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
-    {
-        "@type": "WebSite",
-        "@id": `${BASE_URL}/#website`,
-        "url": `${BASE_URL}`,
-        "name": `${APP_NAME}`
-    },
-    {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/furniture-movers/#webpage`,
-        "url": `${BASE_URL}/services/furniture-movers`,
-        "name": "Professional Furniture Moving Service Calgary | Shiftrix Movers",
-        "isPartOf": {"@id": `${BASE_URL}/services/furniture-movers/#website`},
-        "description": "Looking for professional furniture movers in Calgary? Relocate or reshuffle within space, house or office - Shiftrix handles sofas, office desks, antiques & more. Get a free quote today",
-        "inLanguage": "en-CA",
-        "breadcrumb": {"@id": `${BASE_URL}/services/furniture-movers/#breadcrumb`}
-    },
-    {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/furniture-movers/#breadcrumb`,
-        "itemListElement": [
         {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
+            "@type": "WebPage",
+            "@id": `${BASE_URL}/services/furniture-movers/#webpage`,
+            "url": `${BASE_URL}/services/furniture-movers`,
+            "name": "Professional Furniture Moving Service Calgary | Shiftrix Movers",
+            "description": "Looking for professional furniture movers in Calgary? Shiftrix helps move sofas, desks, antiques and other furniture for homes and offices. Request a free quote.",
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
+            },
+            "about": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/furniture-movers/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/furniture-movers/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/furniture-movers/#faq`
+            },
+            "inLanguage": "en-CA"
         },
         {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/furniture-movers/#service`,
+            "name": "Furniture Moving Services in Calgary",
+            "serviceType": "Furniture Moving",
+            "description": "Professional furniture moving services in Calgary for homeowners, renters and businesses. Shiftrix handles sofas, sectionals, beds, wardrobes, antiques, office desks and workstations, including single-item moves and in-home furniture rearrangement.",
+            "url": `${BASE_URL}/services/furniture-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
+            },
+            "category": "Residential and Commercial Furniture Moving",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/furniture-movers/#webpage`
+            }
         },
         {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "furniture movers",
-            "item": `${BASE_URL}/services/furniture-movers`
+            "@type": "BreadcrumbList",
+            "@id": `${BASE_URL}/services/furniture-movers/#breadcrumb`,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${BASE_URL}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": `${BASE_URL}/services`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Furniture Movers",
+                "item": `${BASE_URL}/services/furniture-movers`
+              }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "@id": `${BASE_URL}/services/furniture-movers/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+            "@type": "Question",
+            "name": item.title,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.content
+            }
+            }))
         }
-        ]
-    },
-    {
-        "@type": "Service",
-        "serviceType": "Furniture Movers",
-        "name": "Professional Furniture Moving Service Calgary | Shiftrix Movers",
-        "description": "Looking for professional furniture movers in Calgary? Relocate or reshuffle within space, house or office - Shiftrix handles sofas, office desks, antiques & more. Get a free quote today",
-        "url": `${BASE_URL}/services/furniture-movers`,
-        "provider": {
-        "@type": "MovingCompany",
-        "name": `${APP_NAME}`,
-        "url": `${BASE_URL}/services/furniture-movers`,
-        "logo": `${logo}`
-        },
-        "areaServed": [
-        {"@type": "City", "name": "Calgary"},
-        ],
-        "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Furniture Movers Offerings",
-        "itemListElement": [
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Office Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retail Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Warehouse Moving"}}
-        ]
-        }
-    },
-    {
-        "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/furniture-movers/#faq`,
-        "mainEntity": faqItems.map((item) => ({
-          "@type": "Question",
-          "name": item.title,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": item.content
-          }
-        }))
-    }
     ]
 };
-
 
 export default function FurnitureMoversPage() {
   return (

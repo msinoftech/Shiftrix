@@ -6,7 +6,6 @@ import { APP_NAME, BASE_URL } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
 
-
 export const metadata: Metadata = {
   title: `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
   description: "Need local movers in Calgary? Shiftrix provides professional, affordable local moving services with a crew and truck. $100–$150/hr. Same-day availability. Get a free quote.",
@@ -62,51 +61,76 @@ const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
         {
-            "@type": "WebSite",
-            "@id": `${BASE_URL}/#website`,
-            "name": `${APP_NAME}`,
-            "url": `${BASE_URL}`,
+            "@type": "WebPage",
+            "@id": `${BASE_URL}/services/local-movers/#webpage`,
+            "url": `${BASE_URL}/services/local-movers`,
+            "name": `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
+            "description": "Need local movers in Calgary? Shiftrix provides professional, affordable local moving services with a crew and truck. $100–$150/hr. Same-day availability. Get a free quote.",
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
+            },
+            "about": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/local-movers/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/local-movers/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/local-movers/#faq`
+            },
+            "inLanguage": "en-CA"
         },
         {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/local-movers/#webpage`,
-        "url": `${BASE_URL}/services/local-movers`,
-        "name": `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
-        "description": "Searching for reliable local movers in Calgary? Shiftrix provides professional, customized local moving services with 5+ years of experience in Calgary, Chestermere, and surrounding areas.",
-        "isPartOf": {
-            "@id": `${BASE_URL}/#website`
-        },
-        "about": {
-            "@id": `${BASE_URL}/#organization`
-        },
-        "breadcrumb": {
-            "@id": `${BASE_URL}/services/local-movers/#breadcrumb`
-        },
-        },
-        {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/local-movers/#breadcrumb`,
-        "itemListElement": [
-            {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/local-movers/#service`,
+            "name": `Local Movers Calgary | Reliable Same-Day Service | ${APP_NAME}`,
+            "serviceType": "Local Moving",
+            "description": "Need local movers in Calgary? Shiftrix provides professional, affordable local moving services with a crew and truck. $100–$150/hr. Same-day availability. Get a free quote.",
+            "url": `${BASE_URL}/services/local-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
             },
-            {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
+            "areaServed": {
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
             },
-            {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Local Movers",
-            "item": `${BASE_URL}/services/local-movers`
+            "category": "Local Moving",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/local-movers/#webpage`
             }
-        ]
         },
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${BASE_URL}/services/local-movers/#breadcrumb`,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${BASE_URL}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": `${BASE_URL}/services`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Local Movers",
+                "item": `${BASE_URL}/services/local-movers`
+              }
+            ]
+        },
+
         {
             "@type": "FAQPage",
             "@id": `${BASE_URL}/services/local-movers/#faq`,

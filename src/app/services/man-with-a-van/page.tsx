@@ -6,8 +6,6 @@ import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
 import Link from "next/link";
 
-const { logo } = contactInfo;
-
 export const metadata: Metadata = {
     title: `Man With a Van Moving Service in Calgary | ${APP_NAME}`,
     description: "Need a man with a van in Calgary? Shiftrix handles single items, small loads & student studio moves — fast, affordable & always on time. Book today.",
@@ -54,84 +52,88 @@ const faqItems = [
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
-    {
-        "@type": "WebSite",
-        "@id": `${BASE_URL}/#website`,
-        "url": `${BASE_URL}`,
-        "name": `${APP_NAME}`
-    },
-    {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/man-with-a-van/#webpage`,
-        "url": `${BASE_URL}/services/man-with-a-van`,
-        "name": `Man With a Van Moving Service in Calgary | ${APP_NAME}`,
-        "isPartOf": { "@id": `${BASE_URL}/#website` },
-        "description": "Need a man with a van in Calgary? Shiftrix handles single items, small loads & student studio moves — fast, affordable & always on time. Book today.",
-        "inLanguage": "en-CA",
-        "breadcrumb": {"@id": `${BASE_URL}/services/man-with-a-van/#breadcrumb`}
-    },
-    {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/man-with-a-van/#breadcrumb`,
-        "itemListElement": [
         {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
+            "@type": "WebPage",
+            "@id": `${BASE_URL}/services/man-with-a-van/#webpage`,
+            "url": `${BASE_URL}/services/man-with-a-van`,
+            "name": `Man With a Van Moving Service in Calgary | ${APP_NAME}`,
+            "description": "Need a man with a van in Calgary? Shiftrix handles single items, small loads & student studio moves — fast, affordable & always on time. Book today.",
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
+            },
+            "about": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/man-with-a-van/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/man-with-a-van/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/man-with-a-van/#faq`
+            },
+            "inLanguage": "en-CA"
         },
         {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/man-with-a-van/#service`,
+            "name": `Man With a Van Moving Service in Calgary | ${APP_NAME}`,
+            "serviceType": "Man with a Van",
+            "description": "Need a man with a van in Calgary? Shiftrix handles single items, small loads & student studio moves — fast, affordable & always on time. Book today.",
+            "url": `${BASE_URL}/services/man-with-a-van`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
+            },
+            "category": "Man with a Van",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/man-with-a-van/#webpage`
+            }
         },
         {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "man with a van",
-            "item": `${BASE_URL}/services/man-with-a-van`
+            "@type": "BreadcrumbList",
+            "@id": `${BASE_URL}/services/man-with-a-van/#breadcrumb`,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${BASE_URL}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": `${BASE_URL}/services`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Man With a Van",
+                "item": `${BASE_URL}/services/man-with-a-van`
+              }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "@id": `${BASE_URL}/services/man-with-a-van/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+            "@type": "Question",
+            "name": item.title,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.content
+            }
+            }))
         }
-        ]
-    },
-    {
-        "@type": "Service",
-        "serviceType": "Man With A Van",
-        "name": `Man With a Van Moving Service in Calgary | ${APP_NAME}`,
-        "description": "Need a man with a van in Calgary? Shiftrix handles single items, small loads & student studio moves — fast, affordable & always on time. Book today.",
-        "url": `${BASE_URL}/services/man-with-a-van`,
-        "provider": {
-        "@type": "MovingCompany",
-        "name": `${APP_NAME}`,
-        "url": `${BASE_URL}/services/man-with-a-van`,
-        "logo": `${logo}`
-        },
-        "areaServed": [
-          {"@type": "Place", name: "Calgary" },
-        ],
-        "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Man with a van service offerings",
-        "itemListElement": [
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "same-day or scheduled moves"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "packing and unpacking"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "furniture assembly and disassembly"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "single-item delivery"}}
-        ]
-        }
-    },
-    {
-        "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/man-with-a-van/#faq`,
-        "mainEntity": faqItems.map((item) => ({
-          "@type": "Question",
-          "name": item.title,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": item.content
-          }
-        }))
-    }
     ]
 };
  

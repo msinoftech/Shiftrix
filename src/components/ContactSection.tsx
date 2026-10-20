@@ -30,7 +30,7 @@ const ContactSection = () => {
           </div>
           <div>
             <strong className="block text-gray-800">Phone Number:</strong>
-            <Link href={phoneHref} className="text-md hover:text-indigo-800">{phone}</Link>
+            <Link href={phoneHref} className="text-md hover:text-indigo-800">+1 (403) 472-9110</Link>
           </div>
         </li>
 

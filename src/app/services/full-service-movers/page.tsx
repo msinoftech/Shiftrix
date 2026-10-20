@@ -61,54 +61,76 @@ const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
         {
-            "@type": "WebSite",
-            "@id": `${BASE_URL}/#website`,
-            "name": `${APP_NAME}`,
-            "url": `${BASE_URL}`,
+            "@type": "WebPage",
+            "@id": `${BASE_URL}/services/full-service-movers/#webpage`,
+            "url": `${BASE_URL}/services/full-service-movers`,
+            "name": `Full Service Moving Company in Calgary | ${APP_NAME}`,
+            "description": "Shiftrix is one of the best full-service moving companies in Calgary. We handle packing, loading, transport, and unpacking — so you don't have to. Get a free quote today.",
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
+            },
+            "about": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/full-service-movers/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/full-service-movers/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/full-service-movers/#faq`
+            },
+            "inLanguage": "en-CA"
         },
         {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/full-service-movers/#webpage`,
-        "url": `${BASE_URL}/services/full-service-movers`,
-        "name": `Full Service Moving Company in Calgary | ${APP_NAME}`,
-        "description": "Shiftrix is one of the best full-service moving companies in Calgary. We handle packing, loading, transport, and unpacking — so you don't have to. Get a free quote today.",
-        "isPartOf": {
-            "@id": `${BASE_URL}/#website`
-        },
-        "about": {
-            "@id": `${BASE_URL}/#organization`
-        },
-        "breadcrumb": {
-            "@id": `${BASE_URL}/services/full-service-movers/#breadcrumb`
-        },
-        "mainEntity": {
-            "@id": `${BASE_URL}/services/full-service-movers/#faq`
-        }
-        },
-        {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/full-service-movers/#breadcrumb`,
-        "itemListElement": [
-            {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/full-service-movers/#service`,
+            "name": `Full Service Moving Company in Calgary | ${APP_NAME}`,
+            "serviceType": "Full Service Moving",
+            "description": "Shiftrix is one of the best full-service moving companies in Calgary. We handle packing, loading, transport, and unpacking — so you don't have to. Get a free quote today.",
+            "url": `${BASE_URL}/services/full-service-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
             },
-            {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
+            "areaServed": {
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
             },
-            {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Full Service Movers",
-            "item": `${BASE_URL}/services/full-service-movers`
+            "category": "Full Service Moving",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/full-service-movers/#webpage`
             }
-        ]
         },
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${BASE_URL}/services/full-service-movers/#breadcrumb`,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${BASE_URL}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": `${BASE_URL}/services`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Full Service Movers",
+                "item": `${BASE_URL}/services/full-service-movers`
+              }
+            ]
+        },
+
         {
             "@type": "FAQPage",
             "@id": `${BASE_URL}/services/full-service-movers/#faq`,

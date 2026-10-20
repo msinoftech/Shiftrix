@@ -1,12 +1,10 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
+import { APP_NAME, BASE_URL } from "@/lib/config";
 import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
 import Link from "next/link";
-
-const { logo } = contactInfo;
 
 export const metadata: Metadata = {
     title: "Long-distance Movers and Packers On A Budget",
@@ -54,69 +52,74 @@ const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
         {
-            "@type": "WebSite",
-            "@id": `${BASE_URL}/#website`,
-            "url": `${BASE_URL}`,
-            "name": `${APP_NAME}`
-        },
-        {
             "@type": "WebPage",
             "@id": `${BASE_URL}/services/long-distance-movers/#webpage`,
             "url": `${BASE_URL}/services/long-distance-movers`,
             "name": "Long-distance Movers and Packers On A Budget",
-            "isPartOf": { "@id": `${BASE_URL}/#website` },
             "description": "At Shiftrix, you will find what you are looking for in long-distance movers, whether you are a professional, a family, or a business, with packing, loading, and transport for even small loads.",
-            "inLanguage": "en-CA",
-            "breadcrumb": {"@id": `${BASE_URL}/services/long-distance-movers/#breadcrumb`}
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
+            },
+            "about": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/long-distance-movers/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/long-distance-movers/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/long-distance-movers/#faq`
+            },
+            "inLanguage": "en-CA"
+        },
+        {
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/long-distance-movers/#service`,
+            "name": "Long-distance Movers and Packers On A Budget",
+            "serviceType": "Long-distance Moving",
+            "description": "At Shiftrix, you will find what you are looking for in long-distance movers, whether you are a professional, a family, or a business, with packing, loading, and transport for even small loads.",
+            "url": `${BASE_URL}/services/long-distance-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
+            },
+            "category": "Long-distance Moving",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/long-distance-movers/#webpage`
+            }
         },
         {
             "@type": "BreadcrumbList",
             "@id": `${BASE_URL}/services/long-distance-movers/#breadcrumb`,
             "itemListElement": [
-            {
+              {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
                 "item": `${BASE_URL}`
-            },
-            {
+              },
+              {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
                 "item": `${BASE_URL}/services`
-            },
-            {
+              },
+              {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "long distance movers",
+                "name": "Long-distance Movers",
                 "item": `${BASE_URL}/services/long-distance-movers`
-            }
-          ]
-        },
-        {
-          "@type": "Service",
-          "serviceType": "Long Distance Movers",
-          "name": "Long-distance Movers and Packers On A Budget",
-          "description": "At Shiftrix, you will find what you are looking for in long-distance movers, whether you are a professional, a family, or a business, with packing, loading, and transport for even small loads.",
-          "url": `${BASE_URL}/services/long-distance-movers`,
-          "provider": {
-          "@type": "MovingCompany",
-          "name": `${APP_NAME}`,
-          "url": `${BASE_URL}/services/long-distance-movers`,
-          "logo": `${logo}`
-          },
-          "areaServed": [
-          {"@type": "City", "name": "Calgary"},
-          ],
-          "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Long Distance Movers Offerings",
-          "itemListElement": [
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Office Moving"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retail Moving"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Warehouse Moving"}}
-          ]
-          }
+              }
+            ]
         },
         {
             "@type": "FAQPage",

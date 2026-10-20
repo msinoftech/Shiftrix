@@ -71,74 +71,74 @@ const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
         {
-            "@type": "WebSite",
-            "@id": `${BASE_URL}/#website`,
-            "url": `${BASE_URL}`,
-            "name": `${APP_NAME}`
-        },
-        {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/residential-movers/#webpage`,
-        "url": `${BASE_URL}/services/residential-movers`,
-        "name": `Residential Movers Calgary | Apartment, Condo & House Moves | ${APP_NAME}`,
-        "description": "Need trusted residential movers in Calgary? Shiftrix handles condo, apartment, and house relocations across Beltline, Kensington, Tuscany, Airdrie & every Calgary neighbourhood. Get your free quote today.",
-        "isPartOf": {
-            "@id": `${BASE_URL}/#website`
-        },
-        "about": {
-            "@id": `${BASE_URL}/#organization`
-        },
-        "breadcrumb": {
-            "@id": `${BASE_URL}/services/residential-movers/#breadcrumb`
-        },
-        },
-        {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/residential-movers/#breadcrumb`,
-        "itemListElement": [
-            {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
+            "@type": "WebPage",
+            "@id": `${BASE_URL}/services/residential-movers/#webpage`,
+            "url": `${BASE_URL}/services/residential-movers`,
+            "name": `Residential Movers Calgary | Apartment, Condo & House Moves | ${APP_NAME}`,
+            "description": "Shiftrix provides professional residential moving services across Calgary — apartments, condos, and houses. Fully insured, transparent pricing, same-day availability. Free quote.",
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
             },
-            {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
+            "about": {
+              "@id": `${BASE_URL}/#business`
             },
-            {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Residential Movers",
-            "item": `${BASE_URL}/services/residential-movers`
-            }
-        ]
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/residential-movers/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/residential-movers/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/residential-movers/#faq`
+            },
+            "inLanguage": "en-CA"
         },
         {
             "@type": "Service",
-            "serviceType": "Residential Moving Service",
-            "provider": {
-                "@type": "MovingCompany",
-                "name": `${APP_NAME}`,
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": `${address}`,
-                    "addressLocality": "Chestermere",
-                    "addressRegion": "AB",
-                    "addressCountry": "CA"
-                },
-                "telephone": `${phone}`,
-                "areaServed": "Calgary, AB",
-                "logo": `${logo}`
-            },
+            "@id": `${BASE_URL}/services/residential-movers/#service`,
             "name": `Residential Movers Calgary | Apartment, Condo & House Moves | ${APP_NAME}`,
-            "description": "Need trusted residential movers in Calgary? Shiftrix handles condo, apartment, and house relocations across Beltline, Kensington, Tuscany, Airdrie & every Calgary neighbourhood. Get your free quote today.",
+            "serviceType": "Residential Moving",
+            "description": "Shiftrix provides professional residential moving services across Calgary — apartments, condos, and houses. Fully insured, transparent pricing, same-day availability. Free quote.",
+            "url": `${BASE_URL}/services/residential-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            },
             "areaServed": {
-                "@type": "City",
-                "name": "Calgary"
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
+            },
+            "category": "Residential Moving",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/residential-movers/#webpage`
             }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${BASE_URL}/services/residential-movers/#breadcrumb`,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${BASE_URL}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": `${BASE_URL}/services`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Residential Movers",
+                "item": `${BASE_URL}/services/residential-movers`
+              }
+            ]
         },
         {
             "@type": "FAQPage",

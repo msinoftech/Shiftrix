@@ -54,85 +54,88 @@ const faqItems = [
 const schemaData = {
     "@context": "https://schema.org",
     "@graph": [
-    {
-        "@type": "WebSite",
-        "@id": `${BASE_URL}/#website`,
-        "url": `${BASE_URL}`,
-        "name": `${APP_NAME}`
-    },
-    {
-        "@type": "WebPage",
-        "@id": `${BASE_URL}/services/specialty-movers/#webpage`,
-        "url": `${BASE_URL}/services/specialty-movers`,
-        "name": "Most Reliable Specialty Movers in Calgary | Shiftrix",
-        "isPartOf": { "@id": `${BASE_URL}/#website` },
-        "description": "Calgary's trusted specialty movers for fine art, antiques, safes, pool tables & industrial equipment.Professional crew. Secured and climate-controlled transport. Get a free quote.",
-        "inLanguage": "en-CA",
-        "breadcrumb": {"@id": `${BASE_URL}/services/specialty-movers/#breadcrumb`}
-    },
-    {
-        "@type": "BreadcrumbList",
-        "@id": `${BASE_URL}/services/specialty-movers/#breadcrumb`,
-        "itemListElement": [
         {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": `${BASE_URL}`
+            "@type": "WebPage",
+            "@id": `${BASE_URL}/services/specialty-movers/#webpage`,
+            "url": `${BASE_URL}/services/specialty-movers`,
+            "name": "Most Reliable Specialty Movers in Calgary | Shiftrix",
+            "description": "Calgary's trusted specialty movers for fine art, antiques, safes, pool tables & industrial equipment.Professional crew. Secured and climate-controlled transport. Get a free quote.",
+            "isPartOf": {
+              "@id": `${BASE_URL}/#website`
+            },
+            "about": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "mainEntity": {
+              "@id": `${BASE_URL}/services/specialty-movers/#service`
+            },
+            "breadcrumb": {
+              "@id": `${BASE_URL}/services/specialty-movers/#breadcrumb`
+            },
+            "hasPart": {
+              "@id": `${BASE_URL}/services/specialty-movers/#faq`
+            },
+            "inLanguage": "en-CA"
         },
         {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${BASE_URL}/services`
+            "@type": "Service",
+            "@id": `${BASE_URL}/services/specialty-movers/#service`,
+            "name": "Most Reliable Specialty Movers in Calgary | Shiftrix",
+            "serviceType": "Specialty Moving",
+            "description": "Calgary's trusted specialty movers for fine art, antiques, safes, pool tables & industrial equipment.Professional crew. Secured and climate-controlled transport. Get a free quote.",
+            "url": `${BASE_URL}/services/specialty-movers`,
+            "provider": {
+              "@id": `${BASE_URL}/#business`
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Calgary",
+              "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": "Alberta"
+              }
+            },
+            "category": "Specialty Moving",
+            "mainEntityOfPage": {
+              "@id": `${BASE_URL}/services/specialty-movers/#webpage`
+            }
         },
         {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Specialty Movers",
-            "item": `${BASE_URL}/services/specialty-movers`
+            "@type": "BreadcrumbList",
+            "@id": `${BASE_URL}/services/specialty-movers/#breadcrumb`,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": `${BASE_URL}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": `${BASE_URL}/services`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Specialty Movers",
+                "item": `${BASE_URL}/services/specialty-movers`
+              }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "@id": `${BASE_URL}/services/specialty-movers/#faq`,
+            "mainEntity": faqItems.map((item) => ({
+            "@type": "Question",
+            "name": item.title,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.content
+            }
+            }))
         }
-        ]
-    },
-    {
-        "@type": "Service",
-        "serviceType": "Specialty Movers",
-        "name": `Most Reliable Specialty Movers in Calgary | ${APP_NAME}`,
-        "description": "Calgary's trusted specialty movers for fine art, antiques, safes, pool tables & industrial equipment.Professional crew. Secured and climate-controlled transport. Get a free quote.",
-        "url": `${BASE_URL}/services/specialty-movers`,
-        "provider": {
-        "@type": "MovingCompany",
-        "name": `${APP_NAME}`,
-        "url": `${BASE_URL}/services/specialty-movers`,
-        "logo": `${logo}`
-        },
-        "areaServed": [
-          { "@type": "City", name: "Calgary" },
-        ],
-        "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": `Most Reliable Specialty Movers in Calgary | ${APP_NAME}`,
-        "itemListElement": [
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Piano Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fine Art & Antiques Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Heavy Machinery & Industrial Equipment Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fragile Collections & Heirlooms Moving"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pool Tables & Billiard Equipment Moving"}},
-        ]
-        }
-    },
-    {
-        "@type": "FAQPage",
-        "@id": `${BASE_URL}/services/specialty-movers/#faq`,
-        "mainEntity": faqItems.map((item) => ({
-          "@type": "Question",
-          "name": item.title,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": item.content
-          }
-        }))
-    }
     ]
 };
 

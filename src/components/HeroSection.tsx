@@ -162,12 +162,11 @@ export default function HeroSection() {
                     </div>
 
                     <div className="lg:max-w-xl lg:pr-12 2xl:pr-0 space-y-4">
-                        <p className="text-[11px] sm:text-xs font-bold tracking-[0.18em] text-indigo-600 uppercase">Calgary Moving Experts You Can Trust</p>
+                        <p className="text-[11px] sm:text-xs font-bold tracking-[0.18em] text-indigo-600 uppercase">Skilled Movers You Can Trust</p>
 
                         <h1 className="text-[2rem] sm:text-4xl md:text-[2.75rem] xl:text-[3.1rem] font-extrabold leading-[1.12] text-slate-900">
                         Reliable &amp; Affordable Moving{" "}
-                        <span className="text-indigo-600">Services</span> in{" "}
-                        <span className="text-indigo-600">Calgary,</span> Alberta
+                        <span className="text-indigo-600">Services in Calgary</span>
                         </h1>
 
                         <p>From homes to businesses, we make every move smooth, safe, and stress-free. Trusted by hundreds of families and companies across Calgary &amp; Alberta.</p>
