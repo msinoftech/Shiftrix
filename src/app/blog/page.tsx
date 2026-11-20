@@ -131,6 +131,15 @@ export default function BlogPage() {
       {/* Add schema JSON-LD to <head> */}
       <Script id="blog-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchemaData) }}/>
 
+      <section className="sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto space-y-4 text-center">
+            <h1 className="text-2xl md:text-4xl font-bold">Before the Boxes, Plan Your Move</h1>
+            <p>Find packing tips, moving checklists, and budgeting advice from Shiftrix’s Calgary movers. Whether you’re moving across town or relocating your office, get practical guidance for every step.</p>
+          </div>
+        </div>
+      </section>
+
       <BlogClient />
     </>;
 }
