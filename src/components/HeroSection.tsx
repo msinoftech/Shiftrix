@@ -3,7 +3,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BASE_URL } from "@/lib/config";
-import MovingForm from "./movingForm";
+import ContactForm from "@/components/ContactForm";
+
 
 function CitiesScrollBar({ cities }: { cities: string[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -153,8 +154,8 @@ export default function HeroSection() {
 
         {/* content */}
         <div className="w-full flex flex-col justify-between space-y-6">
-
             <div className="relative z-20 w-full container-fluid mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 xl:grid-cols-12 gap-4">
+                {/* left Content */}
                 <div className="relative space-y-6 lg:space-y-16 pt-2 lg:col-span-7 xl:col-span-8 ">
                     
                     <div className="proudly-logo">
@@ -181,15 +182,30 @@ export default function HeroSection() {
                         </div>
 
                         <div className="flex flex-col min-[480px]:flex-row flex-wrap gap-3">
-                            <Link href={`${BASE_URL}/contact-us`} aria-label="Get a Free Quote" className="inline-flex w-full min-[480px]:w-auto items-center justify-center gap-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-colors text-[15px]">
-                                Get a Free Quote
-                                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/20">
-                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                                </span>
+                            <Link
+                              href={`${BASE_URL}/contact-us`}
+                              aria-label="Get a Free Quote"
+                              className="group/btn flex justify-center items-center gap-2.5 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3.5 rounded-xl font-medium text-sm shadow-lg shadow-indigo-500/25 hover:shadow-indigo-600/35 hover:-translate-y-0.5 transition-all duration-300"
+                            >
+                              Get a Free Quote
+                              <svg
+                                className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth={2.5}
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                              </svg>
                             </Link>
-                            <Link href={`${BASE_URL}/services`} aria-label="Our Services" className="inline-flex w-full min-[480px]:w-auto items-center justify-center gap-2 border border-gray-300 bg-white hover:border-indigo-500 text-slate-700 hover:text-indigo-700 font-semibold px-5 py-3 rounded-lg transition-colors text-[15px]">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
-                                Our Services
+
+                            <Link
+                              href={`${BASE_URL}/services`}
+                              aria-label="Our Services"
+                              className="group/btn flex justify-center items-center gap-2.5 bg-white text-indigo-600 px-6 py-3.5 rounded-xl font-medium text-sm shadow-lg shadow-gray-500/25 hover:shadow-gray-600/35 hover:-translate-y-0.5 transition-all duration-300 border border-gray-300"
+                            >
+                              Our Services
+                              <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
                             </Link>
                         </div>
 
@@ -241,19 +257,20 @@ export default function HeroSection() {
 
                 </div>
 
+                {/* right Content */}
                 <div className="relative z-20 lg:col-span-5 xl:col-span-4">
                     <div className="pb-4">
-                        <div className="relative z-20 pb-0 w-full lg:max-w-md ml-auto">
+                        <div className="relative z-20 pb-0 w-full lg:max-w-lg ml-auto">
                             <div className="bg-indigo-200 backdrop-blur-xl rounded-2xl shadow-xl px-5 py-8">
                                 <div className="flex flex-col lg:items-start gap-4 lg:gap-5">
                                     <div className="flex items-center gap-6 shrink-0 lg:w-[350px] lg:pt-1 lg:pr-4">
                                         <div>
-                                            <div className="text-xl font-bold text-slate-900 leading-tight">Get Your Free Moving Quote</div>
+                                            <div className="text-xl font-bold text-slate-900 leading-tight">Get Your Free Quote</div>
                                             <p>Quick. Easy. No hidden charges.</p>
                                         </div>
                                     </div>
 
-                                    <MovingForm />
+                                    <ContactForm />
                                 </div>
                             </div>
                         </div>

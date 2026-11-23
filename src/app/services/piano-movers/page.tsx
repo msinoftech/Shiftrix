@@ -2,11 +2,13 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { APP_NAME, BASE_URL, contactInfo  } from "@/lib/config";
-import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
+import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
+import MovingForm from "@/components/movingForm";
 
-const { address, phone, logo } = contactInfo;
+const { phone } = contactInfo;
+const phoneHref = `tel:${phone.replace(/[^+\d]/g, "")}`;
 
 export const metadata: Metadata = {
     title: "Piano Mover in Calgary | Grand, Upright & Baby Grand Piano Moving – Shiftrix",
@@ -155,27 +157,34 @@ export default function PianoMoversPage() {
     <>
     <Script id="piano-movers-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
-    <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
-        <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Calgary's Piano Moving Service — Protecting What Matters Most</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="relative">
-                    <Image src="/piano-mover-2.jpg" alt="piano moving service in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                <div className="space-y-3">
-                    <p>Tight condo hallways in the Beltline, century-old staircases in Kensington, steep driveways in Tuscany, and temperature swings from +12°C to -20°C in a single day pose the challenge to move a piano in Calgary, which demands more than a basic truck and a dolly.</p>
-                    <p>Shiftrix is a dedicated piano moving company in Calgary that plans every move around your instrument's specific needs. We have moved pianos across NW, SW, SE, and NE Calgary — from Auburn Bay to Panorama Hills, from Mahogany to Varsity — and we bring that local experience to every single job.</p>
-
-                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
-                </div>
-            </div>
-        </div>
-    </section>
+    <PageHeader
+      eyebrow={{ from: "Calgary", to: "Piano Movers" }}
+      heading="Calgary's Piano Moving Service — Protecting What Matters Most"
+      paragraphs={[
+        "Tight condo hallways in the Beltline, century-old staircases in Kensington, steep driveways in Tuscany, and temperature swings from +12°C to -20°C in a single day pose the challenge to move a piano in Calgary, which demands more than a basic truck and a dolly.",
+        "Shiftrix is a dedicated piano moving company in Calgary that plans every move around your instrument's specific needs. We have moved pianos across NW, SW, SE, and NE Calgary — from Auburn Bay to Panorama Hills, from Mahogany to Varsity — and we bring that local experience to every single job.",
+      ]}
+      cta={{
+        href: `${BASE_URL}/contact-us`,
+        label: "Get a free quote",
+        ariaLabel: "Get a Free Quote furniture movers",
+      }}
+      image={{
+        src: "/piano-mover-2.jpg",
+        alt: "piano moving service in Calgary",
+        width: 600,
+        height: 400,
+      }}
+    />
 
     <section className="py-10 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                {/* left Content */}
+                {/* Left Image */}
+                <div className="relative">
+                    <Image src="/piano-mover-3.jpg" alt="piano moving company in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                </div>
+                {/* Right Content */}
                 <div className="space-y-3">
                     <h2 className="text-2xl md:text-3xl font-bold">Why Your Piano Deserves a Specialist, Not a Generalist</h2>
                     <p>A piano can't be addressed as a heavy piece of furniture-it is a cherished instrument. With hundreds of moving parts, insubstantial strings, and a finish that scratches in seconds, moving a piano demands expertise from the moment it leaves the room to the moment it arrives in its new home.</p>
@@ -203,23 +212,14 @@ export default function PianoMoversPage() {
 
                     <p>Choosing Shiftrix's piano moving service in Calgary means eliminating every risk. Our crew arrives prepared.</p>
                 </div>
-
-                {/* right Image */}
-                <div className="relative">
-                    <Image src="/piano-mover-3.jpg" alt="piano moving company in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
             </div>
         </div>
     </section>
 
     <section className="relative py-10 md:py-20">
         <div className="container mx-auto px-4 space-y-10 md:space-y-18">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                {/* left Image */}
-                <div className="relative">
-                    <Image src="/piano-movers.jpg" alt="piano movers cost" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                {/* right Content */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">                
+                {/* Left Content */}
                 <div className="space-y-3">
                     <h2 className="text-2xl md:text-3xl font-bold">What Does It Cost to Move a Piano in Calgary?</h2>
                     <p>Piano moving costs in Calgary are calculated differently than standard transport — and rightly so. Shiftrix provides a custom quote based on every relevant factor, explained clearly before you commit.</p>
@@ -249,10 +249,18 @@ export default function PianoMoversPage() {
 
                     <p>What is different at Shiftrix? Trust, there will be no surprises on moving day. Your final quote is your final price - no hidden labor fees, no surprise equipment charges, no vague line items. Get a free, no-obligation quote today.</p>
                 </div>
+                {/* Right Image */}
+                <div className="relative">
+                    <Image src="/piano-movers.jpg" alt="piano movers cost" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                {/* left Content */}
+                {/* Left Image */}
+                <div className="relative">
+                    <Image src="/piano-mover-1.jpg" alt="piano movers cost" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                </div>
+                {/* Right Content */}
                 <div className="space-y-3">
                     <h2 className="text-2xl md:text-3xl font-bold">Step by Step - How We Move Your Piano</h2>
                     
@@ -299,12 +307,6 @@ export default function PianoMoversPage() {
                         </div>
                     </div>
                 </div>
-
-                {/* right Image */}
-                <div className="relative">
-                    <Image src="/piano-mover-1.jpg" alt="piano movers cost" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-
             </div>
         </div>
     </section>
@@ -346,17 +348,53 @@ export default function PianoMoversPage() {
 
     <section className="py-10 md:py-20">
         <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-                <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        {/* Left Content */}
-                        <div className="relative space-y-3">
-                            <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
-                            <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
+            <div className="relative overflow-hidden rounded-2xl dark-sec bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-700 text-white shadow-xl">
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-6 sm:p-8 md:p-10 lg:p-12 items-center">
+                    {/* left Content */}
+                    <div className="space-y-6 max-w-xl">
+                        <div className="space-y-3 text-white">
+                            <p className="text-sm font-semibold text-indigo-200 uppercase">Free Piano Movers quote</p>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Get a Free and No-Obligation Quote</h2>
+                            <p>Move with a clear, guaranteed price instead of an estimate. Send us the details, and we will reach out to you soon, usually within one hour.</p>
                         </div>
-                        {/* Right Form */}
-                        <div className="relative">
-                            <ContactForm />
+
+                        <ul className="space-y-3">
+                            {[
+                                "Final price sealed in writing with details before you okay.",
+                                "Calgary piano movers are willing to talk it through.",
+                            ].map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-indigo-50">
+                                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/15 text-white">
+                                        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span className="leading-snug">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <Link href={phoneHref} aria-label="Call Shiftrix for a piano movers quote" className="inline-flex items-center gap-3 rounded-md border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-sm transition hover:bg-white/15">
+                            <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+                                </svg>
+                            </span>
+                            <span className="flex flex-col text-left">
+                                <span className="text-xs text-indigo-200">Prefer to talk?</span>
+                                <span className="text-sm font-semibold tracking-wide">+1 (403) 472-9110</span>
+                            </span>
+                        </Link>
+                    </div>
+                    
+                    {/* right Content */}
+                    <div className="w-full lg:max-w-md lg:ml-auto">
+                        <div className="rounded-xl bg-white text-slate-900 shadow-2xl px-5 py-6 sm:px-6 sm:py-7">
+                            <div className="mb-5 space-y-1">
+                                <h3 className="text-xl font-bold leading-tight">Request your free quote</h3>
+                                <p className="text-sm text-slate-600">Quick form. No hidden charges.</p>
+                            </div>
+                            <MovingForm service="piano-movers" />
                         </div>
                     </div>
                 </div>

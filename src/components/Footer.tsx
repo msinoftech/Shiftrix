@@ -48,12 +48,18 @@ export default function Footer() {
 
           {/* Useful Links */}
           <div className="flex justify-start lg:justify-center">
-            <div className="space-y-3">
+            <div>
               <div className="text-lg font-semibold text-gray-800">Useful Links</div>
-              <ul className="space-y-1">
+              <span className="mt-2 block h-0.5 w-10 rounded-full bg-gradient-to-r from-indigo-800 to-indigo-500" />
+              <ul className="mt-4 space-y-2.5">
                 {usefulLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} aria-label={link.name} className="hover:text-indigo-800 transition">{link.name}</Link>
+                    <Link href={link.href} aria-label={link.name} className="group inline-flex items-center gap-2 text-gray-700 transition-colors duration-300 hover:text-indigo-700">
+                      <svg className="h-3.5 w-3.5 shrink-0 text-indigo-600 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -62,12 +68,18 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <div className="space-y-3">
+            <div>
               <div className="text-lg font-semibold text-gray-800">Services</div>
-              <ul className="space-y-1">
+              <span className="mt-2 block h-0.5 w-10 rounded-full bg-gradient-to-r from-indigo-800 to-indigo-500" />
+              <ul className="mt-4 space-y-2.5">
                 {servicesLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} aria-label={link.name} className="hover:text-indigo-800 transition">{link.name}</Link>
+                    <Link href={link.href} aria-label={link.name} className="group inline-flex items-center gap-2 text-gray-700 transition-colors duration-300 hover:text-indigo-700">
+                      <svg className="h-3.5 w-3.5 shrink-0 text-indigo-600 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -78,7 +90,8 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <div>
               <div className="text-lg font-semibold text-gray-800">Get in Touch</div>
-              <ul className="space-y-1">
+              <span className="mt-2 block h-0.5 w-10 rounded-full bg-gradient-to-r from-indigo-800 to-indigo-500" />
+              <ul className="mt-4 space-y-1">
                 <li>
                   <strong className="block text-gray-800">Office Address:</strong>
                   <p>{address}</p>
@@ -94,18 +107,21 @@ export default function Footer() {
                   <Link href={phoneHref} aria-label="Phone Number" className="hover:text-indigo-800 transition">+1 (403) 472-9110</Link>
                 </li>
               </ul>
-              <div className="flex items-center space-x-4 mt-5">
-                {socialLinks.map((item) => (
-                  <Link
-                    key={item.link}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={item.ariaLabel}
-                    className="text-gray-900 hover:text-indigo-800"
-                    dangerouslySetInnerHTML={{ __html: item.icon }}
-                  />
-                ))}
+              <div className="mt-5">
+                <p className="text-xs font-semibold tracking-wider text-gray-500 mb-3">FOLLOW US</p>
+                <div className="flex items-center gap-2.5">
+                  {socialLinks.map((item) => (
+                    <Link
+                      key={item.link}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={item.ariaLabel}
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-indigo-100 bg-white text-indigo-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-indigo-800 hover:to-indigo-500 hover:text-white hover:shadow-md hover:shadow-indigo-500/25"
+                      dangerouslySetInnerHTML={{ __html: item.icon }}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>

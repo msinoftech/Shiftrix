@@ -77,21 +77,29 @@ export async function POST(req: Request) {
     });
 
     if (isMovingForm) {
-      if (!name || !email || !phone || !service || !moveFrom || !moveTo) {
+      if (!name || !email || !phone || !service || !moveFrom || !moveTo || !moveDate) {
         return NextResponse.json(
           { success: false, error: "Missing required moving form fields" },
           { status: 400 }
         );
       }
 
+      const formattedMoveDate = (() => {
+        const parsed = new Date(`${moveDate}T00:00:00`);
+        if (Number.isNaN(parsed.getTime())) return String(moveDate);
+        return parsed.toLocaleDateString("en-CA", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      })();
+
       const leadMessage = [
         `Move From: ${moveFrom}`,
         `Move To: ${moveTo}`,
-        moveDate ? `Move Date: ${moveDate}` : null,
+        `Move Date: ${formattedMoveDate}`,
         `Service: ${service}`,
-      ]
-        .filter(Boolean)
-        .join("\n");
+      ].join("\n");
 
       await transporter.sendMail({
         from: `"${name}" <${process.env.SMTP_USER}>`,
@@ -129,14 +137,10 @@ export async function POST(req: Request) {
                   <td style="font-weight: bold;">Move To:</td>
                   <td>${moveTo}</td>
                 </tr>
-                ${
-                  moveDate
-                    ? `<tr>
+                <tr>
                   <td style="font-weight: bold;">Move Date:</td>
-                  <td>${moveDate}</td>
-                </tr>`
-                    : ""
-                }
+                  <td>${formattedMoveDate}</td>
+                </tr>
               </table>
               <p style="text-align:center; color:#555; font-size:12px; margin-top:15px;">
                 This message was sent from your website moving quote form.
@@ -166,15 +170,25 @@ export async function POST(req: Request) {
     }
 
     // Contact form
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !moveDate) {
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
         { status: 400 }
       );
     }
 
+    const formattedMoveDate = (() => {
+      const parsed = new Date(`${moveDate}T00:00:00`);
+      if (Number.isNaN(parsed.getTime())) return String(moveDate);
+      return parsed.toLocaleDateString("en-CA", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    })();
+
     await transporter.sendMail({
-      from: `"${name}" <${process.env.SMTP_USER}>`,
+      from: `"Shiftrix" <${process.env.SMTP_USER}>`,
       replyTo: email,
       to: process.env.SEND_TO,
       subject: "New Inquiry via Contact Form",
@@ -202,6 +216,10 @@ export async function POST(req: Request) {
                   <td>${service || "Not specified"}</td>
                 </tr>
                 <tr>
+                  <td style="font-weight: bold;">Move Date:</td>
+                  <td>${formattedMoveDate}</td>
+                </tr>
+                <tr style="background-color: #f2f2f2;">
                   <td style="font-weight: bold;">Message:</td>
                   <td>${message}</td>
                 </tr>
@@ -220,7 +238,7 @@ export async function POST(req: Request) {
         service,
         moveFrom || "",
         moveTo || "",
-        message,
+        `Move Date: ${formattedMoveDate}\n${message}`,
         status,
         channel,
         whatsapp,

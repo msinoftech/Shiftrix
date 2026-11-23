@@ -152,13 +152,41 @@ type QuoteForm = {
   emailAddress: string;
   moveFrom: string;
   moveTo: string;
+  moveDate: string;
   service: string;
 };
 
 const inputClass = "w-full pl-9 pr-3 py-3 rounded-lg border border-gray-200 text-sm text-slate-700 placeholder-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white";
 
-export default function MovingForm() {
+const SERVICE_OPTIONS = [
+  { value: "commercial-movers", label: "Commercial Movers" },
+  { value: "residential-movers", label: "Residential Movers" },
+  { value: "full-service-movers", label: "Full Service Movers" },
+  { value: "furniture-movers", label: "Furniture Movers" },
+  { value: "local-movers", label: "Local Movers" },
+  { value: "long-distance-movers", label: "Long Distance Movers" },
+  { value: "man-with-van", label: "man with van" },
+  { value: "piano-movers", label: "Piano Movers" },
+  { value: "specialty-movers", label: "Specialty Movers" },
+] as const;
+
+type ServiceOption = (typeof SERVICE_OPTIONS)[number]["value"];
+
+type MovingFormProps = {
+  /** Pre-selects matching `<option value>` when provided (e.g. `"long-distance-movers"`). */
+  service?: ServiceOption | string;
+};
+
+function resolveDefaultService(service?: string): string {
+  if (!service) return "";
+  return SERVICE_OPTIONS.some((opt) => opt.value === service) ? service : "";
+}
+
+export default function MovingForm({ service }: MovingFormProps) {
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
+  const defaultService = resolveDefaultService(service);
+
+  const today = new Date().toISOString().slice(0, 10);
 
   const [quoteForm, setQuoteForm] = useState<QuoteForm>({
     fullName: "",
@@ -166,7 +194,8 @@ export default function MovingForm() {
     emailAddress: "",
     moveFrom: "",
     moveTo: "",
-    service: "",
+    moveDate: "",
+    service: defaultService,
   });
 
   const [mapsReady, setMapsReady] = useState(false);
@@ -217,8 +246,8 @@ export default function MovingForm() {
       !quoteForm.phoneNumber ||
       !quoteForm.moveFrom ||
       !quoteForm.moveTo ||
+      !quoteForm.moveDate ||
       !quoteForm.service
-
     ) {
       setStatus("error");
       setErrorMessage("Please fill all required fields.");
@@ -240,6 +269,7 @@ export default function MovingForm() {
           service: quoteForm.service,
           moveFrom: quoteForm.moveFrom,
           moveTo: quoteForm.moveTo,
+          moveDate: quoteForm.moveDate,
         }),
       });
 
@@ -269,7 +299,8 @@ export default function MovingForm() {
         emailAddress: "",
         moveFrom: "",
         moveTo: "",
-        service: "",
+        moveDate: "",
+        service: defaultService,
       });
       setFormKey((k) => k + 1);
     } catch (err) {
@@ -281,8 +312,9 @@ export default function MovingForm() {
   };
 
   return (
-      <form onSubmit={handleSubmit} className="flex-1 w-full min-w-0" aria-live="polite">
+      <form onSubmit={handleSubmit} className="flex-1 w-full" aria-live="polite">
         <div className="grid grid-cols-1 sm:grid-cols-1 gap-3 mb-3">
+          {/* Full Name Input */}
           <div className="relative">
             <svg
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-indigo-600"
@@ -307,7 +339,10 @@ export default function MovingForm() {
               className={inputClass}
             />
           </div>
+        </div>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3 mb-3">
+          {/* Phone Number Input */}
           <div className="relative">
             <svg
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-indigo-600"
@@ -333,6 +368,7 @@ export default function MovingForm() {
             />
           </div>
 
+          {/* Email Address Input */}
           <div className="relative">
             <svg
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-indigo-600"
@@ -359,6 +395,34 @@ export default function MovingForm() {
           </div>
         </div>
 
+        {/* Move Date */}
+        <div className="relative mb-3">
+          <svg
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-indigo-600"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <input
+            name="moveDate"
+            type="date"
+            required
+            min={today}
+            aria-label="Moving Date"
+            value={quoteForm.moveDate}
+            onChange={handleChange}
+            className={inputClass}
+          />
+        </div>
+
+        {/* Service Dropdown */}
         <div className="relative mb-3">
           <div className="relative">
             <svg className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -366,20 +430,17 @@ export default function MovingForm() {
             </svg>
             <select aria-label="Select Service" name="service" required value={quoteForm.service} onChange={handleChange} className={inputClass}>
               <option value="">Select Service</option>
-              <option value="commercial-movers">Commercial Movers</option>
-              <option value="residential-movers">Residential Movers</option>
-              <option value="full-service-movers">Full Service Movers</option>
-              <option value="furniture-movers">Furniture Movers</option>
-              <option value="local-movers">Local Movers</option>
-              <option value="long-distance-movers">Long Distance Movers</option>
-              <option value="man-with-van">man with van</option>
-              <option value="piano-movers">Piano Movers</option>
-              <option value="specialty-movers">Specialty Movers</option>
+              {SERVICE_OPTIONS.map(({ value, label }) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              ))}
             </select>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+        
+        {/* Move From and Move To Inputs */}
+        <div className="grid min-[500px]:grid-cols-2 gap-3 items-center">
           <AlbertaTownInput
             key={`from-${formKey}`}
             name="moveFrom"
@@ -402,7 +463,7 @@ export default function MovingForm() {
 
         </div>
 
-        <div className="relative mt-3 flex flex-col sm:flex-row justify-between gap-3 items-center">
+        <div className="relative mt-3 flex flex-row flex-wrap justify-between gap-3 items-center">
           <div className="order-2 sm:order-1 flex flex-wrap gap-x-5 gap-y-1.5">
             {["Free, No Obligation Quote", "Fastest Response"].map((label) => (
               <span key={label} className="flex items-center gap-1 text-xs text-slate-700">
@@ -426,10 +487,10 @@ export default function MovingForm() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="order-1 sm:order-2 inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-70 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-md transition-colors whitespace-nowrap"
+            className="order-1 sm:order-2 group/btn inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-4 py-3 rounded-xl font-medium text-sm shadow-lg shadow-indigo-500/25 hover:shadow-indigo-600/35 hover:-translate-y-0.5 transition-all duration-300"
           >
             {status === "sending" ? "Sending…" : "Get My Quote"}
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </button>

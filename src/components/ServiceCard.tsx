@@ -11,21 +11,21 @@ export default function ServiceCard({ link, heading, content }: ServiceCardProps
   const waveGradientId = useId();
 
   return (
-      <div className="relative group bg-gradient-to-br via-indigo-100 to-indigo-50 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl scale-103 hover:scale-100 transition-all duration-500">
+      <div className="relative group bg-gradient-to-br via-indigo-100 to-indigo-50 rounded-2xl overflow-hidden shadow-md scale-100 hover:scale-101 transition-transform duration-300">
         <Link href={link} aria-label={heading}>
           <div className="relative md:items-stretch z-10 mb-6">
             <div className="p-6 pb-8 space-y-2">
-              <div className="text-xl font-bold text-gray-900 group-hover:text-indigo-800 transition-colors">{heading}</div>
+              <div className="text-xl font-bold text-gray-900 group-hover:text-indigo-800">{heading}</div>
               <p>{content}</p>
               <div className="flex items-end justify-end mb-4">
-                <span className="inline-flex h-11 w-11 items-center justify-center text-sm font-medium text-white bg-gradient-to-br from-indigo-500 to-indigo-500 rounded-xl shadow group-hover:from-indigo-800 hover:to-indigo-500 transition-all">
-                  <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path></g></svg>
+                <span className="inline-flex h-11 w-11 items-center justify-center text-sm font-medium text-white bg-gradient-to-br from-indigo-500 to-indigo-500 rounded-xl">
+                  <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"></path></g></svg>
                 </span>
               </div>
             </div>
           </div>
-          <div className="absolute bottom-0 w-full -z-0 [--gradient-start:#c7d2fe] [--gradient-mid:#a5b4fc] [--gradient-end:#ddd6fe] transition-all duration-300">
-            <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" className="w-full opacity-80 transition-all duration-300">
+          <div className="absolute bottom-0 w-full -z-0 [--gradient-start:#c7d2fe] [--gradient-mid:#a5b4fc] [--gradient-end:#ddd6fe]">
+            <svg viewBox="0 0 1440 320" className="w-full opacity-80">
               <path fill={`url(#${waveGradientId})`} d="M0,224L30,192C60,160,120,96,180,74.7C240,53,300,75,360,101.3C420,128,480,160,540,176C600,192,660,192,720,170.7C780,149,840,107,900,96C960,85,1020,107,1080,138.7C1140,171,1200,213,1260,213.3C1320,213,1380,171,1410,149.3L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
               ></path>
               <defs>

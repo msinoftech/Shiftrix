@@ -3,10 +3,13 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
-import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
+import PageHeader from "@/components/PageHeader";
+import MovingForm from "@/components/movingForm";
 
-const { logo } = contactInfo;
+const { phone } = contactInfo;
+const phoneHref = `tel:${phone.replace(/[^+\d]/g, "")}`;
+
 
 export const metadata: Metadata = {
     title: "Most Reliable Specialty Movers in Calgary | Shiftrix",
@@ -145,33 +148,38 @@ export default function SpecialtyMoversPage() {
     {/* Schema Markup */}
     <Script id="specialty-movers-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
-    <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
-        <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">What Is Specialty Moving? Guide for Calgary Homeowners</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="relative">
-                    <Image src="/special-item-mover.jpg" alt="Specialty Movers in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                <div className="space-y-3">
-                    <p>Specialty moving is a custom relocation service that handles items beyond standard dimensions, of extraordinary weight, highly fragile, and incomparable. - "One-size-fits-all" moving simply doesn't work there. Such items require trained hands, specialist tools, and detailed planning before a single item leaves your home or business. Shiftrix offers precision specialty relocation services tailored to your specific item, address, and timeline.</p>
-                    <p>Specialty items we move include: fine art and paintings, antique furniture and heirlooms, heavy safes and vault installations, pool tables and billiard sets, and large industrial or commercial equipment. Moving a piano? See our <Link href={`${BASE_URL}/services/piano-movers`} className="text-blue-600 hover:underline">dedicated piano movers</Link> for specialist piano relocation across Calgary.</p>
-
-                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
-                </div>
-            </div>
-        </div>
-    </section>
+    <PageHeader
+      eyebrow={{ from: "Calgary", to: "Specialty Movers" }}
+      heading="What Is Specialty Moving? Guide for Calgary Homeowners"
+      paragraphs={[
+        "Specialty moving is a custom relocation service that handles items beyond standard dimensions, of extraordinary weight, highly fragile, and incomparable. - \"One-size-fits-all\" moving simply doesn't work there. Such items require trained hands, specialist tools, and detailed planning before a single item leaves your home or business. Shiftrix offers precision specialty relocation services tailored to your specific item, address, and timeline.",
+        <>Specialty items we move include: fine art and paintings, antique furniture and heirlooms, heavy safes and vault installations, pool tables and billiard sets, and large industrial or commercial equipment. Moving a piano? See our <Link href={`${BASE_URL}/services/piano-movers`} className="text-blue-600 hover:underline">dedicated piano movers</Link> for specialist piano relocation across Calgary.</>,
+      ]}
+      cta={{
+        href: `${BASE_URL}/contact-us`,
+        label: "Get a free quote",
+        ariaLabel: "Get a Free Quote furniture movers",
+      }}
+      image={{
+        src: "/special-item-mover.jpg",
+        alt: "Specialty Movers in Calgary",
+        width: 600,
+        height: 400,
+      }}
+    />
 
     <section className="relative">
-        <div className="container mx-auto px-4">
-            
+        <div className="container mx-auto px-4">            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+                {/* Left Image */}
+                <div className="relative">
+                    <Image src="/special-item-mover-2.jpg" alt="specialty movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                </div>
+                
+                {/* Right Content */}
                 <div className="space-y-3 relative">
                     <h2 className="text-2xl md:text-3xl font-bold">Why Hire Specialty Movers in Calgary?</h2>
                     <p>Standard moving crews are trained for boxes and furniture — not for memorable and high-value items. The consequences of the wrong move go beyond the cost of hiring the right people from the start, meaning an irreplaceable loss or a structural repair bill. Whether you're relocating within communities like Brentwood, Mahogany, or Springbank Hill — or moving high-value items across the city — hire the right specialty moving company. Shiftrix delivers the precision your possessions deserve. Our every move begins with a site assessment, continues with a protection plan, and ends only when your item is confirmed safe and in position at its destination.</p>
-                </div>
-                <div className="relative">
-                    <Image src="/special-item-mover-2.jpg" alt="specialty movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
         </div>
@@ -184,33 +192,40 @@ export default function SpecialtyMoversPage() {
                 <p> We show up our skills every time for every specialty, moving - Professional crew, concrete plan, no room for error.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="order-2 md:order-1">
-                    <Image src="/special-item-mover-3.jpg" alt="Specialty Movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                <div className="order-1 md:order-2 relative space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">                
+                {/* Left Content */}
+                <div className="relative space-y-3">
                     <h2 className="text-2xl md:text-3xl font-bold">Fine Art & Painting Moving </h2>
                     <p>Artwork is not cargo — it's a legacy. Shiftrix's fine art movers in Calgary use museum-standard protection protocols: acid-free tissue wrapping, custom foam-lined crates, padded corner guards, and temperature-controlled transport to prevent humidity damage. Whether you're moving a single canvas from a Mount Royal gallery wall or an entire private collection from Aspen Woods, our team handles every piece as if it were their own. We conduct pre-move condition reports and photograph each item before transit, giving you a complete record and genuine peace of mind from the moment we arrive.</p>
                 </div>
+                
+                {/* Right Image */}
+                <div className="relative">
+                    <Image src="/special-item-mover-3.jpg" alt="Specialty Movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="space-y-3 relative">
-                    <h2 className="text-2xl md:text-3xl font-bold">Safe moving & installation Calgary</h2>
-                    <p>A floor safe or vault can easily weigh between 200 and 2,000 kilograms — far beyond what standard movers are equipped or insured to handle. Shiftrix's safe movers in Calgary use hydraulic dollies, stair-climbing equipment, and engineered rigging to relocate safes of any size without damage to the unit, your floors, or your staircase. We handle residential safe installation across communities like Saddleridge and Signal Hill, as well as commercial vault relocation in downtown Calgary and surrounding business districts. All lifts are conducted by trained, insured specialists who assess access routes before any movement begins.</p>
-                </div>
-                <div className="relative">
+                {/* Left Image */}
+                <div className="order-2 md:order-1 relative">
                     <Image src="/special-item-mover-1.jpg" alt="Speciality moving" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
+                {/* Right Content */}
+                <div className="order-1 md:order-2 space-y-3 relative">
+                    <h2 className="text-2xl md:text-3xl font-bold">Safe moving & installation Calgary</h2>
+                    <p>A floor safe or vault can easily weigh between 200 and 2,000 kilograms — far beyond what standard movers are equipped or insured to handle. Shiftrix's safe movers in Calgary use hydraulic dollies, stair-climbing equipment, and engineered rigging to relocate safes of any size without damage to the unit, your floors, or your staircase. We handle residential safe installation across communities like Saddleridge and Signal Hill, as well as commercial vault relocation in downtown Calgary and surrounding business districts. All lifts are conducted by trained, insured specialists who assess access routes before any movement begins.</p>
+                </div>                
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="order-2 md:order-1">
-                    <Image src="/special-item-mover-4.jpg" alt="Specialty Movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                <div className="order-1 md:order-2 relative space-y-3">
+                {/* Left Content */}
+                <div className="relative space-y-3">
                     <h2 className="text-2xl md:text-3xl font-bold">Moving A Pool Table </h2>
                     <p>Pool tables are deceptively complex: the slate bed alone can weigh over 400 kg, and the precise level of the playing surface must be preserved, or the table becomes unplayable. Shiftrix's pool table movers in Calgary disassemble every component — felt, slate, frame, and legs — transport each piece individually, and professionally reassemble and re-level the table at your new address. We serve homeowners throughout Auburn Bay, Evergreen, and Silverado, as well as commercial venues and recreation rooms across the city. Our team brings the tools, the know-how, and the patience to get your table playing perfectly again.</p>
+                </div>
+                {/* Right Image */}
+                <div className="relative">
+                    <Image src="/special-item-mover-4.jpg" alt="Specialty Movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
 
@@ -254,17 +269,53 @@ export default function SpecialtyMoversPage() {
 
     <section className="py-10 md:py-20">
         <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-                <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        {/* Left Content */}
-                        <div className="relative space-y-3">
-                            <div className="text-2xl md:text-3xl text-gray-900 font-bold">Plan Your Next Move with our team | Book Today</div>
-                            <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
+            <div className="relative overflow-hidden rounded-2xl dark-sec bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-700 text-white shadow-xl">
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-6 sm:p-8 md:p-10 lg:p-12 items-center">
+                    {/* left Content */}
+                    <div className="space-y-6 max-w-xl">
+                        <div className="space-y-3 text-white">
+                            <p className="text-sm font-semibold text-indigo-200 uppercase">Free Specialty Movers quote</p>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Get a Free and No-Obligation Quote</h2>
+                            <p>Move with a clear, guaranteed price instead of an estimate. Send us the details, and we will reach out to you soon, usually within one hour.</p>
                         </div>
-                        {/* Right Form */}
-                        <div className="relative">
-                            <ContactForm />
+
+                        <ul className="space-y-3">
+                            {[
+                                "Final price sealed in writing with details before you okay.",
+                                "Calgary specialty movers are willing to talk it through.",
+                            ].map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-indigo-50">
+                                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/15 text-white">
+                                        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span className="leading-snug">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <Link href={phoneHref} aria-label="Call Shiftrix for a specialty movers quote" className="inline-flex items-center gap-3 rounded-md border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-sm transition hover:bg-white/15">
+                            <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+                                </svg>
+                            </span>
+                            <span className="flex flex-col text-left">
+                                <span className="text-xs text-indigo-200">Prefer to talk?</span>
+                                <span className="text-sm font-semibold tracking-wide">+1 (403) 472-9110</span>
+                            </span>
+                        </Link>
+                    </div>
+                    
+                    {/* right Content */}
+                    <div className="w-full lg:max-w-md lg:ml-auto">
+                        <div className="rounded-xl bg-white text-slate-900 shadow-2xl px-5 py-6 sm:px-6 sm:py-7">
+                            <div className="mb-5 space-y-1">
+                                <h3 className="text-xl font-bold leading-tight">Request your free quote</h3>
+                                <p className="text-sm text-slate-600">Quick form. No hidden charges.</p>
+                            </div>
+                            <MovingForm service="specialty-movers" />
                         </div>
                     </div>
                 </div>

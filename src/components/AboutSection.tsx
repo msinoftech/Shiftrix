@@ -30,8 +30,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({
   showLink = true,
   linkText = "About us",
   linkUrl = `/about`,
-  imageClassName = "w-full rounded-lg overflow-hidden",
-  titleClassName = "text-2xl md:text-3xl lg:text-4xl xl:text-4xl text-gray-900 font-bold mb-4",
+  imageClassName = "",
+  titleClassName = "",
   contentStyle,
   listTitle = "Your Truck dispatchers do all of the back-office work, including:",
   listItems = [
@@ -41,52 +41,113 @@ const AboutSection: React.FC<AboutSectionProps> = ({
   ],
 }) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-      {/* Left column: Image */}
+    <div
+      className={`grid grid-cols-1 gap-10 lg:gap-16 items-center ${
+        showImage && image ? "lg:grid-cols-2" : ""
+      }`}
+    >
       {showImage && image && (
-        <div className="order-1 lg:order-1">
-          <figure className={imageClassName}>
-            <Image src={image} alt="Shiftrix moving companies" width={600} height={400} loading="lazy" className="w-full h-full object-cover"/>
+        <div className="relative order-1 group">
+          <div
+            aria-hidden
+            className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-indigo-100 via-indigo-50 to-transparent opacity-80"
+          />
+          <div
+            aria-hidden
+            className="absolute -bottom-6 -right-4 sm:-right-8 h-40 w-40 rounded-full bg-indigo-500/20 blur-3xl animate-float-slow"
+          />
+          <div
+            aria-hidden
+            className="absolute -top-4 -left-4 h-28 w-28 rounded-full bg-indigo-800/10 blur-2xl animate-float-reverse"
+          />
+
+          <div
+            aria-hidden
+            className="absolute inset-x-6 -bottom-3 top-8 rounded-[1.75rem] border-2 border-indigo-200/70 -z-0 translate-x-3 translate-y-3"
+          />
+
+          <figure
+            className={`relative z-10 overflow-hidden rounded-[1.75rem] shadow-[0_25px_60px_-25px_rgba(55,48,163,0.45)] ring-1 ring-indigo-100/80 ${imageClassName}`}
+          >
+            <Image
+              src={image}
+              alt="Shiftrix moving companies"
+              width={720}
+              height={560}
+              loading="lazy"
+              className="w-full h-full min-h-[280px] sm:min-h-[360px] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-indigo-950/25 via-transparent to-transparent"
+            />
           </figure>
         </div>
       )}
 
-      {/* Right column: Content */}
-      <div className={showImage ? "order-2 lg:order-2" : "col-span-1"}>
-        <div className="rounded-lg" style={contentStyle}>
-          <TitleTag className={titleClassName}>{title}</TitleTag>
-          <div className="space-y-4">
+      <div className={`relative order-2 ${showImage && image ? "" : "max-w-3xl"}`}>
+        <div className="absolute -left-3 top-1 bottom-1 w-1 rounded-full bg-gradient-to-b from-indigo-800 via-indigo-500 to-indigo-300 hidden sm:block" />
+
+        <div className="sm:pl-6" style={contentStyle}>
+          
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">About Us</p>
+
+          <TitleTag
+            className={
+              titleClassName ||
+              "text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-5"
+            }
+          >
+            {title}
+          </TitleTag>
+
+          <div className="space-y-4 text-gray-600 leading-relaxed text-[15px] sm:text-base">
             {content.split("\n").map((paragraph, index) => (
               <p key={index}>{paragraph.trim()}</p>
             ))}
           </div>
 
-          {/* Dynamic List Section */}
           {listItems.length > 0 && (
-            <>
-              {listTitle && (
-                <h3 className="mt-3 font-bold">{listTitle}</h3>
-              )}
-              <ul className="mt-4 grid sm:grid-cols-1 gap-2">
+            <div className="mt-6">
+              {listTitle && <h3 className="font-semibold text-gray-900 mb-3">{listTitle}</h3>}
+              <ul className="grid gap-2.5">
                 {listItems.map((item, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <GiCheckMark />{item}
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-gray-700"
+                  >
+                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-700">
+                      <GiCheckMark className="text-[10px]" />
+                    </span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
-            </>
+            </div>
           )}
 
-          {/* Dynamic Link */}
           {showLink && (
-            <div className="mt-4 flex flex-wrap gap-4">
-              <Link href={linkUrl} aria-label={linkText} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">{linkText}</Link>
+            <div className="mt-8">
+              <Link
+                href={linkUrl}
+                aria-label={linkText}
+                className="group/btn inline-flex items-center gap-2.5 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3.5 rounded-xl font-medium text-sm shadow-lg shadow-indigo-500/25 hover:shadow-indigo-600/35 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                {linkText}
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
             </div>
           )}
         </div>
       </div>
-
     </div>
   );
 };

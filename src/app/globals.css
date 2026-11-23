@@ -48,6 +48,10 @@ h1, h2, h3, h4, h5, h6 {
   animation: floatReverse 12s ease-in-out infinite;
 }
 
+.dark-sec h2, .vission-box h3{
+  color: #ffffff !important;
+}
+
 .details-page .post-content h1, .details-page .post-content h2{
   font-size: 1.6rem;
   font-weight: 600;

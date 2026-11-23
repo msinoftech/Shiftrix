@@ -2,9 +2,12 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
-import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
+import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
+import MovingForm from "@/components/movingForm";
+const { phone } = contactInfo;
+const phoneHref = `tel:${phone.replace(/[^+\d]/g, "")}`;
 
 export const metadata: Metadata = {
     title: `Full Service Moving Company in Calgary | ${APP_NAME}`,
@@ -152,28 +155,36 @@ export default function FullServiceMoversPage() {
     {/* Schema Markup */}
     <Script id="full-service-movers-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
-    <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
-        <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Full Service Moving Company in Calgary</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-                <div className="flex-1">
-                    <Image src="/full-service-mover.jpg" alt="full-service packing and moving company" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
-                </div>
-                <div className="flex-1 space-y-3">
-                    <p><strong><i>Complete, End-to-End Moving — All Under One Roof</i></strong></p>
-                    <p>When it comes to relocating your home or office, nothing beats the convenience of a true full-service moving experience. At Shiftrix, we take complete ownership of your move — from carefully packing every item to delivering and setting it up at your new location. Whether you're moving a single room or an entire property, our team delivers a seamless, stress-free relocation tailored precisely to your needs in Calgary and the surrounding areas.</p>
-                    <p>As one of the leading full-service moving companies in Calgary, Shiftrix combines trained professionals, premium packing materials, and reliable transport to ensure your belongings arrive safely and on schedule — every time.</p>
-
-                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
-                </div>
-            </div>
-        </div>
-    </section>
+    <PageHeader
+      eyebrow={{ from: "Calgary", to: "Full Service Movers" }}
+      heading="Full Service Moving Company in Calgary"
+      paragraphs={[
+        <em key="lead" className="font-bold text-gray-900">Complete, End-to-End Moving — All Under One Roof</em>,
+        "When it comes to relocating your home or office, nothing beats the convenience of a true full-service moving experience. At Shiftrix, we take complete ownership of your move — from carefully packing every item to delivering and setting it up at your new location. Whether you're moving a single room or an entire property, our team delivers a seamless, stress-free relocation tailored precisely to your needs in Calgary and the surrounding areas.",
+        "As one of the leading full-service moving companies in Calgary, Shiftrix combines trained professionals, premium packing materials, and reliable transport to ensure your belongings arrive safely and on schedule — every time.",
+      ]}
+      cta={{
+        href: `${BASE_URL}/contact-us`,
+        label: "Get a free quote",
+        ariaLabel: "Get a Free Quote full-service movers",
+      }}
+      image={{
+        src: "/full-service-mover.jpg",
+        alt: "full-service packing and moving company",
+        width: 600,
+        height: 400,
+      }}
+    />
 
     <section className="py-10 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-                {/* Left Image */}
+                {/* Left Content */}
+                <div className="relative">
+                    <Image src="/full-service-mover-4.jpg" alt="Full Service Moving Company in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                </div>
+
+                {/* Right Image */}
                 <div className="space-y-3">
                     <h2 className="text-2xl md:text-3xl font-bold">Why Choose a Full-Service Packing and Moving Company?</h2>
                     <p><strong>Choosing a full-service packing and moving company over a partial or self-managed move offers clear advantages:</strong></p>
@@ -202,11 +213,6 @@ export default function FullServiceMoversPage() {
                         <p><strong>Customised to Your Timeline and Budget:</strong> No two moves are alike. Moving plan built around your specific schedule, property size, and budget — no unnecessary extras.</p>
                     </div>
                 </div>
-
-                {/* Right Content */}
-                <div className="relative">
-                    <Image src="/full-service-mover-4.jpg" alt="Full Service Moving Company in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
                 
             </div>
         </div>
@@ -216,10 +222,6 @@ export default function FullServiceMoversPage() {
         <div className="container mx-auto px-4 space-y-10 md:space-y-18">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* Left Content */}
-                <div className="flex-1">
-                    <Image src="/full-service-mover-1.jpg" alt="full-service moving and packing service in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                {/* Right Content */}
                 <div className="flex-1 space-y-3">
                     <h2 className="text-2xl md:text-3xl font-bold">What Is Full Service Moving?</h2>
                     <p>Full-service moving means you hand off every stage of the relocation to a dedicated team of experts. Unlike standard transport-only options, a full-service packing and moving company handles the entire process on your behalf:</p>
@@ -248,10 +250,18 @@ export default function FullServiceMoversPage() {
                     <p>This comprehensive approach means zero disruption to your daily routine. You focus on your new beginning — Your team handles everything else.</p>
 
                 </div>
+                {/* Right Content */}
+                <div className="flex-1">
+                    <Image src="/full-service-mover-1.jpg" alt="full-service moving and packing service in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* Left Content */}
+                <div className="relative">
+                    <Image src="/full-service-mover-3.jpg" alt="best full-service moving companies" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                </div>
+                {/* Right Content */}
                 <div className="flex-1 space-y-4">
                     <h2 className="text-2xl md:text-3xl font-bold">Full Service Moving vs. Partial Moving: What's the Difference?</h2>
                     <p>Many customers assume all moving companies offer the same scope of work. In reality, there is a significant difference between partial and full-service moving.</p>
@@ -300,11 +310,6 @@ export default function FullServiceMoversPage() {
                     </div>
                     <p>With a full-service moving company like Shiftrix, you receive a truly hands-off experience. Partial services require you to invest your own time and effort — often with greater risk of damage and delays.</p>
                 </div>
-
-                {/* Right Content */}
-                <div className="relative">
-                    <Image src="/full-service-mover-3.jpg" alt="best full-service moving companies" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
             </div>
         </div>
     </section>
@@ -348,18 +353,53 @@ export default function FullServiceMoversPage() {
 
     <section className="py-10 md:py-20">
         <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-                <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {/* Left Content */}
-                        <div className="relative space-y-3">
-                            <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Move with Shiftrix — Request a Free Quote Today</div>
-                            <p>Ready to experience why Shiftrix is trusted as one of the best full-service moving companies in Calgary? Our crew is ready to build a custom moving plan around your timeline and requirements.</p>
+            <div className="relative overflow-hidden rounded-2xl dark-sec bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-700 text-white shadow-xl">
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-6 sm:p-8 md:p-10 lg:p-12 items-center">
+                    {/* left Content */}
+                    <div className="space-y-6 max-w-xl">
+                        <div className="space-y-3 text-white">
+                            <p className="text-sm font-semibold text-indigo-200 uppercase">Free Full Service Movers quote</p>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Get a Free and No-Obligation Quote</h2>
+                            <p>Move with a clear, guaranteed price instead of an estimate. Send us the details, and we will reach out to you soon, usually within one hour.</p>
                         </div>
 
-                        {/* Right Form */}
-                        <div className="relative">
-                            <ContactForm />
+                        <ul className="space-y-3">
+                            {[
+                                "Final price sealed in writing with details before you okay.",
+                                "Calgary full service movers are willing to talk it through.",
+                            ].map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-indigo-50">
+                                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/15 text-white">
+                                        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span className="leading-snug">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <Link href={phoneHref} aria-label="Call Shiftrix for a full service movers quote" className="inline-flex items-center gap-3 rounded-md border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-sm transition hover:bg-white/15">
+                            <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+                                </svg>
+                            </span>
+                            <span className="flex flex-col text-left">
+                                <span className="text-xs text-indigo-200">Prefer to talk?</span>
+                                <span className="text-sm font-semibold tracking-wide">+1 (403) 472-9110</span>
+                            </span>
+                        </Link>
+                    </div>
+                    
+                    {/* right Content */}
+                    <div className="w-full lg:max-w-md lg:ml-auto">
+                        <div className="rounded-xl bg-white text-slate-900 shadow-2xl px-5 py-6 sm:px-6 sm:py-7">
+                            <div className="mb-5 space-y-1">
+                                <h3 className="text-xl font-bold leading-tight">Request your free quote</h3>
+                                <p className="text-sm text-slate-600">Quick form. No hidden charges.</p>
+                            </div>
+                            <MovingForm service="full-service-movers" />
                         </div>
                     </div>
                 </div>

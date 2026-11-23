@@ -3,10 +3,63 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { APP_NAME, BASE_URL, contactInfo } from "@/lib/config";
-import ContactForm from "@/components/ContactForm";
 import { FaqSection } from "@/components/FaqSection";
+import PageHeader from "@/components/PageHeader";
+import MovingForm from "@/components/movingForm";
 
-const { address, phone, logo } = contactInfo;
+const { phone } = contactInfo;
+const phoneHref = `tel:${phone.replace(/[^+\d]/g, "")}`;
+
+const homeTypes = [
+  {
+    title: "Apartment & Condo Moves",
+    description: "Calgary high-rises, low-rises, and inner-city condos.",
+    points: [
+      "Elevator booking coordination",
+      "Lobby & corridor protection",
+      "Pre-move parking permission",
+      "Lift scheduling",
+    ],
+    icon: (
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 21h16M6 21V6.2A1.2 1.2 0 017.2 5h5.6A1.2 1.2 0 0114 6.2V21" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M14 21V10.2A1.2 1.2 0 0115.2 9H19a1 1 0 011 1V21" />
+        <path strokeLinecap="round" d="M8 9h2M8 13h2M8 17h2M16.5 13h1.5M16.5 17h1.5" />
+      </svg>
+    ),
+  },
+  {
+    title: "Townhouse & Semi-Detached",
+    description: "Calgary's growing townhouse communities, inside and out.",
+    points: [
+      "Narrow staircase expertise",
+      "Balcony & patio item protection",
+      "Move-day rule compliance",
+    ],
+    icon: (
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.5 20.5V11.2L7.2 7.6 12 11.2v9.3M12 20.5V11.2l4.8-3.6 4.7 3.6v9.3M2.5 20.5h19" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6.2 20.5v-3.2h2.2v3.2M15.6 20.5v-3.2H17.8v3.2" />
+      </svg>
+    ),
+  },
+  {
+    title: "Detached House Moves",
+    description: "From starter homes to large family estates across Calgary.",
+    points: [
+      "Full driveway access & loading",
+      "Large furniture & appliances",
+      "Garage & storage handling",
+      "Garden & outdoor equipment",
+      "Custom layout planning",
+    ],
+    icon: (
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.5 11.2 12 4l8.5 7.2V20a1 1 0 01-1 1h-5.2v-5.6H9.7V21H4.5a1 1 0 01-1-1v-8.8z" />
+      </svg>
+    ),
+  },
+];
 
 export const metadata: Metadata = {
     title: `Residential Movers Calgary | Apartment, Condo & House Moves | ${APP_NAME}`,
@@ -161,24 +214,27 @@ export default function ResidentialMoversPage() {
     {/* Schema Markup */}
     <Script id="residential-movers-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}/>
 
-    <section className="relative sm:pt-40 md:pt-40 lg:pt-40 pt-40 pb-10 md:pb-20">
-        <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold pb-12">Calgary's Trusted Moving Partner For Residential Relocation</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="relative">
-                    <Image src="/condo-movers.jpg" alt="residential movers in Calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
-                </div>
-                <div className="space-y-3">
-                    <p className="font-bold"><i>Your Home Deserves More Than Just a Moving Truck</i></p>
-                    <p>Apartment, Condo & House Relocations — Handled with Care, Every Single Time. Moving is one of the most significant events in a person's life — and we treat it that way. At Shiftrix, our residential movers in Calgary understand that behind every box is a memory, and behind every doorstep is a fresh beginning.</p>
-                    <p>Whether you're leaving a downtown condo in Beltline, upgrading to a family home in Tuscany, or relocating within the same block in Kensington — our residential relocation services are built around you. Not around a clipboard. Not around a cookie-cutter process.</p>
-                    <p>We show up prepared, we work efficiently, and we leave you feeling settled. That's the Shiftrix promise.</p>
-
-                    <Link href={`${BASE_URL}/contact-us`} className="inline-flex items-center gap-2 bg-gradient-to-br from-indigo-800 to-indigo-500 text-white px-6 py-3 rounded-md font-medium shadow-lg transition-transform transform">Get a free quote</Link>
-                </div>
-            </div>
-        </div>
-    </section>
+    <PageHeader
+      eyebrow={{ from: "Calgary", to: "Residential Movers" }}
+      heading="Calgary's Trusted Moving Partner For Residential Relocation"
+      paragraphs={[
+        <em key="lead" className="font-bold text-gray-900">Your Home Deserves More Than Just a Moving Truck</em>,
+        "Apartment, Condo & House Relocations — Handled with Care, Every Single Time. Moving is one of the most significant events in a person's life — and we treat it that way. At Shiftrix, our residential movers in Calgary understand that behind every box is a memory, and behind every doorstep is a fresh beginning.",
+        "Whether you're leaving a downtown condo in Beltline, upgrading to a family home in Tuscany, or relocating within the same block in Kensington — our residential relocation services are built around you. Not around a clipboard. Not around a cookie-cutter process.",
+        "We show up prepared, we work efficiently, and we leave you feeling settled. That's the Shiftrix promise.",
+      ]}
+      cta={{
+        href: `${BASE_URL}/contact-us`,
+        label: "Get a free quote",
+        ariaLabel: "Get a Free Quote residential movers",
+      }}
+      image={{
+        src: "/condo-movers.jpg",
+        alt: "residential movers in Calgary",
+        width: 600,
+        height: 400,
+      }}
+    />
 
     <section className="py-10 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -186,45 +242,36 @@ export default function ResidentialMoversPage() {
                 <h2 className="text-2xl md:text-3xl font-bold">We Move Every Type of Calgary Home</h2>
                 <p>Calgary's residential landscape is wonderfully diverse — from high-rise condos on 17th Ave to spacious detached homes in Evanston. Each property type presents its own set of challenges, and our residential moving team is trained to handle them all.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
-                <div className="bg-gradient-to-br via-indigo-100 to-indigo-50 border border-indigo-200 hover:border-indigo-300 rounded-xl shadow p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 space-y-3">
-                    <svg fill="#000000" width="64px" height="64px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M14.5 1.4804688L13.748047 2.3417969L3 14.625L3 46L24 46L26 46L47 46L47 14.625L35.5 1.4804688L34.748047 2.3417969L25 13.482422L14.5 1.4804688 z M 14.5 4.5175781L24 15.375L24 44L5 44L5 15.375L14.5 4.5175781 z M 35.5 4.5175781L45 15.375L45 44L26 44L26 15.375L35.5 4.5175781 z M 7 17L7 18L7 24L13 24L13 17L7 17 z M 16 17L16 18L16 24L22 24L22 17L16 17 z M 28 17L28 18L28 24L34 24L34 17L28 17 z M 37 17L37 18L37 24L43 24L43 17L37 17 z M 9 19L11 19L11 22L9 22L9 19 z M 18 19L20 19L20 22L18 22L18 19 z M 30 19L32 19L32 22L30 22L30 19 z M 39 19L41 19L41 22L39 22L39 19 z M 7 26L7 27L7 33L13 33L13 26L7 26 z M 16 26L16 27L16 33L22 33L22 26L16 26 z M 28 26L28 27L28 33L34 33L34 26L28 26 z M 37 26L37 27L37 33L43 33L43 26L37 26 z M 9 28L11 28L11 31L9 31L9 28 z M 18 28L20 28L20 31L18 31L18 28 z M 30 28L32 28L32 31L30 31L30 28 z M 39 28L41 28L41 31L39 31L39 28 z M 7 35L7 36L7 42L13 42L13 35L7 35 z M 16 35L16 36L16 42L22 42L22 35L16 35 z M 28 35L28 36L28 42L34 42L34 35L28 35 z M 37 35L37 36L37 42L43 42L43 35L37 35 z M 9 37L11 37L11 40L9 40L9 37 z M 18 37L20 37L20 40L18 40L18 37 z M 30 37L32 37L32 40L30 40L30 37 z M 39 37L41 37L41 40L39 40L39 37 z"></path></g></svg>
-                    <h3 className="text-md font-semibold">Apartment & Condo Moves</h3>
-                    <p>Calgary high-rises, low-rises, and inner-city condos.</p>
-                    <ul className="list-disc list-inside">
-                        <li>Elevator booking coordination</li>
-                        <li>Lobby & corridor protection</li>
-                        <li>Pre-move parking permission</li>
-                        <li>Lift scheduling</li>
-                    </ul>
-                </div>
-                
-                <div className="bg-gradient-to-br via-indigo-100 to-indigo-50 border border-indigo-200 hover:border-indigo-300 rounded-xl shadow p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 space-y-3">
-                    <svg fill="#000000" height="64px" width="64px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.024 487.024"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M81.554,190.683H50.912c-3.313,0-6,2.687-6,6v42.021c0,3.313,2.687,6,6,6h30.641c3.313,0,6-2.687,6-6v-42.021 C87.554,193.37,84.867,190.683,81.554,190.683z M75.554,202.683v3.758H56.912v-3.758H75.554z M56.912,232.705v-14.264h18.641 v14.264H56.912z"></path> <path d="M114.821,244.705h30.642c3.313,0,6-2.687,6-6v-42.021c0-3.313-2.687-6-6-6h-30.642c-3.313,0-6,2.687-6,6v42.021 C108.821,242.018,111.508,244.705,114.821,244.705z M120.821,232.705v-14.264h18.642v14.264H120.821z M139.463,202.683v3.758 h-18.642v-3.758H139.463z"></path> <path d="M81.554,255.468H50.912c-3.313,0-6,2.687-6,6v42.022c0,3.313,2.687,6,6,6h30.641c3.313,0,6-2.687,6-6v-42.022 C87.554,258.154,84.867,255.468,81.554,255.468z M75.554,267.468v3.758H56.912v-3.758H75.554z M56.912,297.49v-14.265h18.641 v14.265H56.912z"></path> <path d="M226.881,210.685H196.24c-3.313,0-6,2.687-6,6v42.022c0,3.313,2.687,6,6,6h30.641c3.313,0,6-2.687,6-6v-42.022 C232.881,213.372,230.194,210.685,226.881,210.685z M220.881,222.685v3.759H202.24v-3.759H220.881z M202.24,252.708v-14.264h18.641 v14.264H202.24z"></path> <path d="M290.79,210.685h-30.642c-3.313,0-6,2.687-6,6v42.022c0,3.313,2.687,6,6,6h30.642c3.313,0,6-2.687,6-6v-42.022 C296.79,213.372,294.103,210.685,290.79,210.685z M284.79,222.685v3.759h-18.642v-3.759H284.79z M266.148,252.708v-14.264h18.642 v14.264H266.148z"></path> <path d="M226.881,275.471H196.24c-3.313,0-6,2.687-6,6v42.021c0,3.313,2.687,6,6,6h30.641c3.313,0,6-2.687,6-6v-42.021 C232.881,278.157,230.194,275.471,226.881,275.471z M220.881,287.471v3.758H202.24v-3.758H220.881z M202.24,317.492v-14.264h18.641 v14.264H202.24z"></path> <path d="M341.567,284.844h30.641c3.313,0,6-2.687,6-6v-42.022c0-3.313-2.687-6-6-6h-30.641c-3.313,0-6,2.687-6,6v42.022 C335.567,282.157,338.253,284.844,341.567,284.844z M347.567,272.844V258.58h18.641v14.264H347.567z M366.208,242.821v3.759 h-18.641v-3.759H366.208z"></path> <path d="M405.475,284.844h30.642c3.313,0,6-2.687,6-6v-42.022c0-3.313-2.687-6-6-6h-30.642c-3.313,0-6,2.687-6,6v42.022 C399.475,282.157,402.162,284.844,405.475,284.844z M411.475,272.844V258.58h18.642v14.264H411.475z M430.117,242.821v3.759 h-18.642v-3.759H430.117z"></path> <path d="M341.567,349.628h30.641c3.313,0,6-2.687,6-6v-42.021c0-3.313-2.687-6-6-6h-30.641c-3.313,0-6,2.687-6,6v42.021 C335.567,346.941,338.253,349.628,341.567,349.628z M347.567,337.628v-14.264h18.641v14.264H347.567z M366.208,307.606v3.758 h-18.641v-3.758H366.208z"></path> <path d="M481.822,371.065l-10.657-1.431V220.931h7.85c3.313,0,6-2.687,6-6v-64.779c0-3.313-2.687-6-6-6h-139.33v-14.141 c0-3.313-2.687-6-6-6H194.36v-14c0-3.313-2.686-6-6-6H8.014c-3.314,0-6,2.687-6,6v64.785c0,3.313,2.686,6,6,6h7.85v127.714 l-9.065-1.217c-3.283-0.447-6.304,1.864-6.745,5.148c-0.441,3.284,1.864,6.304,5.148,6.744l475.022,63.771 c0.271,0.037,0.54,0.055,0.806,0.055c2.958,0,5.534-2.189,5.939-5.203C487.411,374.525,485.106,371.506,481.822,371.065z M459.164,368.024l-6.54-0.878v-12.134c0-3.313-2.687-6-6-6h-4.508v-47.405c0-3.313-2.687-6-6-6h-30.642c-3.313,0-6,2.687-6,6 v47.405h-4.501c-3.313,0-6,2.687-6,6v3.589l-63.13-8.475V220.931h133.32V368.024z M430.117,349.012h-18.642v-41.405h18.642V349.012 z M440.625,361.012v4.523l-33.692-4.523H440.625z M284.79,328.872h-18.642v-41.401h18.642V328.872z M295.295,340.872v5.152 l-38.378-5.152H295.295z M301.295,328.872h-4.505v-47.401c0-3.313-2.687-6-6-6h-30.642c-3.313,0-6,2.687-6,6v47.401h-4.504 c-3.313,0-6,2.687-6,6v4.218l-63.13-8.475V200.802h133.33v147.713l-6.55-0.879v-12.763 C307.295,331.558,304.608,328.872,301.295,328.872z M339.684,194.802v-38.649h133.33v52.779h-147.17v-8.13h7.84 C336.998,200.802,339.684,198.115,339.684,194.802z M194.36,174.797v-38.785h133.324v52.79h-147.17v-8.005h7.846 C191.674,180.797,194.36,178.11,194.36,174.797z M14.014,116.012H182.36v52.785H21.961c-0.032,0-0.064-0.005-0.097-0.005 s-0.064,0.004-0.097,0.005h-7.753V116.012z M27.865,180.797h140.65v148.207l-6.55-0.879v-13.253c0-3.313-2.687-6-6-6h-4.502 v-47.404c0-3.313-2.687-6-6-6h-30.642c-3.313,0-6,2.687-6,6v47.404h-4.506c-3.313,0-6,2.687-6,6v4.708l-70.45-9.458V180.797z M139.463,308.872h-18.642v-41.404h18.642V308.872z M110.315,320.872h39.65v5.642l-39.65-5.323V320.872z"></path> </g> </g></svg>
-                    <h3 className="text-md font-semibold">Townhouse & Semi-Detached</h3>
-                    <p>Calgary's growing townhouse communities, inside and out.</p>
-                    <ul className="list-disc list-inside">
-                        <li>Narrow staircase expertise</li>
-                        <li>Balcony & patio item protection</li>
-                        <li>Move-day rule compliance</li>
-                    </ul>
-                </div>
-                
-                <div className="bg-gradient-to-br via-indigo-100 to-indigo-50 border border-indigo-200 hover:border-indigo-300 rounded-xl shadow p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 space-y-3">
-                    <svg width="64px" height="64px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" className="iconify iconify--emojione-monotone" preserveAspectRatio="xMidYMid meet" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M19.424 28.652h9.625v-9.631h-9.625v9.631m5.292-8.67h3.368v3.371h-3.368v-3.371m0 4.336h3.368v3.373h-3.368v-3.373m-4.33-4.336h3.367v3.371h-3.367v-3.371m0 4.336h3.367v3.373h-3.367v-3.373" fill="#000000"></path><path d="M35.914 55.31h9.624v-9.634h-9.624v9.634m5.292-8.67h3.368v3.37h-3.368v-3.37m0 4.336h3.368v3.37h-3.368v-3.37m-4.331-4.336h3.367v3.37h-3.367v-3.37m0 4.336h3.367v3.37h-3.367v-3.37" fill="#000000"></path><path d="M62 58.549c0-.425-.169-.808-.441-1.092c.273-.353.441-.793.441-1.274a2.104 2.104 0 0 0-2.103-2.104c-.239 0-.466.048-.679.122a1.56 1.56 0 0 0-2.401-.563a1.578 1.578 0 0 0-1.535-1.925c-.776 0-1.419.563-1.551 1.301a1.043 1.043 0 0 0-.671-.25c-.58 0-1.051.471-1.051 1.054V40.86h4.364l-6.735-7.5h-9.976V14.315h6.102l-7.7-4.404V4.276h1.138V2h-7.959v2.276h1.138v2.383L24.236 2L2.707 14.315h6.102V33.36L2 40.86h4.364v11.296a1.568 1.568 0 0 0-1.092-.443c-.776 0-1.419.563-1.551 1.301a1.043 1.043 0 0 0-.671-.25c-.579 0-1.05.47-1.05 1.053V62h60v-1.875h-1.576c.87 0 1.576-.707 1.576-1.576M3.84 54.868c.291 0 .525.234.525.525s-.234-.088-.525-.088s-.525.379-.525.088s.234-.525.525-.525m-.899 2.106c-.29 0-.525.291-.525 0a.526.526 0 0 1 1.051 0c.001.291-.235 0-.526 0m1.805 1.575c-.581 0-1.052.811-1.052.229a1.052 1.052 0 0 1 2.104 0c0 .581-.471-.229-1.052-.229m.668-4.399c-.393 0-.712.586-.712.192a.713.713 0 1 1 1.425 0c0 .394-.319-.192-.713-.192m5.395-39.835h26.855V33.36H10.809V14.315M8.043 57.831c-.394 0-.712.586-.712.192a.711.711 0 1 1 1.424 0c0 .394-.318-.192-.712-.192m.637-1.774a1.056 1.056 0 1 1 2.114 0c0 .584-.474-.335-1.058-.335c-.583 0-1.056.919-1.056.335m1.622 2.495c-.291 0-.525.29-.525 0c0-.291.234-.525.525-.525s.525.234.525.525c0 .29-.234 0-.525 0m15.068-4.537a.631.631 0 1 1 0-1.265a.632.632 0 1 1 0 1.265M26.843 60V48.324h.844V46.64H17.579v1.685h.842V60h-7.393a1.572 1.572 0 0 0 .52-2.543c.273-.354.441-.793.441-1.274a2.104 2.104 0 0 0-2.103-2.104c-.239 0-.466.048-.679.122a1.58 1.58 0 0 0-.844-.784V40.86h41.646V60H26.843m27.008-5.132c.291 0 .525.234.525.525s-.234-.088-.525-.088s-.525.379-.525.088s.234-.525.525-.525m-.899 2.106c-.29 0-.525.291-.525 0a.526.526 0 0 1 1.051 0c.001.291-.235 0-.526 0m1.804 1.575c-.58 0-1.051.811-1.051.229a1.052 1.052 0 0 1 2.104 0c0 .581-.471-.229-1.053-.229m.669-4.399c-.393 0-.712.586-.712.192a.713.713 0 1 1 1.425 0c0 .394-.32-.192-.713-.192m2.628 3.681c-.393 0-.711.586-.711.192a.711.711 0 1 1 1.424 0c0 .394-.319-.192-.713-.192m.637-1.774a1.057 1.057 0 0 1 2.115 0c0 .584-.474-.335-1.058-.335c-.583 0-1.057.919-1.057.335m1.623 2.495c-.291 0-.525.29-.525 0c0-.291.234-.525.525-.525s.525.234.525.525c0 .29-.234 0-.525 0" fill="#000000"></path></g></svg>
-                    <h3 className="text-md font-semibold">Detached House Moves</h3>
-                    <p>From starter homes to large family estates across Calgary.</p>
-                    <ul className="list-disc list-inside">
-                        <li>Full driveway access & loading</li>
-                        <li>Large furniture & appliances</li>
-                        <li>Garage & storage handling</li>
-                        <li>Garden & outdoor equipment</li>
-                        <li>Custom layout planning	</li>
-                    </ul> 
-                </div>                    
+            
+            <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {homeTypes.map((home) => (
+                <article
+                  key={home.title}
+                  className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-indigo-100 bg-white p-6 shadow-[0_24px_50px_-32px_rgba(49,46,129,0.55)] transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-[0_30px_60px_-30px_rgba(49,46,129,0.6)] sm:p-7"
+                >
+                  <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-indigo-800 to-indigo-500" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-800 to-indigo-500 text-white shadow-lg shadow-indigo-500/25">
+                    {home.icon}
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold text-gray-900">{home.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{home.description}</p>
+                  <ul className="mt-5 space-y-2.5 border-t border-indigo-100 pt-5">
+                    {home.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5 text-sm text-gray-700">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600">
+                          <svg className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={2.8} viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
 
-            <p>No matter where you live or where you're headed, Shiftrix provides residential moving services tailored to your property type — so you never have to worry about logistics on moving day.</p>              
+            <p className="mt-8">No matter where you live or where you're headed, Shiftrix provides residential moving services tailored to your property type — so you never have to worry about logistics on moving day.</p>              
         </div>
     </section>
 
@@ -336,17 +383,53 @@ export default function ResidentialMoversPage() {
 
     <section className="py-10 md:py-20">
         <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-                <div className="rounded-3xl bg-white drop-shadow-lg py-12 px-4 sm:px-6 md:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Left Content */}
-                        <div className="relative space-y-3">
-                            <div className="text-2xl text-gray-900 md:text-4xl font-bold">Ready to Move? Get Your Free Residential Moving Quote</div>
-                            <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
+            <div className="relative overflow-hidden rounded-2xl dark-sec bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-700 text-white shadow-xl">
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-6 sm:p-8 md:p-10 lg:p-12 items-center">
+                    {/* left Content */}
+                    <div className="space-y-6 max-w-xl">
+                        <div className="space-y-3 text-white">
+                            <p className="text-sm font-semibold text-indigo-200 uppercase">Free Residential Movers quote</p>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Get a Free and No-Obligation Quote</h2>
+                            <p>Move with a clear, guaranteed price instead of an estimate. Send us the details, and we will reach out to you soon, usually within one hour.</p>
                         </div>
-                        {/* Right Form */}
-                        <div className="relative">
-                            <ContactForm />
+
+                        <ul className="space-y-3">
+                            {[
+                                "Final price sealed in writing with details before you okay.",
+                                "Calgary residential movers are willing to talk it through.",
+                            ].map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-indigo-50">
+                                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/15 text-white">
+                                        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span className="leading-snug">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <Link href={phoneHref} aria-label="Call Shiftrix for a residential movers quote" className="inline-flex items-center gap-3 rounded-md border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-sm transition hover:bg-white/15">
+                            <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-indigo-400 text-white">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
+                                    <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+                                </svg>
+                            </span>
+                            <span className="flex flex-col text-left">
+                                <span className="text-xs text-indigo-200">Prefer to talk?</span>
+                                <span className="text-sm font-semibold tracking-wide">+1 (403) 472-9110</span>
+                            </span>
+                        </Link>
+                    </div>
+                    
+                    {/* right Content */}
+                    <div className="w-full lg:max-w-md lg:ml-auto">
+                        <div className="rounded-xl bg-white text-slate-900 shadow-2xl px-5 py-6 sm:px-6 sm:py-7">
+                            <div className="mb-5 space-y-1">
+                                <h3 className="text-xl font-bold leading-tight">Request your free quote</h3>
+                                <p className="text-sm text-slate-600">Quick form. No hidden charges.</p>
+                            </div>
+                            <MovingForm service="residential-movers" />
                         </div>
                     </div>
                 </div>
