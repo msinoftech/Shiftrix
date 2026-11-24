@@ -212,27 +212,6 @@ export default function ServicesPage() {
       </div>
     </section>
 
-    {/* <section className="py-10 md:py-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
-            <div className="relative space-y-3 text-center pb-8">
-                <div className="text-2xl md:text-4xl text-gray-900 font-bold">Pick the service you actually need | Book Our Team</div>
-                <p>Let our experts take the stress out of your next move with a relocation service tailored to your timeline and budget.</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="relative">
-                  <ContactSection/>
-              </div>
-              <div className="relative">
-                <ContactForm />
-              </div>
-            </div>
-        </div>
-      </div>
-      </div>
-    </section> */}
     <section className="py-10 md:py-20">
         <div className="container mx-auto px-4">
             <div className="relative overflow-hidden rounded-2xl dark-sec bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-700 text-white shadow-xl">

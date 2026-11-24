@@ -382,29 +382,6 @@ const homeschemaData = {
         </div>
       </section>
 
-      {/* <section className="pb-10 md:pb-20">
-        <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="rounded-3xl bg-white drop-shadow-lg p-4 sm:p-6 md:p-6 lg:p-8">
-                <div className="space-y-3 text-center pb-8">
-                    <div className="text-2xl text-gray-900 md:text-4xl font-bold">Plan Your Next Move with our team | Book Today</div>
-                    <p>Plan your next move with our expert team and get a customised moving service that fits your schedule and budget.</p>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="relative">
-                    <ContactSection/>
-                  </div>
-
-                  <div className="relative">
-                    <ContactForm />
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       <section className="pb-10 md:pb-20">
         <div className="container mx-auto px-4">
             <div className="relative overflow-hidden rounded-2xl dark-sec bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-700 text-white shadow-xl">

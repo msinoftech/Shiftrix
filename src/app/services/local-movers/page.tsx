@@ -182,7 +182,7 @@ export default function LocalMoversPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">                
                 {/* Left Image */}
                 <div className="flex justify-center flex-1">
-                    <Image src="/local-mover.jpg" alt="Trusted Local Movers in calgary" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/local-mover.jpg" alt="Trusted Local Movers in calgary" width={700} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
                 {/* Right Content */}
                 <div className="space-y-3">

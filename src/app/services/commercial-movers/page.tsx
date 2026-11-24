@@ -165,23 +165,23 @@ export default function CommercialmoversPage() {
 
     <PageHeader
         eyebrow={{ from: "Calgary", to: "Commercial Movers" }}
-      heading="Commercial Moving Services in Calgary"
-      paragraphs={[
-        <strong key="lead" className="font-semibold text-gray-900">Trusted Commercial Movers for Office & Business Relocations</strong>,
-        "We know what's at stake when your business moves — because we've completed over 100 commercial moves across Calgary.",
-        "At Shiftrix, we understand that a commercial move is far more than shifting desks and boxes. It is a careful transition that can define the future of your operations, your team's productivity, and your reputation with clients. That is why Calgary businesses — from marketing studios in Kensington to multi-floor corporate headquarters in the Downtown Core — trust Shiftrix to execute their commercial relocation services with precision, discretion, and zero drama. Our professional crew has more than 5 years of hands-on experience in commercial moves across Calgary, giving us an unmatched understanding of the unique challenges that business relocations present: tight building access windows, IT infrastructure sensitivities, staff communication, and the relentless pressure to get back to business fast. When you choose Shiftrix as your commercial office movers, you are choosing a team that plans every detail so you don't have to.",
-      ]}
-      cta={{
-        href: `${BASE_URL}/contact-us`,
-        label: "Get a free quote",
-        ariaLabel: "Get a Free Quote commercial movers",
-      }}
-      image={{
-        src: "/trusted-commercial-moving-company.jpg",
-        alt: "Commercial Movers",
-        width: 600,
-        height: 400,
-      }}
+        heading="Commercial Moving Services in Calgary"
+        paragraphs={[
+            <strong key="lead" className="font-semibold text-gray-900">Trusted Commercial Movers for Office & Business Relocations</strong>,
+            "We know what's at stake when your business moves — because we've completed over 100 commercial moves across Calgary.",
+            "At Shiftrix, we understand that a commercial move is far more than shifting desks and boxes. It is a careful transition that can define the future of your operations, your team's productivity, and your reputation with clients. That is why Calgary businesses — from marketing studios in Kensington to multi-floor corporate headquarters in the Downtown Core — trust Shiftrix to execute their commercial relocation services with precision, discretion, and zero drama. Our professional crew has more than 5 years of hands-on experience in commercial moves across Calgary, giving us an unmatched understanding of the unique challenges that business relocations present: tight building access windows, IT infrastructure sensitivities, staff communication, and the relentless pressure to get back to business fast. When you choose Shiftrix as your commercial office movers, you are choosing a team that plans every detail so you don't have to.",
+        ]}
+        cta={{
+            href: `${BASE_URL}/contact-us`,
+            label: "Get a free quote",
+            ariaLabel: "Get a Free Quote commercial movers",
+        }}
+        image={{
+            src: "/trusted-commercial-moving-company.jpg",
+            alt: "Commercial Movers",
+            width: 600,
+            height: 400,
+        }}
     />
 
      <section className="py-10 md:py-20 bg-gray-50">
@@ -277,7 +277,7 @@ export default function CommercialmoversPage() {
                     <p>We develop a phased relocation plan that keeps your supply chain operational throughout the move, where possible, minimises disruption to your distribution network, and ensures all racking, pallet systems, and industrial equipment are reinstalled correctly and safely at the destination.</p>
                 </div>
                 <div className="flex-1">
-                    <Image src="/commercial-moving-company-2.jpg" alt="local commercial movers" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/commercial-moving-company-2.1.jpg" alt="local commercial movers" width={1000} height={600} className="w-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
 

@@ -72,8 +72,8 @@ export default function BlogCard({ post }: { post: Blog }) {
           />
         </div>
 
-        <h3 className="text-lg font-bold leading-snug text-gray-900 transition-colors group-hover:text-indigo-800 md:text-xl">
-          <Link href={postHref} aria-label={`Read more about ${post.title}`}>
+        <h3 className="text-lg font-bold leading-snug text-gray-900 transition-colors md:text-xl">
+          <Link href={postHref} aria-label={`Read more about ${post.title}`} className="group-hover:text-indigo-600">
             {post.title}
           </Link>
         </h3>

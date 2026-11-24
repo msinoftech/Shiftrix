@@ -224,14 +224,14 @@ export default function ManWithVanPage() {
                 
                 {/* Right Image */}
                 <div className="relative order-1 md:order-2">
-                    <Image src="/man-with-van-mover-2.jpg" alt="man and van services" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/man-with-van-mover-2.jpg" alt="man and van services" width={700} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* Left Image */}
                 <div className="flex-1">
-                    <Image src="/man-with-van-mover-3.jpg" alt="Reliable man with a van Services" width={600} height={400} className="w-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/man-with-van-mover-3.jpg" alt="Reliable man with a van Services" width={700} height={400} className="w-full rounded-xl shadow-md object-cover"/>
                 </div>
                 {/* Right Content */}
                 <div className="flex-1 space-y-3">

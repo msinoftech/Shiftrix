@@ -173,7 +173,7 @@ export default function SpecialtyMoversPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 {/* Left Image */}
                 <div className="relative">
-                    <Image src="/special-item-mover-2.jpg" alt="specialty movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/special-item-mover-2.jpg" alt="specialty movers" width={800} height={500} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
                 
                 {/* Right Content */}
@@ -201,14 +201,14 @@ export default function SpecialtyMoversPage() {
                 
                 {/* Right Image */}
                 <div className="relative">
-                    <Image src="/special-item-mover-3.jpg" alt="Specialty Movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/special-item-mover-3.jpg" alt="Specialty Movers" width={1000} height={500} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Left Image */}
                 <div className="order-2 md:order-1 relative">
-                    <Image src="/special-item-mover-1.jpg" alt="Speciality moving" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/special-item-mover-1.jpg" alt="Speciality moving" width={800} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
                 {/* Right Content */}
                 <div className="order-1 md:order-2 space-y-3 relative">
@@ -225,7 +225,7 @@ export default function SpecialtyMoversPage() {
                 </div>
                 {/* Right Image */}
                 <div className="relative">
-                    <Image src="/special-item-mover-4.jpg" alt="Specialty Movers" width={600} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
+                    <Image src="/special-item-mover-4.jpg" alt="Specialty Movers" width={800} height={400} className="w-full h-full rounded-xl shadow-md object-cover"/>
                 </div>
             </div>
 

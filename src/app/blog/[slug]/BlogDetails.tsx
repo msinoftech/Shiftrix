@@ -6,6 +6,7 @@ import type { Blog } from "@/lib/types";
 import { BASE_URL } from "@/lib/config";
 import { getPublishedBlogsByDate } from "@/lib/data";
 import FaqSection from "@/components/FaqSection";
+import MovingForm from "@/components/movingForm";
 
 const ANCHOR_EXTRA_OFFSET = 20;
 
@@ -121,13 +122,21 @@ export default function BlogDetails({ post, blogs }: BlogDetailsProps) {
           </div>
 
           {/* RIGHT SIDE - Other Blogs */}
-          <aside className="h-fit sticky top-20">
+          <aside className="h-fit sticky top-20 space-y-6">
+            <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-6 space-y-3">
+              <div className="mb-5 space-y-1">
+                  <h3 className="text-xl font-bold leading-tight">Request your free quote</h3>
+                  <p className="text-sm text-slate-600">Quick form. No hidden charges.</p>
+              </div>
+              <MovingForm />
+            </div>
+            
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-3">
               <div className="text-xl font-semibold mb-4 text-gray-800">Recent Posts</div>
-              <ul className="space-y-6">
+              <ul className="space-y-2">
                 {otherBlogs.map((item) => (
-                  <li key={item.slug}>
-                    <Link href={`${BASE_URL}/blog/${item.slug}`} className="flex items-center space-x-3 group">
+                  <li key={item.slug} className="group hover:bg-indigo-50 transition-colors rounded-lg p-2">
+                    <Link href={`${BASE_URL}/blog/${item.slug}`} className="flex items-center space-x-3">
                       <div className="w-16 h-16 flex-shrink-0">
                         <Image src={item.image} alt={item.title} width={80} height={80} className="rounded-lg object-cover w-full h-full"/>
                       </div>
